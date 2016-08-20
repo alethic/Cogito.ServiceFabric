@@ -133,11 +133,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Cogito.Activities, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Cogito.Activities.1.0.6\lib\net461\Cogito.Activities.dll</HintPath>
+      <HintPath>..\packages\Cogito.Activities.1.0.7\lib\net461\Cogito.Activities.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Cogito.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Cogito.Core.1.0.6\lib\net461\Cogito.Core.dll</HintPath>
+      <HintPath>..\packages\Cogito.Core.1.0.7\lib\net461\Cogito.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />

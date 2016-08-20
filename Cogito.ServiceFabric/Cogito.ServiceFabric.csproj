@@ -124,7 +124,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Cogito.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Cogito.Core.1.0.6\lib\net461\Cogito.Core.dll</HintPath>
+      <HintPath>..\packages\Cogito.Core.1.0.7\lib\net461\Cogito.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.ServiceFabric.Actors, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=AMD64">
