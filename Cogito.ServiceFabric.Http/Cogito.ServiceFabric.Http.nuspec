@@ -15,7 +15,7 @@
         <projectUrl>https://github.com/wasabii/Cogito/tree/master/Cogito.ServiceFabric.Http</projectUrl>
         <iconUrl>https://cloverluxussc.blob.core.windows.net/public/cogito-nuget-icon.png</iconUrl>
         <dependencies>
-            <dependency id="Cogito.Core" version="$version$" />
+            <dependency id="Cogito.Core" version="$ref$" />
             <dependency id="Cogito.ServiceFabric" version="$version$"/>
         </dependencies>
     </metadata>

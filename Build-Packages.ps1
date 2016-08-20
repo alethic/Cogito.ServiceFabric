@@ -72,6 +72,13 @@ foreach ($i in $NuSpecFiles)
             # for each $version$ dependency, set to currently referenced version
             foreach ($d in Select-Xml -Xml $xml -Namespace $nsm -XPath '//n:package/n:metadata/n:dependencies/n:dependency' | %{ $_.Node }) {
                 if ($d.GetAttribute("version") -eq '$version$') {
+                    $d.SetAttribute('version', $Version)
+                }
+            }
+
+            # for each $ref$ dependency, set to currently referenced version
+            foreach ($d in Select-Xml -Xml $xml -Namespace $nsm -XPath '//n:package/n:metadata/n:dependencies/n:dependency' | %{ $_.Node }) {
+                if ($d.GetAttribute("version") -eq '$ref$') {
                     $p = $pkg.SelectSingleNode("//packages/package[@id='" + $d.GetAttribute("id") + "']")
                     if ($p) {
                         $d.SetAttribute('version', $p.GetAttribute('version'))
