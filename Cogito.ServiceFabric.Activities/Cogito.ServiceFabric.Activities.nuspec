@@ -15,8 +15,8 @@
         <projectUrl>https://github.com/wasabii/Cogito/tree/master/Cogito.ServiceFabric.Activities</projectUrl>
         <iconUrl>https://cloverluxussc.blob.core.windows.net/public/cogito-nuget-icon.png</iconUrl>
         <dependencies>
-            <dependency id="Cogito.Activities" version="$ref$" />
-            <dependency id="Cogito.Core" version="$ref$" />
+            <dependency id="Cogito.Activities" version="$package$" />
+            <dependency id="Cogito.Core" version="$package$" />
             <dependency id="Cogito.ServiceFabric" version="$version$" />
         </dependencies>
         <frameworkAssemblies>
