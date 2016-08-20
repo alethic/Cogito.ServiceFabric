@@ -1,0 +1,26 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="System.Activities" #>
+<#@ import namespace="System.Activities" #>
+<#@ import namespace="System.Activities.Tracking" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".cs" #>
+<#@ include file="ActivityActorEventSource.t4" #>
+using System;
+using System.Activities.Tracking;
+using System.Diagnostics;
+using System.Diagnostics.Contracts;
+using System.Diagnostics.Tracing;
+using System.Fabric;
+
+namespace Cogito.ServiceFabric.Activities
+{
+<#
+foreach (var recordType in recordTypes)
+{
+	GenerateRecord(recordType);
+}
+#>
+}

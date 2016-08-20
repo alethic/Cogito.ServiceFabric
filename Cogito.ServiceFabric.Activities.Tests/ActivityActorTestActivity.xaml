@@ -1,0 +1,72 @@
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="Cogito.ServiceFabric.Activities.Tests.ActivityActorTestActivity" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#" sap2010:WorkflowViewState.IdRef="Cogito.ServiceFabric.Activities.Tests.ActivityActorTestActivity_1"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:cfata="clr-namespace:Cogito.ServiceFabric.Activities.Test.Activities;assembly=Cogito.ServiceFabric.Activities.Test.Activities"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:mca="clr-namespace:Microsoft.CSharp.Activities;assembly=System.Activities"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Text</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.CSharp</AssemblyReference>
+      <AssemblyReference>Microsoft.ServiceFabric.Actors</AssemblyReference>
+      <AssemblyReference>Microsoft.ServiceFabric.Data</AssemblyReference>
+      <AssemblyReference>Microsoft.ServiceFabric.Internal</AssemblyReference>
+      <AssemblyReference>Microsoft.ServiceFabric.Internal.Strings</AssemblyReference>
+      <AssemblyReference>Microsoft.ServiceFabric.Services</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Fabric</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualStudio.QualityTools.UnitTestFramework</AssemblyReference>
+      <AssemblyReference>Cogito.ServiceFabric.Activities</AssemblyReference>
+      <AssemblyReference>Cogito.ServiceFabric</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>Cogito.ServiceFabric.Activities.Tests</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <cfata:WriteActivity sap2010:WorkflowViewState.IdRef="WriteActivity_1" />
+    <Delay sap2010:WorkflowViewState.IdRef="Delay_1">
+      <InArgument x:TypeArguments="x:TimeSpan">
+        <mca:CSharpValue x:TypeArguments="x:TimeSpan">TimeSpan.FromMinutes(1)</mca:CSharpValue>
+      </InArgument>
+    </Delay>
+    <cfata:WriteActivity sap2010:WorkflowViewState.IdRef="WriteActivity_2" />
+    <sads:DebugSymbol.Symbol>d2BDOlxVc2Vyc1x3YXNhYmlcRGV2ZWxvcG1lbnRcQ29naXRvXENvZ2l0by5GYWJyaWMuQWN0aXZpdGllcy5UZXN0c1xBY3Rpdml0eUFjdG9yVGVzdEFjdGl2aXR5LnhhbWwFLwM4DgIBATAFME4CAQUxBTUNAgEDNgU2TgIBAjMJM2ACAQQ=</sads:DebugSymbol.Symbol>
+  </Sequence>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="WriteActivity_1" sap:VirtualizedContainerService.HintSize="200,22" />
+      <sap2010:ViewStateData Id="Delay_1" sap:VirtualizedContainerService.HintSize="200,22" />
+      <sap2010:ViewStateData Id="WriteActivity_2" sap:VirtualizedContainerService.HintSize="200,22" />
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="222,270">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Cogito.ServiceFabric.Activities.Tests.ActivityActorTestActivity_1" sap:VirtualizedContainerService.HintSize="262,350" />
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</Activity>

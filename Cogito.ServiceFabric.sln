@@ -1,0 +1,72 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{87130765-A579-4878-B462-70139F28B475}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cogito.ServiceFabric", "Cogito.ServiceFabric\Cogito.ServiceFabric.csproj", "{45C4E98F-C300-4869-A3A3-531B56BDC3D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cogito.ServiceFabric.Http", "Cogito.ServiceFabric.Http\Cogito.ServiceFabric.Http.csproj", "{9AD67BF7-8707-4388-AD34-545CE9EAADEA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cogito.ServiceFabric.Activities", "Cogito.ServiceFabric.Activities\Cogito.ServiceFabric.Activities.csproj", "{A37AD75B-3315-4E60-98B2-137EB68CE303}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cogito.ServiceFabric.Activities.Tests", "Cogito.ServiceFabric.Activities.Tests\Cogito.ServiceFabric.Activities.Tests.csproj", "{0ECBDA32-F6F2-4316-9511-EF78E7038E83}"
+EndProject
+Project("{A07B5EB6-E848-4116-A8D0-A826331D98C6}") = "Cogito.ServiceFabric.Activities.Test.Application", "Cogito.ServiceFabric.Activities.Test.Application\Cogito.ServiceFabric.Activities.Test.Application.sfproj", "{C91F9AC9-9B49-4B1E-BC77-32821380E219}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cogito.ServiceFabric.Activities.Test.TestActor", "Cogito.ServiceFabric.Activities.Test.TestActor\Cogito.ServiceFabric.Activities.Test.TestActor.csproj", "{D2DE259F-760A-42EF-8075-888FD50EAB18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cogito.ServiceFabric.Activities.Test.TestActor.Interfaces", "Cogito.ServiceFabric.Activities.Test.TestActor.Interfaces\Cogito.ServiceFabric.Activities.Test.TestActor.Interfaces.csproj", "{F86DB8EA-DA52-40D6-B5AF-2ACFF7DE4892}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cogito.ServiceFabric.Activities.Test.TestWebService", "Cogito.ServiceFabric.Activities.Test.TestWebService\Cogito.ServiceFabric.Activities.Test.TestWebService.csproj", "{35F3823E-7FAD-4273-A641-BD8C25A867A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cogito.ServiceFabric.Activities.Test.Activities", "Cogito.ServiceFabric.Activities.Test.Activities\Cogito.ServiceFabric.Activities.Test.Activities.csproj", "{58B7FC57-2117-4BEE-A7D5-69CA21398199}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{45C4E98F-C300-4869-A3A3-531B56BDC3D9}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{45C4E98F-C300-4869-A3A3-531B56BDC3D9}.Debug|Any CPU.Build.0 = Debug|x64
+		{45C4E98F-C300-4869-A3A3-531B56BDC3D9}.Release|Any CPU.ActiveCfg = Release|x64
+		{9AD67BF7-8707-4388-AD34-545CE9EAADEA}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{9AD67BF7-8707-4388-AD34-545CE9EAADEA}.Debug|Any CPU.Build.0 = Debug|x64
+		{9AD67BF7-8707-4388-AD34-545CE9EAADEA}.Release|Any CPU.ActiveCfg = Release|x64
+		{A37AD75B-3315-4E60-98B2-137EB68CE303}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{A37AD75B-3315-4E60-98B2-137EB68CE303}.Debug|Any CPU.Build.0 = Debug|x64
+		{A37AD75B-3315-4E60-98B2-137EB68CE303}.Release|Any CPU.ActiveCfg = Release|x64
+		{0ECBDA32-F6F2-4316-9511-EF78E7038E83}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{0ECBDA32-F6F2-4316-9511-EF78E7038E83}.Debug|Any CPU.Build.0 = Debug|x64
+		{0ECBDA32-F6F2-4316-9511-EF78E7038E83}.Release|Any CPU.ActiveCfg = Release|x64
+		{C91F9AC9-9B49-4B1E-BC77-32821380E219}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{C91F9AC9-9B49-4B1E-BC77-32821380E219}.Debug|Any CPU.Build.0 = Debug|x64
+		{C91F9AC9-9B49-4B1E-BC77-32821380E219}.Debug|Any CPU.Deploy.0 = Debug|x64
+		{C91F9AC9-9B49-4B1E-BC77-32821380E219}.Release|Any CPU.ActiveCfg = Release|x64
+		{D2DE259F-760A-42EF-8075-888FD50EAB18}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{D2DE259F-760A-42EF-8075-888FD50EAB18}.Debug|Any CPU.Build.0 = Debug|x64
+		{D2DE259F-760A-42EF-8075-888FD50EAB18}.Release|Any CPU.ActiveCfg = Release|x64
+		{F86DB8EA-DA52-40D6-B5AF-2ACFF7DE4892}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{F86DB8EA-DA52-40D6-B5AF-2ACFF7DE4892}.Debug|Any CPU.Build.0 = Debug|x64
+		{F86DB8EA-DA52-40D6-B5AF-2ACFF7DE4892}.Release|Any CPU.ActiveCfg = Release|x64
+		{35F3823E-7FAD-4273-A641-BD8C25A867A9}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{35F3823E-7FAD-4273-A641-BD8C25A867A9}.Debug|Any CPU.Build.0 = Debug|x64
+		{35F3823E-7FAD-4273-A641-BD8C25A867A9}.Release|Any CPU.ActiveCfg = Release|x64
+		{58B7FC57-2117-4BEE-A7D5-69CA21398199}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{58B7FC57-2117-4BEE-A7D5-69CA21398199}.Debug|Any CPU.Build.0 = Debug|x64
+		{58B7FC57-2117-4BEE-A7D5-69CA21398199}.Release|Any CPU.ActiveCfg = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0ECBDA32-F6F2-4316-9511-EF78E7038E83} = {87130765-A579-4878-B462-70139F28B475}
+		{C91F9AC9-9B49-4B1E-BC77-32821380E219} = {87130765-A579-4878-B462-70139F28B475}
+		{D2DE259F-760A-42EF-8075-888FD50EAB18} = {87130765-A579-4878-B462-70139F28B475}
+		{F86DB8EA-DA52-40D6-B5AF-2ACFF7DE4892} = {87130765-A579-4878-B462-70139F28B475}
+		{35F3823E-7FAD-4273-A641-BD8C25A867A9} = {87130765-A579-4878-B462-70139F28B475}
+		{58B7FC57-2117-4BEE-A7D5-69CA21398199} = {87130765-A579-4878-B462-70139F28B475}
+	EndGlobalSection
+EndGlobal

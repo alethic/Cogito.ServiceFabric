@@ -1,0 +1,343 @@
+﻿<#+
+string[] eLevels = new[] { "Verbose", "Informational", "Warning", "Error" };
+string[] tLevels = new[] { "Verbose", "Info", "Warning", "Error" };
+#>
+
+<#+
+
+class RecordType
+{
+
+    public RecordType(int eventIdBase, Type type, string name, string[] keywords, Arg[] args)
+    {
+        EventIdBase = eventIdBase;
+        Type = type;
+        Name = name;
+        Keywords = keywords;
+        Args = args;
+    }
+
+    public int EventIdBase { get; set; }
+
+    public Type Type { get; set; }
+
+    public string Name { get; set; }
+
+    public string[] Keywords { get; set; }
+
+    public Arg[] Args { get; set; }
+
+}
+
+class Arg
+{
+
+    public Arg(string type, string name, string expr)
+    {
+        Type = type;
+        Name = name;
+        Expr = expr;
+    }
+
+    public string Type { get; set; }
+
+    public string Name { get; set; }
+
+    public string Expr { get; set; }
+
+}
+
+
+RecordType[] recordTypes = new[]
+{
+    new RecordType(110, typeof(ActivityScheduledRecord), "ActivityScheduled", new[] { "ActivityScheduled" }, new[] 
+    {
+        new Arg("string", "activityName", "record.Activity?.Name"),
+        new Arg("string", "activityId", "record.Activity?.Id"),
+        new Arg("string", "activityInstanceId", "record.Activity?.InstanceId"),
+        new Arg("string", "activityTypeName", "record.Activity?.TypeName")
+    }),
+    new RecordType(120, typeof(ActivityStateRecord), "ActivityState", new[] { "ActivityState" }, new[]
+    {
+        new Arg("string", "state", "record.State"),
+        new Arg("string", "activityName", "record.Activity?.Name"),
+        new Arg("string", "activityId", "record.Activity?.Id"),
+        new Arg("string", "activityInstanceId", "record.Activity?.InstanceId"),
+        new Arg("string", "activityTypeName", "record.Activity?.TypeName"),
+        new Arg("string", "arguments", "PrepareDictionary(record.Arguments)"),
+        new Arg("string", "variables", "PrepareDictionary(record.Variables)"),
+    }),
+    new RecordType(130, typeof(BookmarkResumptionRecord), "BookmarkResumption", new[] { "BookmarkResumption" }, new[]
+    {
+        new Arg("string", "bookmarkName", "record.BookmarkName"),
+        new Arg("Guid", "bookmarkScope", "record.BookmarkScope"),
+        new Arg("string", "payload", "null"),
+    }),
+    new RecordType(140, typeof(CancelRequestedRecord), "CancelRequested", new[] { "CancelRequested" }, new[] 
+    {
+        new Arg("string", "activityName", "record.Activity?.Name"),
+        new Arg("string", "activityId", "record.Activity?.Id"),
+        new Arg("string", "activityInstanceId", "record.Activity?.InstanceId"),
+        new Arg("string", "activityTypeName", "record.Activity?.TypeName")
+    }),
+    new RecordType(150, typeof(FaultPropagationRecord), "FaultPropagation", new[] { "FaultPropagation" }, new[]
+    {
+        new Arg("string", "fault", "record.Fault?.ToString()"),
+        new Arg("string", "faultMessage", "record.Fault?.Message"),
+        new Arg("string", "faultSourceName", "record.FaultSource?.Name"),
+        new Arg("string", "faultSourceId", "record.FaultSource?.Id"),
+        new Arg("string", "faultSourceInstanceId", "record.FaultSource?.InstanceId"),
+        new Arg("string", "faultSourceTypeName", "record.FaultSource?.TypeName"),
+        new Arg("string", "faultHandlerName", "record.FaultHandler?.Name"),
+        new Arg("string", "faultHandlerId", "record.FaultHandler?.Id"),
+        new Arg("string", "faultHandlerInstanceId", "record.FaultHandler?.InstanceId"),
+        new Arg("string", "faultHandlerTypeName", "record.FaultHandler?.TypeName"),
+    }),
+    new RecordType(160, typeof(WorkflowInstanceRecord), "WorkflowInstance", new[] { "WorkflowInstance" }, new[]
+    {
+        new Arg("string", "state", "record.State"),
+        new Arg("string", "workflowDefinitionIdentityName", "record.WorkflowDefinitionIdentity?.Name"),
+        new Arg("string", "activityDefinitionId", "record.ActivityDefinitionId"),
+    }),
+    new RecordType(170, typeof(WorkflowInstanceAbortedRecord), "WorkflowInstanceAborted", new[] { "WorkflowInstance", "WorkflowInstanceAborted" }, new[]
+    {
+        new Arg("string", "state", "record.State"),
+        new Arg("string", "workflowDefinitionIdentityName", "record.WorkflowDefinitionIdentity?.Name"),
+        new Arg("string", "activityDefinitionId", "record.ActivityDefinitionId"),
+        new Arg("string", "reason", "record.Reason"),
+    }),
+    new RecordType(180, typeof(WorkflowInstanceSuspendedRecord), "WorkflowInstanceSuspended", new[] { "WorkflowInstance", "WorkflowInstanceSuspended" }, new[]
+    {
+        new Arg("string", "state", "record.State"),
+        new Arg("string", "workflowDefinitionIdentityName", "record.WorkflowDefinitionIdentity?.Name"),
+        new Arg("string", "activityDefinitionId", "record.ActivityDefinitionId"),
+        new Arg("string", "reason", "record.Reason"),
+    }),
+    new RecordType(190, typeof(WorkflowInstanceTerminatedRecord), "WorkflowInstanceTerminated", new[] { "WorkflowInstance", "WorkflowInstanceTerminated" }, new[]
+    {
+        new Arg("string", "state", "record.State"),
+        new Arg("string", "workflowDefinitionIdentityName", "record.WorkflowDefinitionIdentity?.Name"),
+        new Arg("string", "activityDefinitionId", "record.ActivityDefinitionId"),
+        new Arg("string", "reason", "record.Reason"),
+    }),
+    new RecordType(200, typeof(WorkflowInstanceUnhandledExceptionRecord), "WorkflowInstanceUnhandledException", new[] { "WorkflowInstance", "WorkflowInstanceUnhandledException" }, new[]
+    {
+        new Arg("string", "state", "record.State"),
+        new Arg("string", "workflowDefinitionIdentityName", "record.WorkflowDefinitionIdentity?.Name"),
+        new Arg("string", "activityDefinitionId", "record.ActivityDefinitionId"),
+        new Arg("string", "faultSourceName", "record.FaultSource?.Name"),
+        new Arg("string", "faultSourceId", "record.FaultSource?.Id"),
+        new Arg("string", "faultSourceInstanceId", "record.FaultSource?.InstanceId"),
+        new Arg("string", "faultSourceTypeName", "record.FaultSource?.TypeName"),
+        new Arg("string", "exception", "record.UnhandledException?.Message"),
+    }),
+    new RecordType(210, typeof(WorkflowInstanceUpdatedRecord), "WorkflowInstanceUpdated", new[] { "WorkflowInstance", "WorkflowInstanceUpdated" }, new[]
+    {
+        new Arg("string", "state", "record.State"),
+        new Arg("string", "workflowDefinitionIdentityName", "record.WorkflowDefinitionIdentity?.Name"),
+        new Arg("string", "activityDefinitionId", "record.ActivityDefinitionId"),
+        new Arg("bool", "isSuccessful", "record.IsSuccessful"),
+    }),
+    new RecordType(300, typeof(CustomTrackingRecord), "CustomTracking", new[] { "CustomTracking" }, new[]
+    {
+        new Arg("string", "name", "record.Name"),
+        new Arg("string", "activityName", "record.Activity?.Name"),
+        new Arg("string", "activityId", "record.Activity?.Id"),
+        new Arg("string", "activityInstanceId", "record.Activity?.InstanceId"),
+        new Arg("string", "activityTypeName", "record.Activity?.TypeName"),
+        new Arg("string", "data", "PrepareDictionary(record.Data)"),
+    }),
+};
+
+#>
+
+<#+
+void GenerateRecord(RecordType recordType)
+{
+#>
+
+    sealed partial class ActivityActorEventSource
+    {
+
+<#+
+    for (int l = 0; l < eLevels.Length; l++)
+    {
+#>
+        const int <#= recordType.Name #><#= tLevels[l] #>EventId = <#= recordType.EventIdBase + l #>;
+<#+
+    }
+#>
+        
+<#+
+    GenerateRecordMethod(recordType);
+    GenerateEventMethods(recordType);
+#>
+
+    }
+<#+
+}
+#>
+
+<#+
+void GenerateRecordMethod(RecordType recordType)
+{
+#>
+        /// <summary>
+        /// Records an event.
+        /// </summary>
+        /// <param name="actor"></param>
+        /// <param name="record"></param>
+        /// <param name="message"></param>
+        /// <param name="args"></param>
+        [NonEvent]
+        internal void <#= recordType.Name #>(IActivityActorInternal actor, <#= recordType.Type.Name #> record, string message = "", params object[] args)
+        {
+            Contract.Requires<ArgumentNullException>(actor != null);
+            Contract.Requires<ArgumentNullException>(record != null);
+            Contract.Requires<ArgumentNullException>(message != null);
+            Contract.Requires<ArgumentNullException>(args != null);
+
+            if (IsEnabled())
+            {
+<#+
+for (int i = 0; i < tLevels.Length; i++)
+{
+#>
+                if (record.Level == TraceLevel.<#= tLevels[i] #> && IsEnabled(EventLevel.<#= eLevels[i] #>, <#= string.Join(" | ", recordType.Keywords.Select(k => "Keywords." + k)) #>))
+                {
+                    <#= recordType.Name #><#= tLevels[i] #>(
+                        actor.GetType().ToString(),
+                        actor.Id.ToString(),
+                        actor.ActorService.Context.CodePackageActivationContext.ApplicationTypeName,
+                        actor.ActorService.Context.CodePackageActivationContext.ApplicationName,
+                        actor.ActorService.Context.ServiceTypeName,
+                        actor.ActorService.Context.ServiceName.ToString(),
+                        actor.ActorService.Context.PartitionId,
+                        actor.ActorService.Context.ReplicaId,
+                        FabricRuntime.GetNodeContext().NodeName,
+                        record.InstanceId,
+                        record.RecordNumber,
+                        record.EventTime.ToFileTimeUtc(),
+                        PrepareAnnotations(record.Annotations),
+<#+
+    foreach (var arg in recordType.Args)
+    {
+        if (arg.Type == "string")
+        {
+#>
+                        (<#= arg.Expr #>) ?? string.Empty,
+<#+
+        }
+        else
+        {
+#>
+                        <#= arg.Expr #>,
+<#+
+        }
+    }
+#>
+                        string.Format(message ?? string.Empty, args));
+                    return;
+                }
+
+<#+
+}
+#>
+            }
+        }
+
+<#+
+}
+#>
+
+<#+
+void GenerateEventMethods(RecordType recordType)
+{
+    for (int l = 0; l < eLevels.Length; l++)
+    {
+#>
+
+        /// <summary>
+        /// Records an event.
+        /// </summary>
+        /// <param name="actorType"></param>
+        /// <param name="actorId"></param>
+        /// <param name="applicationTypeName"></param>
+        /// <param name="applicationName"></param>
+        /// <param name="serviceTypeName"></param>
+        /// <param name="serviceName"></param>
+        /// <param name="partitionId"></param>
+        /// <param name="replicaOrInstanceId"></param>
+        /// <param name="nodeName"></param>
+        /// <param name="instanceId"></param>
+        /// <param name="recordNumber"></param>
+        /// <param name="eventTime"></param>
+        /// <param name="annotations"></param>
+<#+
+        foreach (var arg in recordType.Args)
+        {
+#>
+        /// <param name="<#= arg.Name #>"></param>
+<#+
+        }
+#>
+        /// <param name="message"></param>
+        [Event(
+            <#= recordType.Name #><#= tLevels[l] #>EventId,
+            Level = EventLevel.<#= eLevels[l] #>,
+            Message = "{<#= recordType.Args.Length + 13 #>}",
+            Keywords = <#= string.Join(" | ", recordType.Keywords.Select(k => "Keywords." + k)) #>)]
+        internal void <#= recordType.Name #><#= tLevels[l] #>(
+            string actorType,
+            string actorId,
+            string applicationTypeName,
+            string applicationName,
+            string serviceTypeName,
+            string serviceName,
+            Guid partitionId,
+            long replicaOrInstanceId,
+            string nodeName,
+            Guid instanceId,
+            long recordNumber,
+            long eventTime,
+            string annotations,
+<#+
+        foreach (var arg in recordType.Args)
+        {
+#>
+            <#= arg.Type #> <#= arg.Name #>,
+<#+
+        }
+#>
+            string message)
+        {
+            WriteEvent(
+                <#= recordType.Name #><#= tLevels[l] #>EventId,
+                actorType,
+                actorId,
+                applicationTypeName,
+                applicationName,
+                serviceTypeName,
+                serviceName,
+                partitionId,
+                replicaOrInstanceId,
+                nodeName,
+                instanceId,
+                recordNumber,
+                eventTime,
+                annotations,
+<#+
+        foreach (var arg in recordType.Args)
+        {
+#>
+                <#= arg.Name #>,
+<#+
+        }
+#>
+                message);
+        }
+
+<#+
+    }
+}
+#>

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<package
+    xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>Cogito.ServiceFabric.Activities</id>
+        <version>$version$</version>
+        <authors>Jerome Haltom</authors>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Microsoft Service Fabric infrastructure for running Windows Workflows within an Actor.</description>
+        <summary></summary>
+        <language>en-US</language>
+        <copyright>Jerome Haltom</copyright>
+        <licenseUrl>https://raw.github.com/wasabii/Cogito/master/LICENSE</licenseUrl>
+        <projectUrl>https://github.com/wasabii/Cogito/tree/master/Cogito.ServiceFabric.Activities</projectUrl>
+        <iconUrl>https://cloverluxussc.blob.core.windows.net/public/cogito-nuget-icon.png</iconUrl>
+        <dependencies>
+            <dependency id="Cogito.Activities" version="$version$" />
+            <dependency id="Cogito.Core" version="$version$" />
+            <dependency id="Cogito.ServiceFabric" version="$version$" />
+        </dependencies>
+        <frameworkAssemblies>
+            <frameworkAssembly assemblyName="System.Activities" />
+        </frameworkAssemblies>
+    </metadata>
+</package>

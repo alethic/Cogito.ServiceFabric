@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="Cogito.ServiceFabric.Activities.Test.ApplicationType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+  <Parameters>
+    <Parameter Name="TestWebService_InstanceCount" DefaultValue="-1" />
+    <Parameter Name="Test2ActorService_PartitionCount" DefaultValue="10" />
+    <Parameter Name="Test2ActorService_MinReplicaSetSize" DefaultValue="2" />
+    <Parameter Name="Test2ActorService_TargetReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="TestActorService_PartitionCount" DefaultValue="10" />
+    <Parameter Name="TestActorService_MinReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="TestActorService_TargetReplicaSetSize" DefaultValue="3" />
+  </Parameters>
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="Cogito.ServiceFabric.Activities.Test.TestActorPkg" ServiceManifestVersion="1.0.0" />
+  </ServiceManifestImport>
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="Cogito.ServiceFabric.Activities.Test.TestWebServicePkg" ServiceManifestVersion="1.0.0" />
+    <ConfigOverrides />
+  </ServiceManifestImport>
+  <DefaultServices>
+    <Service Name="TestWebService">
+      <StatelessService ServiceTypeName="TestWebServiceType" InstanceCount="[TestWebService_InstanceCount]">
+        <SingletonPartition />
+      </StatelessService>
+    </Service>
+    <Service Name="Test2ActorService" GeneratedIdRef="4b2808c1-7c98-45db-9ed7-0f97cafef539|Persisted">
+      <StatefulService ServiceTypeName="Test2ActorServiceType" TargetReplicaSetSize="[Test2ActorService_TargetReplicaSetSize]" MinReplicaSetSize="[Test2ActorService_MinReplicaSetSize]">
+        <UniformInt64Partition PartitionCount="[Test2ActorService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
+      </StatefulService>
+    </Service>
+    <Service Name="TestActorService" GeneratedIdRef="b33e0163-a1f6-469d-be9d-fa23e901c594|Persisted">
+      <StatefulService ServiceTypeName="TestActorServiceType" TargetReplicaSetSize="[TestActorService_TargetReplicaSetSize]" MinReplicaSetSize="[TestActorService_MinReplicaSetSize]">
+        <UniformInt64Partition PartitionCount="[TestActorService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
+      </StatefulService>
+    </Service>
+  </DefaultServices>
+</ApplicationManifest>

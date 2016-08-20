@@ -1,0 +1,41 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="System.Activities" #>
+<#@ import namespace="System.Activities" #>
+<#@ import namespace="System.Activities.Tracking" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ include file="ActivityActorEventSource.t4" #>
+<#@ output extension=".cs" #>
+using System.Activities.Tracking;
+
+namespace Cogito.ServiceFabric.Activities
+{
+
+	public partial class ActivityActorTrackingParticipant
+	{
+
+		void TrackRecord(TrackingRecord record)
+		{
+<#
+foreach (var recordType in recordTypes.Reverse())
+{
+#>
+			if (record is <#= recordType.Type.Name #>)
+			{
+				if (actor is IActivityActorInternal)
+				{
+					ActivityActorEventSource.Current.<#= recordType.Name #>((IActivityActorInternal)actor, (<#= recordType.Type.Name #>)record);
+					return;
+				}
+			}
+
+<#
+}
+#>
+		}
+
+	}
+
+}
