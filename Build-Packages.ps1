@@ -59,25 +59,22 @@ foreach ($i in $NuSpecFiles)
     {
         # manually update version to support $version$ elsewhere in file
         if ($UpdateVersion -eq $true) {
+            $nsm = @{ "n" = "http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd" }
 
             # read packages file
-            $pkg = [xml](Get-Content ([System.io.Path]::Combine(([System.IO.Path]::GetDirectoryName($i)), "packages.config")))
-
-            $nsm = @{ "n" = "http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd" }
             $xml = [xml](Get-Content $i)
+            $pkg = [xml](Get-Content ([System.io.Path]::Combine(([System.IO.Path]::GetDirectoryName($i)), "packages.config")))
 
             # replace package version
             $ver = Select-Xml -Xml $xml -Namespace $nsm -XPath '//n:package/n:metadata/n:version'
             $ver.Node.InnerText = $Version
 
             # for each $version$ dependency, set to currently referenced version
-            foreach ($p in Select-Xml -Xml $xml -Namespace $nsm -XPath '//n:package/n:metadata/n:dependencies/n:dependency') {
-                $n = $p.Node.GetAttribute("id")
-                $v = $p.Node.GetAttribute("version")
-                if ($v -eq '$version$') {
-                    $a = $pkg.SelectSingleNode("//packages/package[@id='" + $n + "']")
-                    if ($a) {
-                        $p.Node.SetAttribute('version', $a.GetAttribute('version'))
+            foreach ($d in Select-Xml -Xml $xml -Namespace $nsm -XPath '//n:package/n:metadata/n:dependencies/n:dependency' | %{ $_.Node }) {
+                if ($d.GetAttribute("version") -eq '$version$') {
+                    $p = $pkg.SelectSingleNode("//packages/package[@id='" + $d.GetAttribute("id") + "']")
+                    if ($p) {
+                        $d.SetAttribute('version', $p.GetAttribute('version'))
                     }
                 }
             }
