@@ -12,37 +12,36 @@ It's fairly simple to use. Just extend ActivityActor (or ActivityActor<T>), and 
 
 It also comes along with a helpful set of static methods to make coding Activities much easier. Witness this full example of an Actor that wakes up every 15 minutes to do some work:
 
-`
-using Cogito.ServiceFabric.Activities
-using static Cogito.Activities.Expressions;
-
-public TestActor : ActivityActor, ITestActor
-{
-
-    protected override Activity CreateActivity()
+    using Cogito.ServiceFabric.Activities
+    using static Cogito.Activities.Expressions;
+    
+    public TestActor : ActivityActor, ITestActor
     {
-        return Sequence(
-            Wait("Start"),
-            While(true,
-                Sequence(
-                    Delay(TimeSpan.FromMinutes(15)),
-                    Invoke(async () => async DoWork())));
+    
+        protected override Activity CreateActivity()
+        {
+            return Sequence(
+                Wait("Start"),
+                While(true,
+                    Sequence(
+                        Delay(TimeSpan.FromMinutes(15)),
+                        Invoke(async () => async DoWork())));
+        }
+    
+        public Task Begin()
+        {
+            return ResumeAsync("Start");
+        }
+    
+        Task DoWork()
+        {
+            Debug("Work");
+            return Task.FromResult(true);
+        }
+    
     }
 
-    public Task Begin()
-    {
-        return ResumeAsync("Start");
-    }
 
-    Task DoWork()
-    {
-        Debug("Work");
-        return Task.FromResult(true);
-    }
-
-}
-
-`
 You could override CreateActivity to load an Activity designed in the visual designer as XAML, too, of course.
 
 That's it. Just install that Actor in Service Fabric, create an ActorProxy to it, invoke Begin and it will start doing its work.
