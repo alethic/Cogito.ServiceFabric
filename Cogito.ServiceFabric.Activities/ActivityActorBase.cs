@@ -1,5 +1,8 @@
 ﻿using System.Threading.Tasks;
 
+using Microsoft.ServiceFabric.Actors;
+using Microsoft.ServiceFabric.Actors.Runtime;
+
 namespace Cogito.ServiceFabric.Activities
 {
 
@@ -9,6 +12,17 @@ namespace Cogito.ServiceFabric.Activities
     public abstract class ActivityActorBase :
         ActivityActorCore
     {
+
+        /// <summary>
+        /// Initializes a new instance.
+        /// </summary>
+        /// <param name="actorService"></param>
+        /// <param name="actorId"></param>
+        protected ActivityActorBase(ActorService actorService, ActorId actorId) :
+            base(actorService, actorId)
+        {
+
+        }
 
         /// <summary>
         /// Dispatches to user method.

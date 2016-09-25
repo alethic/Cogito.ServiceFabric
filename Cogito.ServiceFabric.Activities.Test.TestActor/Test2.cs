@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using Cogito.ServiceFabric.Activities.Test.TestActor.Interfaces;
-
+using Microsoft.ServiceFabric.Actors;
 using Microsoft.ServiceFabric.Actors.Runtime;
 
 using static Cogito.Activities.Expressions;
@@ -18,6 +18,12 @@ namespace Cogito.ServiceFabric.Activities.Test.TestActor
         ActivityActor<Test2State>,
         ITest2
     {
+
+        public Test2(ActorService actorService, ActorId actorId) :
+            base(actorService, actorId)
+        {
+
+        }
 
         protected override Activity CreateActivity()
         {

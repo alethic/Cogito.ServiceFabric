@@ -5,6 +5,7 @@ using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Threading.Tasks;
 
+using Microsoft.ServiceFabric.Actors;
 using Microsoft.ServiceFabric.Actors.Runtime;
 
 namespace Cogito.ServiceFabric.Activities
@@ -28,7 +29,8 @@ namespace Cogito.ServiceFabric.Activities
         /// <summary>
         /// Initializes a new instance.
         /// </summary>
-        internal ActivityActorCore()
+        internal ActivityActorCore(ActorService actorService, ActorId actorId)
+            : base(actorService, actorId)
         {
             host = new ActivityWorkflowHost(this);
         }

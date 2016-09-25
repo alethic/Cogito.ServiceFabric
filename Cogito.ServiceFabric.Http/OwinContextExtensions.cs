@@ -14,7 +14,7 @@ namespace Cogito.ServiceFabric.Http
     {
 
         /// <summary>
-        /// Gets the OWIN environment key in which the <see cref="IService"/> instance can be retrieved.
+        /// Gets the OWIN environment key in which the <see cref="StatelessService"/> instance can be retrieved.
         /// </summary>
         public const string OWIN_ENVIRONMENT_SERVICE_INSTANCE_KEY = "cogito.Service";
 
@@ -24,7 +24,7 @@ namespace Cogito.ServiceFabric.Http
         public const string OWIN_ENVIRONMENT_SERVICE_INIT_KEY = "cogito.ServiceContext";
 
         /// <summary>
-        /// Gets the <see cref="IService"/> instance from the context.
+        /// Gets the <see cref="StatelessService"/> instance from the context.
         /// </summary>
         /// <param name="context"></param>
         /// <returns></returns>
@@ -36,7 +36,7 @@ namespace Cogito.ServiceFabric.Http
         }
 
         /// <summary>
-        /// Sets the <see cref="IService"/> instance on the context.
+        /// Sets the <see cref="StatelessService"/> instance on the context.
         /// </summary>
         /// <param name="context"></param>
         /// <param name="service"></param>
@@ -50,7 +50,7 @@ namespace Cogito.ServiceFabric.Http
         }
 
         /// <summary>
-        /// Gets the <see cref="IService"/> instance from the context.
+        /// Gets the <see cref="StatefulService"/> instance from the context.
         /// </summary>
         /// <param name="context"></param>
         /// <returns></returns>
@@ -62,7 +62,7 @@ namespace Cogito.ServiceFabric.Http
         }
 
         /// <summary>
-        /// Sets the <see cref="IService"/> instance on the context.
+        /// Sets the <see cref="StatefulService"/> instance on the context.
         /// </summary>
         /// <param name="context"></param>
         /// <param name="service"></param>

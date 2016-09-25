@@ -20,6 +20,12 @@ namespace Cogito.ServiceFabric.Activities.Test.TestActor
         ITest
     {
 
+        public Test(ActorService actorService, ActorId actorId) :
+            base(actorService, actorId)
+        {
+
+        }
+
         protected override Activity CreateActivity()
         {
             return Sequence(

@@ -66,6 +66,11 @@ namespace Cogito.ServiceFabric.Activities.Tests
             return Task.FromResult(true);
         }
 
+        public Task SaveStateAsync(CancellationToken cancellationToken = default(CancellationToken))
+        {
+            return Task.FromResult(true);
+        }
+
         public Task SetStateAsync<T>(string stateName, T value, CancellationToken cancellationToken = default(CancellationToken))
         {
             store[stateName] = value;

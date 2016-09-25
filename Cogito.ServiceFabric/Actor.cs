@@ -39,7 +39,8 @@ namespace Cogito.ServiceFabric
         /// <summary>
         /// Initializes a new instance.
         /// </summary>
-        protected Actor()
+        protected Actor(ActorService actorService, ActorId actorId) :
+            base(actorService, actorId)
         {
 
         }
@@ -251,6 +252,15 @@ namespace Cogito.ServiceFabric
     {
 
         const string DEFAULT_STATE_KEY = "__ActorState__";
+
+        /// <summary>
+        /// Initializes a new instance.
+        /// </summary>
+        protected Actor(ActorService actorService, ActorId actorId) :
+            base(actorService, actorId)
+        {
+
+        }
 
         /// <summary>
         /// Gets or sets the state name in which the state object is stored.

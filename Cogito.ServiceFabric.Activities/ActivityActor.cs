@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
+using Microsoft.ServiceFabric.Actors;
 using Microsoft.ServiceFabric.Actors.Runtime;
 
 namespace Cogito.ServiceFabric.Activities
@@ -13,7 +14,16 @@ namespace Cogito.ServiceFabric.Activities
         ActivityActorBase
     {
 
+        /// <summary>
+        /// Initializes a new instance.
+        /// </summary>
+        /// <param name="actorService"></param>
+        /// <param name="actorId"></param>
+        protected ActivityActor(ActorService actorService, ActorId actorId) :
+            base(actorService, actorId)
+        {
 
+        }
 
     }
 
@@ -26,6 +36,17 @@ namespace Cogito.ServiceFabric.Activities
     {
 
         const string DEFAULT_STATE_KEY = "__ActorState__";
+
+        /// <summary>
+        /// Initializes a new instance.
+        /// </summary>
+        /// <param name="actorService"></param>
+        /// <param name="actorId"></param>
+        protected ActivityActor(ActorService actorService, ActorId actorId) :
+            base(actorService, actorId)
+        {
+
+        }
 
         /// <summary>
         /// Gets or sets the state name in which the state object is stored.

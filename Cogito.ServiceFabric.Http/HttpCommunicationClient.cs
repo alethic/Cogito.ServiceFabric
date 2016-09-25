@@ -64,7 +64,7 @@ namespace Cogito.ServiceFabric.Http
         string ICommunicationClient.ListenerName { get; set; }
 
         /// <summary>
-        //  Gets or Sets the service endpoint to which the client is connected to.
+        ///  Gets or Sets the service endpoint to which the client is connected to.
         /// </summary>
         ResolvedServiceEndpoint ICommunicationClient.Endpoint { get; set; }
 
