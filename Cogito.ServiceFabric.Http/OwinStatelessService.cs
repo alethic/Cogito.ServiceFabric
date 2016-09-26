@@ -90,7 +90,7 @@ namespace Cogito.ServiceFabric.Http
         {
             Contract.Requires<ArgumentNullException>(context != null);
 
-            return Task.FromResult(true);
+            return next();
         }
 
     }
