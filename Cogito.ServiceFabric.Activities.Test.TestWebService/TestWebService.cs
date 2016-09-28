@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Fabric;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Http;
 using Microsoft.Owin;
@@ -27,7 +28,13 @@ namespace Cogito.ServiceFabric.Activities.Test.TestWebService
 
         protected override Task OnRequest(IOwinContext context, Func<Task> next)
         {
-            return base.OnRequest(context, next);
+            Task.Run(async () =>
+            {
+                await Task.Delay(TimeSpan.FromSeconds(2));
+                await base.RestartWebServer(CancellationToken.None);
+            });
+
+            return Task.FromResult(true);
         }
 
     }

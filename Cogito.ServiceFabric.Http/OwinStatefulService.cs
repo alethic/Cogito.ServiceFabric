@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.Fabric;
+using System.Threading;
 using System.Threading.Tasks;
 
 using Microsoft.Owin;
@@ -21,6 +22,8 @@ namespace Cogito.ServiceFabric.Http
 
         readonly string appRoot;
         readonly string endpointName;
+        readonly bool restartOnConfigurationPackageChange;
+        OwinCommunicationListener listener;
 
         /// <summary>
         /// Initializes a new instance.
@@ -28,7 +31,12 @@ namespace Cogito.ServiceFabric.Http
         /// <param name="context"></param>
         /// <param name="appRoot"></param>
         /// <param name="endpointName"></param>
-        public OwinStatefulService(StatefulServiceContext context, string appRoot, string endpointName = "HttpServiceEndpoint")
+        /// <param name="restartOnConfigurationPackageChange"></param>
+        public OwinStatefulService(
+            StatefulServiceContext context,
+            string appRoot,
+            string endpointName = "HttpServiceEndpoint",
+            bool restartOnConfigurationPackageChange = false)
             : base(context)
         {
             Contract.Requires<ArgumentNullException>(appRoot != null);
@@ -36,6 +44,7 @@ namespace Cogito.ServiceFabric.Http
 
             this.appRoot = appRoot;
             this.endpointName = endpointName;
+            this.restartOnConfigurationPackageChange = restartOnConfigurationPackageChange;
         }
 
         /// <summary>
@@ -44,7 +53,20 @@ namespace Cogito.ServiceFabric.Http
         /// <returns></returns>
         protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
         {
-            yield return new ServiceReplicaListener(ctx => new OwinCommunicationListener(ConfigureInternal, ctx, endpointName, appRoot));
+            yield return new ServiceReplicaListener(ctx => listener = new OwinCommunicationListener(ConfigureInternal, ctx, endpointName, appRoot, restartOnConfigurationPackageChange));
+        }
+
+        /// <summary>
+        /// Restarts the OWIN listener if it is currently started.
+        /// </summary>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        protected async Task RestartWebServer(CancellationToken cancellationToken)
+        {
+            if (listener != null)
+            {
+                await listener.RestartWebServer(cancellationToken);
+            }
         }
 
         /// <summary>

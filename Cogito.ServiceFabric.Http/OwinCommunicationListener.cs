@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Diagnostics.Contracts;
 using System.Fabric;
 using System.Fabric.Description;
@@ -68,11 +67,13 @@ namespace Cogito.ServiceFabric.Http
         /// <param name="appRoot"></param>
         /// <param name="configure"></param>
         /// <param name="serviceContext"></param>
+        /// <param name="restartOnConfigurationPackageChange"></param>
         public OwinCommunicationListener(
             Action<IAppBuilder> configure,
             ServiceContext serviceContext,
             string endpointName,
-            string appRoot)
+            string appRoot,
+            bool restartOnConfigurationPackageChange = false)
         {
             Contract.Requires<ArgumentNullException>(configure != null);
             Contract.Requires<ArgumentNullException>(serviceContext != null);
@@ -82,12 +83,23 @@ namespace Cogito.ServiceFabric.Http
             this.serviceContext = serviceContext;
             this.endpointName = endpointName;
             this.appRoot = appRoot;
+
+            // trigger a web server restart if told to when the configuration package changes
+            if (restartOnConfigurationPackageChange)
+            {
+                serviceContext.CodePackageActivationContext.ConfigurationPackageAddedEvent += (s, a) => RestartWebServerSync();
+                serviceContext.CodePackageActivationContext.ConfigurationPackageModifiedEvent += (s, a) => RestartWebServerSync();
+                serviceContext.CodePackageActivationContext.ConfigurationPackageRemovedEvent += (s, a) => RestartWebServerSync();
+            }
         }
 
-        ///// <summary>
-        ///// Gets or sets whether the communication listener listens when the node is a secondary.
-        ///// </summary>
-        //public bool ListenOnSecondary { get; set; }
+        /// <summary>
+        /// Restarts the web server, synchronously.
+        /// </summary>
+        void RestartWebServerSync()
+        {
+            RestartWebServer(CancellationToken.None).GetAwaiter().GetResult();
+        }
 
         /// <summary>
         /// Opens the communication channel.
@@ -96,6 +108,37 @@ namespace Cogito.ServiceFabric.Http
         /// <returns></returns>
         public async Task<string> OpenAsync(CancellationToken cancellationToken)
         {
+            return await StartWebServer(cancellationToken);
+        }
+
+        /// <summary>
+        /// Closes the communication channel.
+        /// </summary>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public async Task CloseAsync(CancellationToken cancellationToken)
+        {
+            await StopWebServer(cancellationToken);
+        }
+
+        /// <summary>
+        /// Aborts the communication channel.
+        /// </summary>
+        public void Abort()
+        {
+            StopWebServer(CancellationToken.None);
+        }
+
+        /// <summary>
+        /// Starts the web server. Returns the address the service is listening on.
+        /// </summary>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public async Task<string> StartWebServer(CancellationToken cancellationToken)
+        {
+            if (serverHandle != null)
+                throw new InvalidOperationException("Web server is already started.");
+
             // obtain node context
             var nodeContext = await FabricRuntime.GetNodeContextAsync(TimeSpan.FromSeconds(15), cancellationToken);
             if (nodeContext == null)
@@ -110,13 +153,50 @@ namespace Cogito.ServiceFabric.Http
                 serverHandle = WebApp.Start(listeningAddress, configure);
                 return publishAddress;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Trace.WriteLine(ex);
-
-                StopWebServer();
-
+                await StopWebServer(cancellationToken);
                 throw;
+            }
+        }
+
+        /// <summary>
+        /// Stops the running web server.
+        /// </summary>
+        /// <param name="cancellationToken"></param>
+        public Task StopWebServer(CancellationToken cancellationToken)
+        {
+            if (serverHandle != null)
+            {
+                try
+                {
+                    serverHandle.Dispose();
+                    listeningAddress = null;
+                    publishAddress = null;
+                }
+                catch (ObjectDisposedException)
+                {
+                    // no-op
+                }
+                finally
+                {
+                    serverHandle = null;
+                }
+            }
+
+            return Task.FromResult(true);
+        }
+
+        /// <summary>
+        /// Restarts the listening web server.
+        /// </summary>
+        /// <returns></returns>
+        public async Task RestartWebServer(CancellationToken cancellationToken)
+        {
+            if (serverHandle != null)
+            {
+                await StopWebServer(cancellationToken);
+                await StartWebServer(cancellationToken);
             }
         }
 
@@ -206,48 +286,6 @@ namespace Cogito.ServiceFabric.Http
                     return "https";
                 default:
                     throw new FabricEndpointNotFoundException($"Unsupported endpoint protocol for {nameof(OwinCommunicationListener)}.");
-            }
-        }
-
-        /// <summary>
-        /// Closes the communication channel.
-        /// </summary>
-        /// <param name="cancellationToken"></param>
-        /// <returns></returns>
-        public Task CloseAsync(CancellationToken cancellationToken)
-        {
-            StopWebServer();
-
-            return Task.FromResult(true);
-        }
-
-        /// <summary>
-        /// Aborts the communication channel.
-        /// </summary>
-        public void Abort()
-        {
-            StopWebServer();
-        }
-
-        /// <summary>
-        /// Stops the running web server.
-        /// </summary>
-        void StopWebServer()
-        {
-            if (serverHandle != null)
-            {
-                try
-                {
-                    serverHandle.Dispose();
-                }
-                catch (ObjectDisposedException)
-                {
-                    // no-op
-                }
-                finally
-                {
-                    serverHandle = null;
-                }
             }
         }
 
