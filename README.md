@@ -8,7 +8,7 @@ The basic idea is that each Actor hosts a workflow that starts when the Actor is
 
 It solves the same set of problems Workflow Service Host does in WCF: exposing a workflow to an endpoint, managing it's lifecycle, dealing with persistence and long term wake up. But it does it using Service Fabric Actors. Which is really the perfect environment for it. Each running instance is it's own Actor instance. No shared SQL server for state. No single point of failure.
 
-It's fairly simple to use. Just extend ActivityActor (or ActivityActor<T>), and implement CreateActivity() to return an Activity instance, and when the Actor is activated, it will begin running.
+It's fairly simple to use. Just extend `ActivityActor` (or `ActivityActor<T>`), and implement `CreateActivity()` to return an `Activity` instance, and when the Actor is activated, it will begin running.
 
 It also comes along with a helpful set of static methods to make coding Activities much easier. Witness this full example of an Actor that wakes up every 15 minutes to do some work:
 
