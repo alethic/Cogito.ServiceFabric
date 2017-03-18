@@ -7,8 +7,6 @@ using System.Runtime.DurableInstancing;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-using Cogito.Collections;
-
 using Microsoft.ServiceFabric.Actors.Runtime;
 
 namespace Cogito.ServiceFabric.Activities
