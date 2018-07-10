@@ -10,7 +10,7 @@
 
   <ItemGroup>
     <PackageReference Include="Autofac.ServiceFabric" Version="2.0.0" />
-    <PackageReference Include="Cogito.AspNetCore.Autofac" Version="0.1.0-unstable0007" />
+    <PackageReference Include="Cogito.AspNetCore.Autofac" Version="0.1.0-unstable0009" />
     <PackageReference Include="Cogito.Autofac" Version="0.1.0-unstable0007" />
   </ItemGroup>
 

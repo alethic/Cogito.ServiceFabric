@@ -10,7 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Cogito.AspNetCore" Version="0.1.0-unstable0002" />
+    <PackageReference Include="Cogito.AspNetCore" Version="0.1.0-unstable0009" />
     <PackageReference Include="Microsoft.AspNetCore.Hosting.Abstractions" Version="2.1.1" />
     <PackageReference Include="Microsoft.ServiceFabric" Version="6.2.301" />
     <PackageReference Include="Microsoft.ServiceFabric.AspNetCore.Abstractions" Version="3.1.301" />
