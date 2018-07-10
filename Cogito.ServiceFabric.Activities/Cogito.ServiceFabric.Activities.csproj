@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net47</TargetFramework>
+        <TargetFramework>net461</TargetFramework>
         <Authors>Jerome Haltom</Authors>
         <PackageLicenseUrl>https://raw.github.com/wasabii/Cogito/master/LICENSE</PackageLicenseUrl>
         <PackageProjectUrl>https://github.com/wasabii/Cogito/tree/master/Cogito.ServiceFabric</PackageProjectUrl>
