@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Activities.Tracking;
-using System.Diagnostics.Contracts;
 using System.Threading.Tasks;
 
 using Cogito.Threading;
@@ -22,9 +21,7 @@ namespace Cogito.ServiceFabric.Activities
         /// </summary>
         internal ActivityActorTrackingParticipant(IActivityActorInternal actor)
         {
-            Contract.Requires<ArgumentNullException>(actor != null);
-
-            this.actor = actor;
+            this.actor = actor ?? throw new ArgumentNullException(nameof(actor));
         }
 
         /// <summary>

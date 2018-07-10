@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
-using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Runtime.DurableInstancing;
 using System.Threading.Tasks;
 using System.Xml.Linq;
-
-using Microsoft.ServiceFabric.Actors.Runtime;
 
 namespace Cogito.ServiceFabric.Activities
 {
@@ -35,9 +32,7 @@ namespace Cogito.ServiceFabric.Activities
         /// <param name="host"></param>
         public ActivityActorStateManager(ActivityWorkflowHost host)
         {
-            Contract.Requires<ArgumentNullException>(host != null);
-
-            this.host = host;
+            this.host = host ?? throw new ArgumentNullException(nameof(host));
         }
 
         /// <summary>

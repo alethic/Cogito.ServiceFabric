@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics.Contracts;
 
 using Cogito.Activities;
 
@@ -13,8 +12,6 @@ namespace Cogito.ServiceFabric.Activities
         AsyncTaskExtension
     {
 
-        readonly ActivityWorkflowHost host;
-
         /// <summary>
         /// Initializes a new instance.
         /// </summary>
@@ -22,7 +19,8 @@ namespace Cogito.ServiceFabric.Activities
         public ActivityAsyncTaskExtension(ActivityWorkflowHost host)
             : base(new ActivityAsyncTaskExecutor(host))
         {
-            Contract.Requires<ArgumentNullException>(host != null);
+            if (host == null)
+                throw new ArgumentNullException(nameof(host));
         }
 
     }

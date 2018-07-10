@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Activities.Hosting;
 using System.Collections.Generic;
-using System.Diagnostics.Contracts;
 
 namespace Cogito.ServiceFabric.Activities
 {
@@ -21,9 +20,7 @@ namespace Cogito.ServiceFabric.Activities
         /// </summary>
         public ActivityActorExtension(IActivityActorInternal actor)
         {
-            Contract.Requires<ArgumentNullException>(actor != null);
-
-            this.actor = actor;
+            this.actor = actor ?? throw new ArgumentNullException(nameof(actor));
         }
 
         /// <summary>

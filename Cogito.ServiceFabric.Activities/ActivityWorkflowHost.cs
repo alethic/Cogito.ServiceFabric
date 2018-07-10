@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Activities;
 using System.Collections.Generic;
-using System.Diagnostics.Contracts;
 using System.Runtime.DurableInstancing;
 using System.Threading.Tasks;
 using System.Xml.Linq;
@@ -33,9 +32,7 @@ namespace Cogito.ServiceFabric.Activities
         /// <param name="actor"></param>
         public ActivityWorkflowHost(IActivityActorInternal actor)
         {
-            Contract.Requires<ArgumentNullException>(actor != null);
-
-            this.actor = actor;
+            this.actor = actor ?? throw new ArgumentNullException(nameof(actor));
 
             // to enqueue task functions to execute in actor context
             pump = new TaskPump();
@@ -57,7 +54,8 @@ namespace Cogito.ServiceFabric.Activities
         /// <returns></returns>
         async Task InvokeAndPump(Func<Task> action)
         {
-            Contract.Requires<ArgumentNullException>(action != null);
+            if (action == null)
+                throw new ArgumentNullException(nameof(action));
 
             var t = action();
             await pump.PumpAsync();
@@ -72,7 +70,8 @@ namespace Cogito.ServiceFabric.Activities
         /// <returns></returns>
         async Task<TResult> InvokeAndPump<TResult>(Func<Task<TResult>> func)
         {
-            Contract.Requires<ArgumentNullException>(func != null);
+            if (func == null)
+                throw new ArgumentNullException(nameof(func));
 
             var t = func();
             await pump.PumpAsync();
@@ -146,7 +145,8 @@ namespace Cogito.ServiceFabric.Activities
         /// <returns></returns>
         Task CreateWorkflow(Activity activity, IDictionary<string, object> inputs = null)
         {
-            Contract.Requires<ArgumentNullException>(activity != null);
+            if (activity == null)
+                throw new ArgumentNullException(nameof(activity));
 
             // manages access to the workflow state
             workflow = inputs != null ? new WorkflowApplication(activity, inputs) : new WorkflowApplication(activity);
@@ -384,7 +384,9 @@ namespace Cogito.ServiceFabric.Activities
         /// <returns></returns>
         internal async Task<BookmarkResumptionResult> ResumeAsync(Bookmark bookmark, object value, TimeSpan timeout)
         {
-            Contract.Requires<ArgumentNullException>(bookmark != null);
+            if (bookmark == null)
+                throw new ArgumentNullException(nameof(bookmark));
+
             ThrowIfInvalidState();
 
             return await InvokeAndPump(() => workflow.ResumeBookmarkAsync(bookmark, value, timeout));
@@ -398,7 +400,9 @@ namespace Cogito.ServiceFabric.Activities
         /// <returns></returns>
         internal async Task<BookmarkResumptionResult> ResumeAsync(Bookmark bookmark, object value)
         {
-            Contract.Requires<ArgumentNullException>(bookmark != null);
+            if (bookmark == null)
+                throw new ArgumentNullException(nameof(bookmark));
+
             ThrowIfInvalidState();
 
             return await InvokeAndPump(() => workflow.ResumeBookmarkAsync(bookmark, value));
@@ -413,8 +417,9 @@ namespace Cogito.ServiceFabric.Activities
         /// <returns></returns>
         internal async Task<BookmarkResumptionResult> ResumeAsync(string bookmarkName, object value, TimeSpan timeout)
         {
-            Contract.Requires<ArgumentNullException>(bookmarkName != null);
-            Contract.Requires<ArgumentException>(bookmarkName.Length > 0);
+            if (string.IsNullOrEmpty(bookmarkName))
+                throw new ArgumentOutOfRangeException(nameof(bookmarkName));
+
             ThrowIfInvalidState();
 
             return await InvokeAndPump(() => workflow.ResumeBookmarkAsync(bookmarkName, value, timeout));
@@ -428,8 +433,9 @@ namespace Cogito.ServiceFabric.Activities
         /// <returns></returns>
         internal async Task<BookmarkResumptionResult> ResumeAsync(string bookmarkName, object value)
         {
-            Contract.Requires<ArgumentNullException>(bookmarkName != null);
-            Contract.Requires<ArgumentException>(bookmarkName.Length > 0);
+            if (string.IsNullOrEmpty(bookmarkName))
+                throw new ArgumentOutOfRangeException(nameof(bookmarkName));
+
             ThrowIfInvalidState();
 
             return await InvokeAndPump(() => workflow.ResumeBookmarkAsync(bookmarkName, value));

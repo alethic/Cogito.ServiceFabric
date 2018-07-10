@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Activities.Tracking;
 using System.Diagnostics;
-using System.Diagnostics.Contracts;
 using System.Diagnostics.Tracing;
 using System.Fabric;
 
@@ -26,10 +25,14 @@ namespace Cogito.ServiceFabric.Activities
         [NonEvent]
         internal void ActivityScheduled(IActivityActorInternal actor, ActivityScheduledRecord record, string message = "", params object[] args)
         {
-            Contract.Requires<ArgumentNullException>(actor != null);
-            Contract.Requires<ArgumentNullException>(record != null);
-            Contract.Requires<ArgumentNullException>(message != null);
-            Contract.Requires<ArgumentNullException>(args != null);
+            if (actor == null)
+                throw new ArgumentNullException(nameof(actor));
+            if (record == null)
+                throw new ArgumentNullException(nameof(record));
+            if (message == null)
+                throw new ArgumentNullException(nameof(message));
+            if (args == null)
+                throw new ArgumentNullException(nameof(args));
 
             if (IsEnabled())
             {
@@ -429,10 +432,14 @@ namespace Cogito.ServiceFabric.Activities
         [NonEvent]
         internal void ActivityState(IActivityActorInternal actor, ActivityStateRecord record, string message = "", params object[] args)
         {
-            Contract.Requires<ArgumentNullException>(actor != null);
-            Contract.Requires<ArgumentNullException>(record != null);
-            Contract.Requires<ArgumentNullException>(message != null);
-            Contract.Requires<ArgumentNullException>(args != null);
+            if (actor == null)
+                throw new ArgumentNullException(nameof(actor));
+            if (record == null)
+                throw new ArgumentNullException(nameof(record));
+            if (message == null)
+                throw new ArgumentNullException(nameof(message));
+            if (args == null)
+                throw new ArgumentNullException(nameof(args));
 
             if (IsEnabled())
             {
@@ -880,10 +887,14 @@ namespace Cogito.ServiceFabric.Activities
         [NonEvent]
         internal void BookmarkResumption(IActivityActorInternal actor, BookmarkResumptionRecord record, string message = "", params object[] args)
         {
-            Contract.Requires<ArgumentNullException>(actor != null);
-            Contract.Requires<ArgumentNullException>(record != null);
-            Contract.Requires<ArgumentNullException>(message != null);
-            Contract.Requires<ArgumentNullException>(args != null);
+            if (actor == null)
+                throw new ArgumentNullException(nameof(actor));
+            if (record == null)
+                throw new ArgumentNullException(nameof(record));
+            if (message == null)
+                throw new ArgumentNullException(nameof(message));
+            if (args == null)
+                throw new ArgumentNullException(nameof(args));
 
             if (IsEnabled())
             {
@@ -1267,10 +1278,14 @@ namespace Cogito.ServiceFabric.Activities
         [NonEvent]
         internal void CancelRequested(IActivityActorInternal actor, CancelRequestedRecord record, string message = "", params object[] args)
         {
-            Contract.Requires<ArgumentNullException>(actor != null);
-            Contract.Requires<ArgumentNullException>(record != null);
-            Contract.Requires<ArgumentNullException>(message != null);
-            Contract.Requires<ArgumentNullException>(args != null);
+            if (actor == null)
+                throw new ArgumentNullException(nameof(actor));
+            if (record == null)
+                throw new ArgumentNullException(nameof(record));
+            if (message == null)
+                throw new ArgumentNullException(nameof(message));
+            if (args == null)
+                throw new ArgumentNullException(nameof(args));
 
             if (IsEnabled())
             {
@@ -1670,10 +1685,14 @@ namespace Cogito.ServiceFabric.Activities
         [NonEvent]
         internal void FaultPropagation(IActivityActorInternal actor, FaultPropagationRecord record, string message = "", params object[] args)
         {
-            Contract.Requires<ArgumentNullException>(actor != null);
-            Contract.Requires<ArgumentNullException>(record != null);
-            Contract.Requires<ArgumentNullException>(message != null);
-            Contract.Requires<ArgumentNullException>(args != null);
+            if (actor == null)
+                throw new ArgumentNullException(nameof(actor));
+            if (record == null)
+                throw new ArgumentNullException(nameof(record));
+            if (message == null)
+                throw new ArgumentNullException(nameof(message));
+            if (args == null)
+                throw new ArgumentNullException(nameof(args));
 
             if (IsEnabled())
             {
@@ -2169,10 +2188,14 @@ namespace Cogito.ServiceFabric.Activities
         [NonEvent]
         internal void WorkflowInstance(IActivityActorInternal actor, WorkflowInstanceRecord record, string message = "", params object[] args)
         {
-            Contract.Requires<ArgumentNullException>(actor != null);
-            Contract.Requires<ArgumentNullException>(record != null);
-            Contract.Requires<ArgumentNullException>(message != null);
-            Contract.Requires<ArgumentNullException>(args != null);
+            if (actor == null)
+                throw new ArgumentNullException(nameof(actor));
+            if (record == null)
+                throw new ArgumentNullException(nameof(record));
+            if (message == null)
+                throw new ArgumentNullException(nameof(message));
+            if (args == null)
+                throw new ArgumentNullException(nameof(args));
 
             if (IsEnabled())
             {
@@ -2556,10 +2579,14 @@ namespace Cogito.ServiceFabric.Activities
         [NonEvent]
         internal void WorkflowInstanceAborted(IActivityActorInternal actor, WorkflowInstanceAbortedRecord record, string message = "", params object[] args)
         {
-            Contract.Requires<ArgumentNullException>(actor != null);
-            Contract.Requires<ArgumentNullException>(record != null);
-            Contract.Requires<ArgumentNullException>(message != null);
-            Contract.Requires<ArgumentNullException>(args != null);
+            if (actor == null)
+                throw new ArgumentNullException(nameof(actor));
+            if (record == null)
+                throw new ArgumentNullException(nameof(record));
+            if (message == null)
+                throw new ArgumentNullException(nameof(message));
+            if (args == null)
+                throw new ArgumentNullException(nameof(args));
 
             if (IsEnabled())
             {
@@ -2959,10 +2986,14 @@ namespace Cogito.ServiceFabric.Activities
         [NonEvent]
         internal void WorkflowInstanceSuspended(IActivityActorInternal actor, WorkflowInstanceSuspendedRecord record, string message = "", params object[] args)
         {
-            Contract.Requires<ArgumentNullException>(actor != null);
-            Contract.Requires<ArgumentNullException>(record != null);
-            Contract.Requires<ArgumentNullException>(message != null);
-            Contract.Requires<ArgumentNullException>(args != null);
+            if (actor == null)
+                throw new ArgumentNullException(nameof(actor));
+            if (record == null)
+                throw new ArgumentNullException(nameof(record));
+            if (message == null)
+                throw new ArgumentNullException(nameof(message));
+            if (args == null)
+                throw new ArgumentNullException(nameof(args));
 
             if (IsEnabled())
             {
@@ -3362,10 +3393,14 @@ namespace Cogito.ServiceFabric.Activities
         [NonEvent]
         internal void WorkflowInstanceTerminated(IActivityActorInternal actor, WorkflowInstanceTerminatedRecord record, string message = "", params object[] args)
         {
-            Contract.Requires<ArgumentNullException>(actor != null);
-            Contract.Requires<ArgumentNullException>(record != null);
-            Contract.Requires<ArgumentNullException>(message != null);
-            Contract.Requires<ArgumentNullException>(args != null);
+            if (actor == null)
+                throw new ArgumentNullException(nameof(actor));
+            if (record == null)
+                throw new ArgumentNullException(nameof(record));
+            if (message == null)
+                throw new ArgumentNullException(nameof(message));
+            if (args == null)
+                throw new ArgumentNullException(nameof(args));
 
             if (IsEnabled())
             {
@@ -3765,10 +3800,14 @@ namespace Cogito.ServiceFabric.Activities
         [NonEvent]
         internal void WorkflowInstanceUnhandledException(IActivityActorInternal actor, WorkflowInstanceUnhandledExceptionRecord record, string message = "", params object[] args)
         {
-            Contract.Requires<ArgumentNullException>(actor != null);
-            Contract.Requires<ArgumentNullException>(record != null);
-            Contract.Requires<ArgumentNullException>(message != null);
-            Contract.Requires<ArgumentNullException>(args != null);
+            if (actor == null)
+                throw new ArgumentNullException(nameof(actor));
+            if (record == null)
+                throw new ArgumentNullException(nameof(record));
+            if (message == null)
+                throw new ArgumentNullException(nameof(message));
+            if (args == null)
+                throw new ArgumentNullException(nameof(args));
 
             if (IsEnabled())
             {
@@ -4232,10 +4271,14 @@ namespace Cogito.ServiceFabric.Activities
         [NonEvent]
         internal void WorkflowInstanceUpdated(IActivityActorInternal actor, WorkflowInstanceUpdatedRecord record, string message = "", params object[] args)
         {
-            Contract.Requires<ArgumentNullException>(actor != null);
-            Contract.Requires<ArgumentNullException>(record != null);
-            Contract.Requires<ArgumentNullException>(message != null);
-            Contract.Requires<ArgumentNullException>(args != null);
+            if (actor == null)
+                throw new ArgumentNullException(nameof(actor));
+            if (record == null)
+                throw new ArgumentNullException(nameof(record));
+            if (message == null)
+                throw new ArgumentNullException(nameof(message));
+            if (args == null)
+                throw new ArgumentNullException(nameof(args));
 
             if (IsEnabled())
             {
@@ -4635,10 +4678,14 @@ namespace Cogito.ServiceFabric.Activities
         [NonEvent]
         internal void CustomTracking(IActivityActorInternal actor, CustomTrackingRecord record, string message = "", params object[] args)
         {
-            Contract.Requires<ArgumentNullException>(actor != null);
-            Contract.Requires<ArgumentNullException>(record != null);
-            Contract.Requires<ArgumentNullException>(message != null);
-            Contract.Requires<ArgumentNullException>(args != null);
+            if (actor == null)
+                throw new ArgumentNullException(nameof(actor));
+            if (record == null)
+                throw new ArgumentNullException(nameof(record));
+            if (message == null)
+                throw new ArgumentNullException(nameof(message));
+            if (args == null)
+                throw new ArgumentNullException(nameof(args));
 
             if (IsEnabled())
             {

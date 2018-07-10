@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics.Contracts;
 using System.Threading.Tasks;
 
 using Cogito.Activities;
@@ -22,9 +21,7 @@ namespace Cogito.ServiceFabric.Activities
         /// <param name="host"></param>
         public ActivityAsyncTaskExecutor(ActivityWorkflowHost host) 
         {
-            Contract.Requires<ArgumentNullException>(host != null);
-
-            this.host = host;
+            this.host = host ?? throw new ArgumentNullException(nameof(host));
         }
 
         /// <summary>

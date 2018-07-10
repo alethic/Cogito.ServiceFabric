@@ -3,7 +3,6 @@ using System.Activities.DurableInstancing;
 using System.Activities.Hosting;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Runtime.DurableInstancing;
 using System.Runtime.Serialization;
@@ -34,9 +33,7 @@ namespace Cogito.ServiceFabric.Activities
         /// <param name="state"></param>
         public ActivityActorInstanceStore(ActivityActorStateManager state)
         {
-            Contract.Requires<ArgumentNullException>(state != null);
-
-            this.state = state;
+            this.state = state ?? throw new ArgumentNullException(nameof(state));
             this.serializer = new NetDataContractSerializer(new StreamingContext(StreamingContextStates.All), int.MaxValue, false, FormatterAssemblyStyle.Full, new ActivitySurrogateSelector());
         }
 
@@ -244,7 +241,8 @@ namespace Cogito.ServiceFabric.Activities
         /// <param name="data"></param>
         void SaveInstanceData(Guid instanceId, IDictionary<XName, InstanceValue> data)
         {
-            Contract.Requires<ArgumentNullException>(data != null);
+            if (data == null)
+                throw new ArgumentNullException(nameof(data));
 
             foreach (var kvp in data)
                 state.SetInstanceData(kvp.Key.ToString(), ToSerializableObject(kvp.Value.Value));
@@ -257,7 +255,8 @@ namespace Cogito.ServiceFabric.Activities
         /// <param name="metadata"></param>
         void SaveInstanceMetadata(Guid instanceId, IDictionary<XName, InstanceValue> metadata)
         {
-            Contract.Requires<ArgumentNullException>(metadata != null);
+            if (metadata == null)
+                throw new ArgumentNullException(nameof(metadata));
 
             foreach (var kvp in metadata)
                 state.SetInstanceMetadata(kvp.Key.ToString(), ToSerializableObject(kvp.Value.Value));
@@ -309,7 +308,8 @@ namespace Cogito.ServiceFabric.Activities
         /// <returns></returns>
         XElement SerializeObject(object value)
         {
-            Contract.Requires<ArgumentNullException>(value != null);
+            if (value == null)
+                throw new ArgumentNullException(nameof(value));
 
             var d1 = new XmlDocument();
             using (var w = d1.CreateNavigator().AppendChild())
@@ -342,7 +342,8 @@ namespace Cogito.ServiceFabric.Activities
         /// <returns></returns>
         object DeserializeObject(XElement element)
         {
-            Contract.Requires<ArgumentNullException>(element != null);
+            if (element == null)
+                throw new ArgumentNullException(nameof(element));
 
             using (var rdr = element.CreateReader())
                 return serializer.ReadObject(rdr);

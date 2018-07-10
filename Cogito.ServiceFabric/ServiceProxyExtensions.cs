@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics.Contracts;
 
 using Microsoft.ServiceFabric.Services.Remoting;
 

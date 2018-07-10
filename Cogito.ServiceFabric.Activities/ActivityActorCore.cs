@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Activities;
 using System.Collections.Generic;
-using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -267,8 +266,8 @@ namespace Cogito.ServiceFabric.Activities
         /// <exception cref="ActivityStateException"></exception>
         protected Task<BookmarkResumptionResult> ResumeAsync(string bookmarkName, object value, TimeSpan timeout)
         {
-            Contract.Requires<ArgumentNullException>(bookmarkName != null);
-            Contract.Requires<ArgumentException>(bookmarkName.Length > 0);
+            if (string.IsNullOrEmpty(bookmarkName))
+                throw new ArgumentOutOfRangeException(nameof(bookmarkName));
 
             return host.ResumeAsync(bookmarkName, value, timeout);
         }
@@ -282,8 +281,8 @@ namespace Cogito.ServiceFabric.Activities
         /// <exception cref="ActivityStateException"></exception>
         protected Task<BookmarkResumptionResult> ResumeAsync(string bookmarkName, object value)
         {
-            Contract.Requires<ArgumentNullException>(bookmarkName != null);
-            Contract.Requires<ArgumentException>(bookmarkName.Length > 0);
+            if (string.IsNullOrEmpty(bookmarkName))
+                throw new ArgumentOutOfRangeException(nameof(bookmarkName));
 
             return host.ResumeAsync(bookmarkName, value);
         }
@@ -297,8 +296,8 @@ namespace Cogito.ServiceFabric.Activities
         /// <exception cref="ActivityStateException"></exception>
         protected Task<BookmarkResumptionResult> ResumeAsync(string bookmarkName, TimeSpan timeout)
         {
-            Contract.Requires<ArgumentNullException>(bookmarkName != null);
-            Contract.Requires<ArgumentException>(bookmarkName.Length > 0);
+            if (string.IsNullOrEmpty(bookmarkName))
+                throw new ArgumentOutOfRangeException(nameof(bookmarkName));
 
             return host.ResumeAsync(bookmarkName, null, timeout);
         }
@@ -311,8 +310,8 @@ namespace Cogito.ServiceFabric.Activities
         /// <exception cref="ActivityStateException"></exception>
         protected Task<BookmarkResumptionResult> ResumeAsync(string bookmarkName)
         {
-            Contract.Requires<ArgumentNullException>(bookmarkName != null);
-            Contract.Requires<ArgumentException>(bookmarkName.Length > 0);
+            if (string.IsNullOrEmpty(bookmarkName))
+                throw new ArgumentOutOfRangeException(nameof(bookmarkName));
 
             return host.ResumeAsync(bookmarkName, null);
         }
@@ -326,7 +325,8 @@ namespace Cogito.ServiceFabric.Activities
         /// <exception cref="ActivityStateException"></exception>
         protected Task<BookmarkResumptionResult> ResumeAsync(Bookmark bookmark, TimeSpan timeout)
         {
-            Contract.Requires<ArgumentNullException>(bookmark != null);
+            if (bookmark == null)
+                throw new ArgumentNullException(nameof(bookmark));
 
             return host.ResumeAsync(bookmark, null, timeout);
         }
@@ -339,7 +339,8 @@ namespace Cogito.ServiceFabric.Activities
         /// <exception cref="ActivityStateException"></exception>
         protected Task<BookmarkResumptionResult> ResumeAsync(Bookmark bookmark)
         {
-            Contract.Requires<ArgumentNullException>(bookmark != null);
+            if (bookmark == null)
+                throw new ArgumentNullException(nameof(bookmark));
 
             return host.ResumeAsync(bookmark, null);
         }

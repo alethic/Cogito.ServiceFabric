@@ -192,10 +192,14 @@ void GenerateRecordMethod(RecordType recordType)
         [NonEvent]
         internal void <#= recordType.Name #>(IActivityActorInternal actor, <#= recordType.Type.Name #> record, string message = "", params object[] args)
         {
-            Contract.Requires<ArgumentNullException>(actor != null);
-            Contract.Requires<ArgumentNullException>(record != null);
-            Contract.Requires<ArgumentNullException>(message != null);
-            Contract.Requires<ArgumentNullException>(args != null);
+            if (actor == null)
+                throw new ArgumentNullException(nameof(actor));
+            if (record == null)
+                throw new ArgumentNullException(nameof(record));
+            if (message == null)
+                throw new ArgumentNullException(nameof(message));
+            if (args == null)
+                throw new ArgumentNullException(nameof(args));
 
             if (IsEnabled())
             {

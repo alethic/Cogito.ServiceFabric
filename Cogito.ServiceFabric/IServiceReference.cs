@@ -7,7 +7,6 @@ namespace Cogito.ServiceFabric
     /// <summary>
     /// Describes a reference to a service.
     /// </summary>
-    [ContractClass(typeof(IServiceReference_Contract))]
     public interface IServiceReference
     {
 
@@ -17,21 +16,6 @@ namespace Cogito.ServiceFabric
         /// <param name="serviceInterfaceType"></param>
         /// <returns></returns>
         object Bind(Type serviceInterfaceType);
-
-    }
-
-    [ContractClassFor(typeof(IServiceReference))]
-    abstract class IServiceReference_Contract :
-        IServiceReference
-    {
-
-        public object Bind(Type serviceInterfaceType)
-        {
-            if (serviceInterfaceType == null)
-                throw new ArgumentNullException(nameof(serviceInterfaceType));
-
-            throw new NotImplementedException();
-        }
 
     }
 

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics.Contracts;
 using System.Fabric;
 using System.Fabric.Description;
 using System.Globalization;
