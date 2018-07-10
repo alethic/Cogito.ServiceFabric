@@ -3,11 +3,12 @@
     <PropertyGroup>
         <TargetFramework>net461</TargetFramework>
         <Authors>Jerome Haltom</Authors>
-        <PackageLicenseUrl>https://raw.github.com/wasabii/Cogito/master/LICENSE</PackageLicenseUrl>
-        <PackageProjectUrl>https://github.com/wasabii/Cogito/tree/master/Cogito.ServiceFabric</PackageProjectUrl>
+        <PackageLicenseUrl></PackageLicenseUrl>
+        <PackageProjectUrl>https://github.com/wasabii/Cogito.ServiceFabric</PackageProjectUrl>
         <PackageIconUrl>https://cloverluxussc.blob.core.windows.net/public/cogito-nuget-icon.png</PackageIconUrl>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Description>Microsoft Service Fabric infrastructure for running Windows Workflows within an Actor.</Description>
+        <Company />
     </PropertyGroup>
 
     <ItemGroup>
