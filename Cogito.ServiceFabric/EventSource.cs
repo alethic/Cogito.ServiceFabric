@@ -9,7 +9,7 @@ namespace Cogito.ServiceFabric.Actors
     sealed class EventSource :
         System.Diagnostics.Tracing.EventSource
     {
-
+         
         public static EventSource Current = new EventSource();
 
         #region Informational Messages
