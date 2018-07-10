@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Runtime.Serialization;
-
-using Cogito.ServiceFabric.Activities.Test.TestActor.Interfaces;
+﻿using System.Runtime.Serialization;
 
 namespace Cogito.ServiceFabric.Activities.Test.TestActor
 {

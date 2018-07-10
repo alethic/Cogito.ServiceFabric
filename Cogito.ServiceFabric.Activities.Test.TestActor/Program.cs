@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Fabric;
 using System.Threading;
-using Microsoft.ServiceFabric.Actors;
+
 using Microsoft.ServiceFabric.Actors.Runtime;
 
 namespace Cogito.ServiceFabric.Activities.Test.TestActor

@@ -3,7 +3,9 @@ using System.Activities;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+
 using Cogito.ServiceFabric.Activities.Test.TestActor.Interfaces;
+
 using Microsoft.ServiceFabric.Actors;
 using Microsoft.ServiceFabric.Actors.Runtime;
 

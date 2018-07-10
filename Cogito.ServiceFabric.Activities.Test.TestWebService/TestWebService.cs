@@ -2,9 +2,8 @@
 using System.Fabric;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Web.Http;
+
 using Microsoft.Owin;
-using Owin;
 
 namespace Cogito.ServiceFabric.Activities.Test.TestWebService
 {
