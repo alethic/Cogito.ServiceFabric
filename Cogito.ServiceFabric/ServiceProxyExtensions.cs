@@ -21,7 +21,8 @@ namespace Cogito.ServiceFabric
         public static ServiceReference GetServiceReference<TService>(this TService service)
             where TService : IService
         {
-            Contract.Requires<ArgumentNullException>(service != null);
+            if (service == null)
+                throw new ArgumentNullException(nameof(service));
 
             return ServiceReference.Get(service);
         }

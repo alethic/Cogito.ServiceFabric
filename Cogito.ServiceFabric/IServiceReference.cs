@@ -27,7 +27,9 @@ namespace Cogito.ServiceFabric
 
         public object Bind(Type serviceInterfaceType)
         {
-            Contract.Requires<ArgumentNullException>(serviceInterfaceType != null);
+            if (serviceInterfaceType == null)
+                throw new ArgumentNullException(nameof(serviceInterfaceType));
+
             throw new NotImplementedException();
         }
 

@@ -32,7 +32,8 @@ namespace Cogito.ServiceFabric
         /// <returns></returns>
         public static ServiceReference Get(object service)
         {
-            Contract.Requires<ArgumentNullException>(service != null);
+            if (service == null)
+                throw new ArgumentNullException(nameof(service));
 
             if (service is Microsoft.ServiceFabric.Services.Runtime.StatelessService)
                 return Get((Microsoft.ServiceFabric.Services.Runtime.StatelessService)service);
@@ -53,7 +54,8 @@ namespace Cogito.ServiceFabric
         /// <returns></returns>
         static ServiceReference Get(ServiceProxy service)
         {
-            Contract.Requires<ArgumentNullException>(service != null);
+            if (service == null)
+                throw new ArgumentNullException(nameof(service));
 
             return new ServiceReference()
             {
@@ -71,7 +73,8 @@ namespace Cogito.ServiceFabric
         /// <returns></returns>
         static ServiceReference Get(Microsoft.ServiceFabric.Services.Runtime.StatelessService service)
         {
-            Contract.Requires<ArgumentNullException>(service != null);
+            if (service == null)
+                throw new ArgumentNullException(nameof(service));
 
             throw new NotSupportedException();
         }
@@ -83,7 +86,8 @@ namespace Cogito.ServiceFabric
         /// <returns></returns>
         static ServiceReference Get(Microsoft.ServiceFabric.Services.Runtime.StatefulService service)
         {
-            Contract.Requires<ArgumentNullException>(service != null);
+            if (service == null)
+                throw new ArgumentNullException(nameof(service));
 
             throw new NotSupportedException();
         }

@@ -44,7 +44,7 @@ namespace Cogito.ServiceFabric
         public StatelessService(StatelessServiceContext serviceContext)
             : base(serviceContext)
         {
-            Contract.Requires<ArgumentNullException>(serviceContext != null);
+
         }
 
         /// <summary>
@@ -87,9 +87,12 @@ namespace Cogito.ServiceFabric
             TimeSpan? timeToLive = null,
             bool? removeWhenExpired = null)
         {
-            Contract.Requires<ArgumentNullException>(sourceId != null);
-            Contract.Requires<ArgumentNullException>(property != null);
-            Contract.Requires<ArgumentOutOfRangeException>(description == null || description.Length <= 4000);
+            if (string.IsNullOrWhiteSpace(sourceId))
+                throw new ArgumentOutOfRangeException(nameof(sourceId));
+            if (string.IsNullOrWhiteSpace(property))
+                throw new ArgumentOutOfRangeException(nameof(property));
+            if (description != null && description.Length > 4000)
+                throw new ArgumentOutOfRangeException(nameof(property));
 
             var i = new HealthInformation(sourceId, property, state);
             if (description != null)
@@ -118,9 +121,12 @@ namespace Cogito.ServiceFabric
             TimeSpan? timeToLive = null,
             bool? removeWhenExpired = null)
         {
-            Contract.Requires<ArgumentNullException>(sourceId != null);
-            Contract.Requires<ArgumentNullException>(property != null);
-            Contract.Requires<ArgumentNullException>(exception != null);
+            if (string.IsNullOrWhiteSpace(sourceId))
+                throw new ArgumentOutOfRangeException(nameof(sourceId));
+            if (string.IsNullOrWhiteSpace(property))
+                throw new ArgumentOutOfRangeException(nameof(property));
+            if (exception == null)
+                throw new ArgumentNullException(nameof(exception));
 
             ReportHealth(
                 sourceId,
@@ -203,7 +209,8 @@ namespace Cogito.ServiceFabric
         /// <returns></returns>
         protected ConfigurationPackage GetConfigurationPackage(string packageName)
         {
-            Contract.Requires<ArgumentNullException>(packageName != null);
+            if (packageName == null)
+                throw new ArgumentNullException(nameof(packageName));
 
             return CodePackageActivationContext.GetConfigurationPackageObject(packageName);
         }
@@ -234,9 +241,12 @@ namespace Cogito.ServiceFabric
         /// <returns></returns>
         protected string GetConfigurationPackageParameterValue(string packageName, string sectionName, string parameterName)
         {
-            Contract.Requires<ArgumentNullException>(packageName != null);
-            Contract.Requires<ArgumentNullException>(sectionName != null);
-            Contract.Requires<ArgumentNullException>(parameterName != null);
+            if (packageName == null)
+                throw new ArgumentNullException(nameof(packageName));
+            if (sectionName == null)
+                throw new ArgumentNullException(nameof(sectionName));
+            if (parameterName == null)
+                throw new ArgumentNullException(nameof(parameterName));
 
             return GetConfigurationPackage(packageName)?.Settings.Sections[sectionName]?.Parameters[parameterName]?.Value;
         }
@@ -249,8 +259,10 @@ namespace Cogito.ServiceFabric
         /// <returns></returns>
         protected string GetDefaultConfigurationPackageParameterValue(string sectionName, string parameterName)
         {
-            Contract.Requires<ArgumentNullException>(sectionName != null);
-            Contract.Requires<ArgumentNullException>(parameterName != null);
+            if (sectionName == null)
+                throw new ArgumentNullException(nameof(sectionName));
+            if (parameterName == null)
+                throw new ArgumentNullException(nameof(parameterName));
 
             return DefaultConfigurationPackage?.Settings.Sections[sectionName]?.Parameters[parameterName]?.Value;
         }
