@@ -8,7 +8,7 @@ namespace Cogito.ServiceFabric.Actors
     [EventSource(Name ="Cogito-ServiceFabric")]
     sealed class EventSource :
         System.Diagnostics.Tracing.EventSource
-    { 
+    {
 
         public static EventSource Current = new EventSource();
 
