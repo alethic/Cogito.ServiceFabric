@@ -57,10 +57,10 @@ namespace Cogito.ServiceFabric
 
             return new ServiceReference()
             {
-                ServiceUri = service.ServicePartitionClient.ServiceUri,
-                PartitionKind = service.ServicePartitionClient.PartitionKey.Kind,
-                PartitionKey = service.ServicePartitionClient.PartitionKey.Value,
-                ListenerName = service.ServicePartitionClient.ListenerName,
+                ServiceUri = service.ServicePartitionClient2.ServiceUri,
+                PartitionKind = service.ServicePartitionClient2.PartitionKey.Kind,
+                PartitionKey = service.ServicePartitionClient2.PartitionKey.Value,
+                ListenerName = service.ServicePartitionClient2.ListenerName,
             };
         }
 
