@@ -278,6 +278,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Cogito.ServiceFabric.Actors\Cogito.ServiceFabric.Actors.csproj">
+      <Project>{fb159309-9b2e-4ba8-8fc3-5e960d3b09bb}</Project>
+      <Name>Cogito.ServiceFabric.Actors</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Cogito.ServiceFabric\Cogito.ServiceFabric.csproj">
       <Project>{45c4e98f-c300-4869-a3a3-531b56bdc3d9}</Project>
       <Name>Cogito.ServiceFabric</Name>

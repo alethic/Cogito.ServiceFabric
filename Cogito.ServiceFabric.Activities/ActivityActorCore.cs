@@ -18,7 +18,7 @@ namespace Cogito.ServiceFabric.Activities
     /// This base contains the main implementation details.
     /// </remarks>
     public abstract class ActivityActorCore :
-        Cogito.ServiceFabric.Actor,
+        Cogito.ServiceFabric.Actors.Actor,
         IRemindable,
         IActivityActorInternal,
         IActivityActor

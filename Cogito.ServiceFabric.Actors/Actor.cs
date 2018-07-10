@@ -8,7 +8,7 @@ using Cogito.Threading;
 using Microsoft.ServiceFabric.Actors;
 using Microsoft.ServiceFabric.Actors.Runtime;
 
-namespace Cogito.ServiceFabric
+namespace Cogito.ServiceFabric.Actors
 {
 
     /// <summary>

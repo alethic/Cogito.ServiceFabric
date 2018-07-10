@@ -265,6 +265,10 @@
       <Project>{a37ad75b-3315-4e60-98b2-137eb68ce303}</Project>
       <Name>Cogito.ServiceFabric.Activities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Cogito.ServiceFabric.Actors\Cogito.ServiceFabric.Actors.csproj">
+      <Project>{FB159309-9B2E-4BA8-8FC3-5E960D3B09BB}</Project>
+      <Name>Cogito.ServiceFabric.Actors</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Cogito.ServiceFabric\Cogito.ServiceFabric.csproj">
       <Project>{45c4e98f-c300-4869-a3a3-531b56bdc3d9}</Project>
       <Name>Cogito.ServiceFabric</Name>

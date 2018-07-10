@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Jerome Haltom</Authors>
+    <PackageLicenseUrl>https://raw.github.com/wasabii/Cogito/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/wasabii/Cogito/tree/master/Cogito.ServiceFabric</PackageProjectUrl>
+    <PackageIconUrl>https://cloverluxussc.blob.core.windows.net/public/cogito-nuget-icon.png</PackageIconUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Cogito.Core" Version="2.0.0" />
+    <PackageReference Include="Microsoft.ServiceFabric.Actors" Version="3.1.301" />
+  </ItemGroup>
+
+</Project>
