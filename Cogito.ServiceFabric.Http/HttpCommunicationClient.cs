@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics.Contracts;
 using System.Fabric;
 using System.Net.Http;
 
@@ -24,10 +23,8 @@ namespace Cogito.ServiceFabric.Http
         /// <param name="baseAddress"></param>
         public HttpCommunicationClient(Uri baseAddress)
         {
-            Contract.Requires<ArgumentNullException>(baseAddress != null);
-
             this.http = new HttpClient();
-            this.baseAddress = baseAddress;
+            this.baseAddress = baseAddress ?? throw new ArgumentNullException(nameof(baseAddress));
         }
 
         /// <summary>
@@ -53,7 +50,8 @@ namespace Cogito.ServiceFabric.Http
         /// <returns></returns>
         public Uri GetRelativeUri(string path)
         {
-            Contract.Requires<ArgumentNullException>(path != null);
+            if (path == null)
+                throw new ArgumentNullException(nameof(path));
 
             return BaseAddress.Combine(path);
         }

@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Diagnostics.Contracts;
 using System.Fabric;
 using System.Fabric.Health;
 using System.Threading.Tasks;
+
 using Cogito.Threading;
 
 using Microsoft.ServiceFabric.Actors;
@@ -84,8 +84,10 @@ namespace Cogito.ServiceFabric.Actors
         /// <param name="removeWhenExpired"></param>
         protected void ReportHealth(string sourceId, string property, HealthState state, string description = null, TimeSpan? timeToLive = null, bool? removeWhenExpired = null)
         {
-            Contract.Requires<ArgumentNullException>(sourceId != null);
-            Contract.Requires<ArgumentNullException>(property != null);
+            if (sourceId == null)
+                throw new ArgumentNullException(nameof(sourceId));
+            if (property == null)
+                throw new ArgumentNullException(nameof(property));
 
             var i = new HealthInformation(sourceId, property, state);
             if (description != null)
@@ -104,7 +106,8 @@ namespace Cogito.ServiceFabric.Actors
         /// <returns></returns>
         protected ConfigurationPackage GetConfigurationPackage(string packageName)
         {
-            Contract.Requires<ArgumentNullException>(packageName != null);
+            if (packageName == null)
+                throw new ArgumentNullException(nameof(packageName));
 
             return CodePackageActivationContext.GetConfigurationPackageObject(packageName);
         }
@@ -118,10 +121,7 @@ namespace Cogito.ServiceFabric.Actors
         /// Gets the default config package object.
         /// </summary>
         /// <returns></returns>
-        protected ConfigurationPackage DefaultConfigurationPackage
-        {
-            get { Contract.Requires(DefaultConfigurationPackageName != null); return GetConfigurationPackage(DefaultConfigurationPackageName); }
-        }
+        protected ConfigurationPackage DefaultConfigurationPackage => DefaultConfigurationPackageName != null ? GetConfigurationPackage(DefaultConfigurationPackageName) : null;
 
         /// <summary>
         /// Gets the configuration parameter from the specified section of the specified package.
@@ -132,9 +132,12 @@ namespace Cogito.ServiceFabric.Actors
         /// <returns></returns>
         protected string GetConfigurationPackageParameterValue(string packageName, string sectionName, string parameterName)
         {
-            Contract.Requires<ArgumentNullException>(packageName != null);
-            Contract.Requires<ArgumentNullException>(sectionName != null);
-            Contract.Requires<ArgumentNullException>(parameterName != null);
+            if (packageName == null)
+                throw new ArgumentNullException(nameof(packageName));
+            if (sectionName == null)
+                throw new ArgumentNullException(nameof(sectionName));
+            if (parameterName == null)
+                throw new ArgumentNullException(nameof(parameterName));
 
             return GetConfigurationPackage(packageName)?.Settings.Sections[sectionName]?.Parameters[parameterName]?.Value;
         }
@@ -147,8 +150,10 @@ namespace Cogito.ServiceFabric.Actors
         /// <returns></returns>
         protected string GetDefaultConfigurationPackageParameterValue(string sectionName, string parameterName)
         {
-            Contract.Requires<ArgumentNullException>(sectionName != null);
-            Contract.Requires<ArgumentNullException>(parameterName != null);
+            if (sectionName == null)
+                throw new ArgumentNullException(nameof(sectionName));
+            if (parameterName == null)
+                throw new ArgumentNullException(nameof(parameterName));
 
             return DefaultConfigurationPackage?.Settings.Sections[sectionName]?.Parameters[parameterName]?.Value;
         }
@@ -159,8 +164,10 @@ namespace Cogito.ServiceFabric.Actors
         /// <returns></returns>
         protected IActorReminder TryGetReminder(string reminderName)
         {
-            Contract.Requires<ArgumentNullException>(reminderName != null);
-            Contract.Requires<ArgumentNullException>(reminderName.Length > 0);
+            if (reminderName == null)
+                throw new ArgumentNullException(nameof(reminderName));
+            if (string.IsNullOrEmpty(reminderName))
+                throw new ArgumentOutOfRangeException(nameof(reminderName));
 
             try
             {
@@ -180,7 +187,8 @@ namespace Cogito.ServiceFabric.Actors
         /// <param name="action"></param>
         protected void InvokeWithTimer(Func<Task> action)
         {
-            Contract.Requires<ArgumentNullException>(action != null);
+            if (action == null)
+                throw new ArgumentNullException(nameof(action));
 
             // hoist timer so it can be unregistered
             IActorTimer timer = null;
@@ -199,7 +207,8 @@ namespace Cogito.ServiceFabric.Actors
         /// <param name="action"></param>
         protected Task InvokeWithTimerAsync(Func<Task> action)
         {
-            Contract.Requires<ArgumentNullException>(action != null);
+            if (action == null)
+                throw new ArgumentNullException(nameof(action));
 
             var cs = new TaskCompletionSource<bool>();
             InvokeWithTimer(async () => await cs.SafeTrySetFromAsync(action));
@@ -212,7 +221,8 @@ namespace Cogito.ServiceFabric.Actors
         /// <param name="func"></param>
         protected Task<TResult> InvokeWithTimerAsync<TResult>(Func<Task<TResult>> func)
         {
-            Contract.Requires<ArgumentNullException>(func != null);
+            if (func == null)
+                throw new ArgumentNullException(nameof(func));
 
             var cs = new TaskCompletionSource<TResult>();
             InvokeWithTimer(async () => await cs.SafeTrySetFromAsync(func));

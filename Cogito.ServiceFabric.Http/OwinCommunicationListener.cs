@@ -40,8 +40,10 @@ namespace Cogito.ServiceFabric.Http
             ServiceContext serviceContext)
             : this(configure, serviceContext, null)
         {
-            Contract.Requires<ArgumentNullException>(configure != null);
-            Contract.Requires<ArgumentNullException>(serviceContext != null);
+            if (configure == null)
+                throw new ArgumentNullException(nameof(configure));
+            if (serviceContext == null)
+                throw new ArgumentNullException(nameof(serviceContext));
         }
 
         /// <summary>
@@ -56,8 +58,10 @@ namespace Cogito.ServiceFabric.Http
             string appRoot)
             : this(configure, serviceContext, "HttpServiceEndpoint", appRoot)
         {
-            Contract.Requires<ArgumentNullException>(configure != null);
-            Contract.Requires<ArgumentNullException>(serviceContext != null);
+            if (configure == null)
+                throw new ArgumentNullException(nameof(configure));
+            if (serviceContext == null)
+                throw new ArgumentNullException(nameof(serviceContext));
         }
 
         /// <summary>
@@ -75,13 +79,9 @@ namespace Cogito.ServiceFabric.Http
             string appRoot,
             bool restartOnConfigurationPackageChange = false)
         {
-            Contract.Requires<ArgumentNullException>(configure != null);
-            Contract.Requires<ArgumentNullException>(serviceContext != null);
-            Contract.Requires<ArgumentNullException>(endpointName != null);
-
-            this.configure = configure;
-            this.serviceContext = serviceContext;
-            this.endpointName = endpointName;
+            this.configure = configure ?? throw new ArgumentNullException(nameof(configure));
+            this.serviceContext = serviceContext ?? throw new ArgumentNullException(nameof(serviceContext));
+            this.endpointName = endpointName ?? throw new ArgumentNullException(nameof(endpointName));
             this.appRoot = appRoot;
 
             // trigger a web server restart if told to when the configuration package changes
@@ -207,7 +207,8 @@ namespace Cogito.ServiceFabric.Http
         /// <returns></returns>
         string GetUri(string host)
         {
-            Contract.Requires<ArgumentNullException>(host != null);
+            if (host == null)
+                throw new ArgumentNullException(nameof(host));
 
             if (serviceContext is StatefulServiceContext)
                 return GetUri((StatefulServiceContext)serviceContext, host);
@@ -226,8 +227,10 @@ namespace Cogito.ServiceFabric.Http
         /// <returns></returns>
         string GetUri(StatefulServiceContext context, string host)
         {
-            Contract.Requires<ArgumentNullException>(context != null);
-            Contract.Requires<ArgumentNullException>(host != null);
+            if (context == null)
+                throw new ArgumentNullException(nameof(context));
+            if (host == null)
+                throw new ArgumentNullException(nameof(host));
 
             var serviceEndpoint = context.CodePackageActivationContext.GetEndpoint(endpointName);
             if (serviceEndpoint == null)
@@ -253,8 +256,10 @@ namespace Cogito.ServiceFabric.Http
         /// <returns></returns>
         string GetUri(StatelessServiceContext context, string host)
         {
-            Contract.Requires<ArgumentNullException>(context != null);
-            Contract.Requires<ArgumentNullException>(host != null);
+            if (context == null)
+                throw new ArgumentNullException(nameof(context));
+            if (host == null)
+                throw new ArgumentNullException(nameof(host));
 
             var serviceEndpoint = context.CodePackageActivationContext.GetEndpoint(endpointName);
             if (serviceEndpoint == null)
@@ -276,7 +281,8 @@ namespace Cogito.ServiceFabric.Http
         /// <returns></returns>
         string GetSchema(EndpointResourceDescription endpoint)
         {
-            Contract.Requires<ArgumentNullException>(endpoint != null);
+            if (endpoint == null)
+                throw new ArgumentNullException(nameof(endpoint));
 
             switch (endpoint.Protocol)
             {

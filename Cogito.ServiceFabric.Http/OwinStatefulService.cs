@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics.Contracts;
 using System.Fabric;
 using System.Threading;
 using System.Threading.Tasks;
@@ -39,11 +38,8 @@ namespace Cogito.ServiceFabric.Http
             bool restartOnConfigurationPackageChange = false)
             : base(context)
         {
-            Contract.Requires<ArgumentNullException>(appRoot != null);
-            Contract.Requires<ArgumentNullException>(endpointName != null);
-
-            this.appRoot = appRoot;
-            this.endpointName = endpointName;
+            this.appRoot = appRoot ?? throw new ArgumentNullException(nameof(appRoot));
+            this.endpointName = endpointName ?? throw new ArgumentNullException(nameof(endpointName));
             this.restartOnConfigurationPackageChange = restartOnConfigurationPackageChange;
         }
 
@@ -75,7 +71,8 @@ namespace Cogito.ServiceFabric.Http
         /// <param name="app"></param>
         void ConfigureInternal(IAppBuilder app)
         {
-            Contract.Requires<ArgumentNullException>(app != null);
+            if (app == null)
+                throw new ArgumentNullException(nameof(app));
 
             // attach service to context
             app.Use(async (context, next) =>
@@ -96,7 +93,8 @@ namespace Cogito.ServiceFabric.Http
         /// <param name="app"></param>
         protected virtual void Configure(IAppBuilder app)
         {
-            Contract.Requires<ArgumentNullException>(app != null);
+            if (app == null)
+                throw new ArgumentNullException(nameof(app));
 
             app.Use(OnRequest);
         }
@@ -109,7 +107,8 @@ namespace Cogito.ServiceFabric.Http
         /// <returns></returns>
         protected virtual Task OnRequest(IOwinContext context, Func<Task> next)
         {
-            Contract.Requires<ArgumentNullException>(context != null);
+            if (context == null)
+                throw new ArgumentNullException(nameof(context));
 
             return next();
         }

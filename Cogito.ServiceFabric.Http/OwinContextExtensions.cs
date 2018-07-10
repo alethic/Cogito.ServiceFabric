@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics.Contracts;
 using System.Fabric;
 
 using Microsoft.Owin;
@@ -30,7 +29,8 @@ namespace Cogito.ServiceFabric.Http
         /// <returns></returns>
         public static StatelessService GetStatelessService(this IOwinContext context)
         {
-            Contract.Requires<ArgumentNullException>(context != null);
+            if (context == null)
+                throw new ArgumentNullException(nameof(context));
 
             return (StatelessService)context.Environment[OWIN_ENVIRONMENT_SERVICE_INSTANCE_KEY];
         }
@@ -42,8 +42,10 @@ namespace Cogito.ServiceFabric.Http
         /// <param name="service"></param>
         internal static void SetService(this IOwinContext context, StatelessService service)
         {
-            Contract.Requires<ArgumentNullException>(context != null);
-            Contract.Requires<ArgumentNullException>(service != null);
+            if (context == null)
+                throw new ArgumentNullException(nameof(context));
+            if (service == null)
+                throw new ArgumentNullException(nameof(service));
 
             context.Environment[OWIN_ENVIRONMENT_SERVICE_INSTANCE_KEY] = service;
             context.Environment[OWIN_ENVIRONMENT_SERVICE_INIT_KEY] = service.Context;
@@ -56,7 +58,8 @@ namespace Cogito.ServiceFabric.Http
         /// <returns></returns>
         public static StatefulService GetStatefulService(this IOwinContext context)
         {
-            Contract.Requires<ArgumentNullException>(context != null);
+            if (context == null)
+                throw new ArgumentNullException(nameof(context));
 
             return (StatefulService)context.Environment[OWIN_ENVIRONMENT_SERVICE_INSTANCE_KEY];
         }
@@ -68,8 +71,10 @@ namespace Cogito.ServiceFabric.Http
         /// <param name="service"></param>
         internal static void SetService(this IOwinContext context, StatefulService service)
         {
-            Contract.Requires<ArgumentNullException>(context != null);
-            Contract.Requires<ArgumentNullException>(service != null);
+            if (context == null)
+                throw new ArgumentNullException(nameof(context));
+            if (service == null)
+                throw new ArgumentNullException(nameof(service));
 
             context.Environment[OWIN_ENVIRONMENT_SERVICE_INSTANCE_KEY] = service;
             context.Environment[OWIN_ENVIRONMENT_SERVICE_INIT_KEY] = service.Context;
@@ -82,7 +87,8 @@ namespace Cogito.ServiceFabric.Http
         /// <returns></returns>
         public static ServiceContext GetServiceContext(this IOwinContext context)
         {
-            Contract.Requires<ArgumentNullException>(context != null);
+            if (context == null)
+                throw new ArgumentNullException(nameof(context));
 
             return (ServiceContext)context.Environment[OWIN_ENVIRONMENT_SERVICE_INIT_KEY];
         }

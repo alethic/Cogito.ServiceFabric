@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics.Contracts;
 using System.Fabric;
 using System.Fabric.Health;
 using System.Net;
@@ -31,16 +30,19 @@ namespace Cogito.ServiceFabric.Http
         /// <returns></returns>
         public static IAppBuilder UseFabricHealth(this IAppBuilder app, StatelessService service, string path = DEFAULT_HEALTH_PATH)
         {
-            Contract.Requires<ArgumentNullException>(app != null);
-            Contract.Requires<ArgumentNullException>(service != null);
-            Contract.Requires<ArgumentNullException>(path != null);
+            if (app == null)
+                throw new ArgumentNullException(nameof(app));
+            if (service == null)
+                throw new ArgumentNullException(nameof(service));
+            if (path == null)
+                throw new ArgumentNullException(nameof(path));
 
             return UseFabricHealth(
-                app, 
+                app,
                 path,
                 service.Context.CodePackageActivationContext.ApplicationName,
                 service.Context.ServiceName,
-                service.Context.PartitionId, 
+                service.Context.PartitionId,
                 service.Context.InstanceId);
         }
 
@@ -53,16 +55,19 @@ namespace Cogito.ServiceFabric.Http
         /// <returns></returns>
         public static IAppBuilder UseFabricHealth(this IAppBuilder app, StatefulService service, string path = DEFAULT_HEALTH_PATH)
         {
-            Contract.Requires<ArgumentNullException>(app != null);
-            Contract.Requires<ArgumentNullException>(service != null);
-            Contract.Requires<ArgumentNullException>(path != null);
+            if (app == null)
+                throw new ArgumentNullException(nameof(app));
+            if (service == null)
+                throw new ArgumentNullException(nameof(service));
+            if (path == null)
+                throw new ArgumentNullException(nameof(path));
 
             return UseFabricHealth(
-                app, 
+                app,
                 path,
                 service.Context.CodePackageActivationContext.ApplicationName,
                 service.Context.ServiceName,
-                service.Context.PartitionId, 
+                service.Context.PartitionId,
                 service.Context.ReplicaId);
         }
 
@@ -76,10 +81,14 @@ namespace Cogito.ServiceFabric.Http
         /// <returns></returns>
         static IAppBuilder UseFabricHealth(this IAppBuilder app, string path, string applicationName, Uri serviceName, Guid partitionId, long replicaOrInstanceId)
         {
-            Contract.Requires<ArgumentNullException>(app != null);
-            Contract.Requires<ArgumentNullException>(path != null);
-            Contract.Requires<ArgumentNullException>(applicationName != null);
-            Contract.Requires<ArgumentNullException>(serviceName != null);
+            if (app == null)
+                throw new ArgumentNullException(nameof(app));
+            if (path == null)
+                throw new ArgumentNullException(nameof(path));
+            if (applicationName == null)
+                throw new ArgumentNullException(nameof(applicationName));
+            if (serviceName == null)
+                throw new ArgumentNullException(nameof(serviceName));
 
             return UseFabricHealth(app, path, applicationName, serviceName, async () =>
             {
@@ -99,11 +108,16 @@ namespace Cogito.ServiceFabric.Http
         /// <returns></returns>
         static IAppBuilder UseFabricHealth(this IAppBuilder app, string path, string applicationName, Uri serviceName, Func<Task<EntityHealth>> health)
         {
-            Contract.Requires<ArgumentNullException>(app != null);
-            Contract.Requires<ArgumentNullException>(path != null);
-            Contract.Requires<ArgumentNullException>(applicationName != null);
-            Contract.Requires<ArgumentNullException>(serviceName != null);
-            Contract.Requires<ArgumentNullException>(health != null);
+            if (app == null)
+                throw new ArgumentNullException(nameof(app));
+            if (path == null)
+                throw new ArgumentNullException(nameof(path));
+            if (applicationName == null)
+                throw new ArgumentNullException(nameof(applicationName));
+            if (serviceName == null)
+                throw new ArgumentNullException(nameof(serviceName));
+            if (health == null)
+                throw new ArgumentNullException(nameof(health));
 
             // attach service to context
             app.Use(async (context, func) =>

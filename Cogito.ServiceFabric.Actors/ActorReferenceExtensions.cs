@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics.Contracts;
 using System.Linq;
 
 using Microsoft.ServiceFabric.Actors;
-using Microsoft.ServiceFabric.Actors.Client;
 
 namespace Cogito.ServiceFabric.Actors
 {
@@ -23,7 +21,8 @@ namespace Cogito.ServiceFabric.Actors
         /// <returns></returns>
         public static TActor Bind<TActor>(this ActorReference reference)
         {
-            Contract.Requires<ArgumentNullException>(reference != null);
+            if (reference == null)
+                throw new ArgumentNullException(nameof(reference));
 
             return (TActor)reference.Bind(typeof(TActor));
         }
@@ -36,7 +35,8 @@ namespace Cogito.ServiceFabric.Actors
         /// <returns></returns>
         public static TActor[] Bind<TActor>(this ActorReference[] references)
         {
-            Contract.Requires<ArgumentNullException>(references != null);
+            if (references == null)
+                throw new ArgumentNullException(nameof(references));
 
             return references.Select(i => i.Bind<TActor>()).ToArray();
         }
@@ -49,7 +49,8 @@ namespace Cogito.ServiceFabric.Actors
         /// <returns></returns>
         public static IEnumerable<TActor> Bind<TActor>(this IEnumerable<ActorReference> references)
         {
-            Contract.Requires<ArgumentNullException>(references != null);
+            if (references == null)
+                throw new ArgumentNullException(nameof(references));
 
             return references.Select(i => i.Bind<TActor>());
         }
@@ -61,7 +62,8 @@ namespace Cogito.ServiceFabric.Actors
         /// <returns></returns>
         public static ActorReference[] GetActorReferences(this IActor[] actors)
         {
-            Contract.Requires<ArgumentNullException>(actors != null);
+            if (actors == null)
+                throw new ArgumentNullException(nameof(actors));
 
             return actors.Select(i => i.GetActorReference()).ToArray();
         }
@@ -73,7 +75,8 @@ namespace Cogito.ServiceFabric.Actors
         /// <returns></returns>
         public static IEnumerable<ActorReference> GetActorReferences(this IEnumerable<IActor> actors)
         {
-            Contract.Requires<ArgumentNullException>(actors != null);
+            if (actors == null)
+                throw new ArgumentNullException(nameof(actors));
 
             return actors.Select(i => i.GetActorReference());
         }
