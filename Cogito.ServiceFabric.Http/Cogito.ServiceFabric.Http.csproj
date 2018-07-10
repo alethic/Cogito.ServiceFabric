@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Cogito.ServiceFabric\Cogito.ServiceFabric.csproj" />
+    <ProjectReference Include="..\Cogito.ServiceFabric.Services\Cogito.ServiceFabric.Services.csproj" />
   </ItemGroup>
 
 </Project>

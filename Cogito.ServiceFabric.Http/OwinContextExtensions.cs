@@ -2,6 +2,7 @@
 using System.Fabric;
 
 using Microsoft.Owin;
+using Microsoft.ServiceFabric.Services.Runtime;
 
 namespace Cogito.ServiceFabric.Http
 {
@@ -15,12 +16,12 @@ namespace Cogito.ServiceFabric.Http
         /// <summary>
         /// Gets the OWIN environment key in which the <see cref="StatelessService"/> instance can be retrieved.
         /// </summary>
-        public const string OWIN_ENVIRONMENT_SERVICE_INSTANCE_KEY = "cogito.Service";
+        public const string OWIN_ENVIRONMENT_SERVICE_INSTANCE_KEY = "fabric.Service";
 
         /// <summary>
         /// Gets the OWIN environment key in which the <see cref="ServiceContext"/> are stored.
         /// </summary>
-        public const string OWIN_ENVIRONMENT_SERVICE_INIT_KEY = "cogito.ServiceContext";
+        public const string OWIN_ENVIRONMENT_SERVICE_INIT_KEY = "fabric.ServiceContext";
 
         /// <summary>
         /// Gets the <see cref="StatelessService"/> instance from the context.

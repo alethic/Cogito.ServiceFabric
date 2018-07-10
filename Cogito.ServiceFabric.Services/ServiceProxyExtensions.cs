@@ -2,7 +2,7 @@
 
 using Microsoft.ServiceFabric.Services.Remoting;
 
-namespace Cogito.ServiceFabric
+namespace Cogito.ServiceFabric.Services
 {
 
     /// <summary>

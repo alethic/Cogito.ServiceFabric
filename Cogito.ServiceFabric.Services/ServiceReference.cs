@@ -8,7 +8,7 @@ using Microsoft.ServiceFabric.Services.Client;
 using Microsoft.ServiceFabric.Services.Remoting;
 using Microsoft.ServiceFabric.Services.Remoting.Client;
 
-namespace Cogito.ServiceFabric
+namespace Cogito.ServiceFabric.Services
 {
 
     /// <summary>

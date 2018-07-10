@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Jerome Haltom</Authors>
+    <Description>Extensions to the Service Fabric services classes.</Description>
+    <PackageProjectUrl>https://github.com/wasabii/Cogito.ServiceFabric</PackageProjectUrl>
+    <PackageIconUrl>https://cloverluxussc.blob.core.windows.net/public/cogito-nuget-icon.png</PackageIconUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cogito.ServiceFabric\Cogito.ServiceFabric.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -2,7 +2,7 @@
 using System.Diagnostics.Tracing;
 using System.Fabric;
 
-namespace Cogito.ServiceFabric.Actors
+namespace Cogito.ServiceFabric.Services
 {
 
     [EventSource(Name = "Cogito-ServiceFabric")]

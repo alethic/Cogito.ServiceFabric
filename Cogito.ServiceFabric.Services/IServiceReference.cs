@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Cogito.ServiceFabric
+namespace Cogito.ServiceFabric.Services
 {
 
     /// <summary>

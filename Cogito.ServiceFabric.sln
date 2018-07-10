@@ -32,6 +32,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cogito.ServiceFabric.Actors
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cogito.ServiceFabric.Configuration", "Cogito.ServiceFabric.Configuration\Cogito.ServiceFabric.Configuration.csproj", "{AE4C8231-1603-40AD-9A6B-B758E7B2DFFB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cogito.ServiceFabric.Services", "Cogito.ServiceFabric.Services\Cogito.ServiceFabric.Services.csproj", "{175A6C81-F543-43B6-8E68-B8EF5470219A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,6 +85,10 @@ Global
 		{AE4C8231-1603-40AD-9A6B-B758E7B2DFFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE4C8231-1603-40AD-9A6B-B758E7B2DFFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE4C8231-1603-40AD-9A6B-B758E7B2DFFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{175A6C81-F543-43B6-8E68-B8EF5470219A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{175A6C81-F543-43B6-8E68-B8EF5470219A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{175A6C81-F543-43B6-8E68-B8EF5470219A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{175A6C81-F543-43B6-8E68-B8EF5470219A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -16,7 +16,7 @@ namespace Cogito.ServiceFabric.Http
     /// Describes a service that exposes an OWIN endpoint.
     /// </summary>
     public abstract class OwinStatelessService :
-        Cogito.ServiceFabric.StatelessService
+        Cogito.ServiceFabric.Services.StatelessService
     {
 
         readonly string appRoot;
