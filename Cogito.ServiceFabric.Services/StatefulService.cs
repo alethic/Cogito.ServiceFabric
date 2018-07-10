@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Fabric;
 using System.Fabric.Health;
+using System.Threading;
+using System.Threading.Tasks;
 
 using Microsoft.ServiceFabric.Services.Communication.Runtime;
 using Microsoft.ServiceFabric.Services.Remoting;
@@ -132,6 +134,58 @@ namespace Cogito.ServiceFabric.Services
                 exception.ToString().Left(4000),
                 timeToLive,
                 removeWhenExpired);
+        }
+
+        /// <summary>
+        /// Default implementation of RunAsync. Configures the service and dispatches to the RunTaskAsync method until
+        /// canceled.
+        /// </summary>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        protected sealed override async Task RunAsync(CancellationToken cancellationToken)
+        {
+            using (ServiceContextScope.Push(Context))
+            {
+                // enter method
+                await RunEnterAsync(cancellationToken);
+
+                // repeat run task until signaled to exit
+                while (!cancellationToken.IsCancellationRequested)
+                    await RunLoopAsync(cancellationToken);
+
+                // exit method
+                await RunExitAsync(new CancellationTokenSource(TimeSpan.FromSeconds(5)).Token);
+            }
+        }
+
+        /// <summary>
+        /// Invoked when the service is run.
+        /// </summary>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        protected virtual Task RunEnterAsync(CancellationToken cancellationToken)
+        {
+            return Task.FromResult(true);
+        }
+
+        /// <summary>
+        /// Invoked when the service is exiting.
+        /// </summary>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        protected virtual Task RunExitAsync(CancellationToken cancellationToken)
+        {
+            return Task.FromResult(true);
+        }
+
+        /// <summary>
+        /// Override this method to implement the run loop.
+        /// </summary>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        protected virtual Task RunLoopAsync(CancellationToken cancellationToken)
+        {
+            return Task.Delay(TimeSpan.FromSeconds(5));
         }
 
         /// <summary>
