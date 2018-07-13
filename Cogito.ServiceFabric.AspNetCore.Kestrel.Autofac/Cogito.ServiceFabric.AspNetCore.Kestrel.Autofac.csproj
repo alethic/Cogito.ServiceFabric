@@ -11,13 +11,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Autofac" Version="4.8.1" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Cogito.ServiceFabric.AspNetCore.Autofac\Cogito.ServiceFabric.AspNetCore.Autofac.csproj" />
     <ProjectReference Include="..\Cogito.ServiceFabric.AspNetCore.Kestrel\Cogito.ServiceFabric.AspNetCore.Kestrel.csproj" />
-    <ProjectReference Include="..\Cogito.ServiceFabric.AspNetCore\Cogito.ServiceFabric.AspNetCore.csproj" />
   </ItemGroup>
 
 </Project>

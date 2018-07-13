@@ -36,11 +36,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cogito.ServiceFabric.Servic
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cogito.ServiceFabric.AspNetCore", "Cogito.ServiceFabric.AspNetCore\Cogito.ServiceFabric.AspNetCore.csproj", "{F119BFDF-ADE0-49A4-8E0E-F13161DBF57B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cogito.ServiceFabric.AspNetCore.Autofac", "Cogito.ServiceFabric.AspNetCore.Autofac\Cogito.ServiceFabric.AspNetCore.Autofac.csproj", "{880F33EC-FA97-42B9-971F-9389AF4667D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cogito.ServiceFabric.AspNetCore.Autofac", "Cogito.ServiceFabric.AspNetCore.Autofac\Cogito.ServiceFabric.AspNetCore.Autofac.csproj", "{880F33EC-FA97-42B9-971F-9389AF4667D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cogito.ServiceFabric.AspNetCore.Kestrel", "Cogito.ServiceFabric.AspNetCore.Kestrel\Cogito.ServiceFabric.AspNetCore.Kestrel.csproj", "{7C67322A-9592-4D0F-AB56-B713CAC1C9FA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cogito.ServiceFabric.AspNetCore.Kestrel", "Cogito.ServiceFabric.AspNetCore.Kestrel\Cogito.ServiceFabric.AspNetCore.Kestrel.csproj", "{7C67322A-9592-4D0F-AB56-B713CAC1C9FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cogito.ServiceFabric.AspNetCore.Kestrel.Autofac", "Cogito.ServiceFabric.AspNetCore.Kestrel.Autofac\Cogito.ServiceFabric.AspNetCore.Kestrel.Autofac.csproj", "{84606A3B-8D6E-4762-8C03-5C3188A7F359}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cogito.ServiceFabric.AspNetCore.Kestrel.Autofac", "Cogito.ServiceFabric.AspNetCore.Kestrel.Autofac\Cogito.ServiceFabric.AspNetCore.Kestrel.Autofac.csproj", "{84606A3B-8D6E-4762-8C03-5C3188A7F359}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
