@@ -14,12 +14,6 @@ namespace Cogito.ServiceFabric.Services.Remoting.V2
     class ServiceRemotingResponseJsonMessageBodySerializer : IServiceRemotingResponseMessageBodySerializer
     {
 
-        static readonly JsonSerializer serializer = JsonSerializer.Create(new JsonSerializerSettings()
-        {
-            TypeNameHandling = TypeNameHandling.All,
-            DateParseHandling = DateParseHandling.None,
-        });
-
         /// <summary>
         /// Initializes a new instance.
         /// </summary>
@@ -38,7 +32,7 @@ namespace Cogito.ServiceFabric.Services.Remoting.V2
             {
                 // serialize to stream
                 using (var writer = new JsonTextWriter(new StreamWriter(stream, Encoding.UTF8)))
-                    serializer.Serialize(writer, responseMessageBody);
+                    JsonSerializerConfig.Serializer.Serialize(writer, responseMessageBody);
 
                 return new OutgoingMessageBody(new[] { new ArraySegment<byte>(stream.ToArray()) });
             }
@@ -48,7 +42,7 @@ namespace Cogito.ServiceFabric.Services.Remoting.V2
         {
             using (var sr = new StreamReader(messageBody.GetReceivedBuffer()))
             using (var reader = new JsonTextReader(sr))
-                return serializer.Deserialize<JsonRemotingResponseBody>(reader);
+                return JsonSerializerConfig.Serializer.Deserialize<JsonRemotingResponseBody>(reader);
         }
 
     }

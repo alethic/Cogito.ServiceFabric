@@ -17,8 +17,4 @@
     <ProjectReference Include="..\Cogito.ServiceFabric\Cogito.ServiceFabric.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Remoting\V2\" />
-  </ItemGroup>
-
 </Project>
