@@ -40,9 +40,7 @@ namespace Cogito.ServiceFabric.Services.Remoting.V2
                 using (var writer = new JsonTextWriter(new StreamWriter(stream, Encoding.UTF8)))
                     serializer.Serialize(writer, responseMessageBody);
 
-                var segment = new ArraySegment<byte>(stream.ToArray());
-                var list = new List<ArraySegment<byte>> { segment };
-                return new OutgoingMessageBody(list);
+                return new OutgoingMessageBody(new[] { new ArraySegment<byte>(stream.ToArray()) });
             }
         }
 
