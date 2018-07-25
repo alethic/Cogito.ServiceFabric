@@ -32,7 +32,6 @@ namespace Cogito.ServiceFabric.Services.Remoting.V2
 
             using (var writeStream = new MemoryStream())
             {
-                // write body to stream
                 using (var jsonWriter = new JsonTextWriter(new StreamWriter(writeStream)))
                     JsonSerializerConfig.Serializer.Serialize(jsonWriter, serviceRemotingRequestMessageBody);
 
@@ -42,8 +41,7 @@ namespace Cogito.ServiceFabric.Services.Remoting.V2
 
         public IServiceRemotingRequestMessageBody Deserialize(IncomingMessageBody messageBody)
         {
-            using (var sr = new StreamReader(messageBody.GetReceivedBuffer()))
-            using (var reader = new JsonTextReader(sr))
+            using (var reader = new JsonTextReader(new StreamReader(messageBody.GetReceivedBuffer())))
                 return JsonSerializerConfig.Serializer.Deserialize<JsonRemotingRequestBody>(reader);
         }
 

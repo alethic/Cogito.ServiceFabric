@@ -33,15 +33,14 @@ namespace Cogito.ServiceFabric.Services.Remoting.V2
                 // serialize to stream
                 using (var writer = new JsonTextWriter(new StreamWriter(stream, Encoding.UTF8)))
                     JsonSerializerConfig.Serializer.Serialize(writer, responseMessageBody);
-
+                
                 return new OutgoingMessageBody(new[] { new ArraySegment<byte>(stream.ToArray()) });
             }
         }
 
         public IServiceRemotingResponseMessageBody Deserialize(IncomingMessageBody messageBody)
         {
-            using (var sr = new StreamReader(messageBody.GetReceivedBuffer()))
-            using (var reader = new JsonTextReader(sr))
+            using (var reader = new JsonTextReader(new StreamReader(messageBody.GetReceivedBuffer())))
                 return JsonSerializerConfig.Serializer.Deserialize<JsonRemotingResponseBody>(reader);
         }
 
