@@ -2,22 +2,25 @@
 
 using Microsoft.ServiceFabric.Services.Remoting.V2;
 
+using Newtonsoft.Json;
+
 namespace Cogito.ServiceFabric.Services.Remoting.V2
 {
 
     class JsonRemotingResponseBody : IServiceRemotingResponseMessageBody
     {
 
-        object value;
+        [JsonProperty("Value")]
+        public object Value { get; set; }
 
         public void Set(object response)
         {
-            value = response;
+            Value = response;
         }
 
         public object Get(Type paramType)
         {
-            return value;
+            return Value;
         }
 
     }

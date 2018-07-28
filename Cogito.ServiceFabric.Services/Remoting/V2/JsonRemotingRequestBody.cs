@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 
 using Microsoft.ServiceFabric.Services.Remoting.V2;
+using Newtonsoft.Json;
 
 namespace Cogito.ServiceFabric.Services.Remoting.V2
 {
@@ -9,16 +10,17 @@ namespace Cogito.ServiceFabric.Services.Remoting.V2
     class JsonRemotingRequestBody : IServiceRemotingRequestMessageBody
     {
 
-        readonly Dictionary<string, object> parameters = new Dictionary<string, object>();
+        [JsonProperty("Parameters")]
+        public Dictionary<string, object> Parameters { get; } = new Dictionary<string, object>();
 
-        public void SetParameter(int position, string parameName, object parameter)
+        public void SetParameter(int position, string paramName, object parameter)
         {
-            parameters[parameName] = parameter;
+            Parameters[paramName] = parameter;
         }
 
-        public object GetParameter(int position, string parameName, Type paramType)
+        public object GetParameter(int position, string paramName, Type paramType)
         {
-            return parameters[parameName];
+            return Parameters[paramName];
         }
 
     }
