@@ -12,9 +12,9 @@
   <ItemGroup>
     <PackageReference Include="Cogito.AspNetCore" Version="0.1.0-unstable0011" />
     <PackageReference Include="Microsoft.AspNetCore.Hosting.Abstractions" Version="2.1.1" />
-    <PackageReference Include="Microsoft.ServiceFabric" Version="6.2.306" />
-    <PackageReference Include="Microsoft.ServiceFabric.AspNetCore.Abstractions" Version="3.1.306" />
-    <PackageReference Include="Microsoft.ServiceFabric.Services" Version="3.1.306" />
+    <PackageReference Include="Microsoft.ServiceFabric" Version="6.3.162" />
+    <PackageReference Include="Microsoft.ServiceFabric.AspNetCore.Abstractions" Version="3.2.162" />
+    <PackageReference Include="Microsoft.ServiceFabric.Services" Version="3.2.162" />
   </ItemGroup>
 
   <ItemGroup>

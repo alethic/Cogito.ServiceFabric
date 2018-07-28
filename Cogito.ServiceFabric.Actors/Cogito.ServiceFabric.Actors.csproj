@@ -12,7 +12,7 @@
 
   <ItemGroup>
     <PackageReference Include="Cogito.Core" Version="2.1.0-unstable0035" />
-    <PackageReference Include="Microsoft.ServiceFabric.Actors" Version="3.1.306" />
+    <PackageReference Include="Microsoft.ServiceFabric.Actors" Version="3.2.162" />
   </ItemGroup>
 
 </Project>
