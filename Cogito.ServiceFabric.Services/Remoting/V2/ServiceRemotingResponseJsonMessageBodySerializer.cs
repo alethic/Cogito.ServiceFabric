@@ -18,15 +18,17 @@ namespace Cogito.ServiceFabric.Services.Remoting.V2
         /// Initializes a new instance.
         /// </summary>
         /// <param name="serviceInterfaceType"></param>
-        /// <param name="parameterInfo"></param>
+        /// <param name="responseWrappedTypes"></param>
+        /// <param name="responseBodyTypes"></param>
         public ServiceRemotingResponseJsonMessageBodySerializer(
             Type serviceInterfaceType,
-            IEnumerable<Type> parameterInfo)
+            IEnumerable<Type> responseWrappedTypes,
+            IEnumerable<Type> responseBodyTypes)
         {
 
         }
 
-        public OutgoingMessageBody Serialize(IServiceRemotingResponseMessageBody responseMessageBody)
+        public IOutgoingMessageBody Serialize(IServiceRemotingResponseMessageBody responseMessageBody)
         {
             using (var stream = new MemoryStream())
             {
@@ -38,7 +40,7 @@ namespace Cogito.ServiceFabric.Services.Remoting.V2
             }
         }
 
-        public IServiceRemotingResponseMessageBody Deserialize(IncomingMessageBody messageBody)
+        public IServiceRemotingResponseMessageBody Deserialize(IIncomingMessageBody messageBody)
         {
             using (var reader = new JsonTextReader(new StreamReader(messageBody.GetReceivedBuffer())))
                 return JsonSerializerConfig.Serializer.Deserialize<JsonRemotingResponseBody>(reader);
