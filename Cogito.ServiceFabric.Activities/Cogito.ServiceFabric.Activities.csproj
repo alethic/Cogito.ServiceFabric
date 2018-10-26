@@ -12,10 +12,10 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Cogito.Activities" Version="2.1.0-unstable0035" />
-        <PackageReference Include="Cogito.Core" Version="2.1.0-unstable0035" />
-        <PackageReference Include="Microsoft.ServiceFabric" Version="6.3.162" />
-        <PackageReference Include="Microsoft.ServiceFabric.Actors" Version="3.2.162" />
+        <PackageReference Include="Cogito.Activities" Version="3.0.0" />
+        <PackageReference Include="Cogito.Core" Version="3.0.0" />
+        <PackageReference Include="Microsoft.ServiceFabric" Version="6.3.187" />
+        <PackageReference Include="Microsoft.ServiceFabric.Actors" Version="3.2.187" />
         <PackageReference Include="System.Collections.Immutable" Version="1.5.0" />
     </ItemGroup>
 
