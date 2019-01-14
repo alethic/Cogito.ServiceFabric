@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 namespace Cogito.ServiceFabric.AspNetCore
 {
 
-    public static class AsyncLazy
+    static class AsyncLazy
     {
 
         /// <summary>
@@ -25,7 +25,7 @@ namespace Cogito.ServiceFabric.AspNetCore
     /// Provides an async implementation of <see cref="Lazy{T}"/>.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class AsyncLazy<T>
+    class AsyncLazy<T>
     {
 
         readonly Lazy<Task<T>> lazy;
