@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Autofac.ServiceFabric" Version="2.1.0" />
+    <PackageReference Include="Autofac.ServiceFabric" Version="2.0.0" />
     <PackageReference Include="Cogito.AspNetCore.Autofac" Version="1.3.0" />
     <PackageReference Include="Cogito.Autofac" Version="1.2.0" />
     <PackageReference Include="Microsoft.ServiceFabric.Actors" Version="3.3.638" />
