@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27703.2035
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28917.181
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{87130765-A579-4878-B462-70139F28B475}"
 EndProject
@@ -41,6 +41,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cogito.ServiceFabric.AspNetCore.Kestrel", "Cogito.ServiceFabric.AspNetCore.Kestrel\Cogito.ServiceFabric.AspNetCore.Kestrel.csproj", "{7C67322A-9592-4D0F-AB56-B713CAC1C9FA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cogito.ServiceFabric.AspNetCore.Kestrel.Autofac", "Cogito.ServiceFabric.AspNetCore.Kestrel.Autofac\Cogito.ServiceFabric.AspNetCore.Kestrel.Autofac.csproj", "{84606A3B-8D6E-4762-8C03-5C3188A7F359}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cogito.ServiceFabric.Configuration.Autofac", "Cogito.ServiceFabric.Configuration.Autofac\Cogito.ServiceFabric.Configuration.Autofac.csproj", "{1A1363F4-69D4-4F1C-BB28-10B8E1C04D81}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -113,6 +115,10 @@ Global
 		{84606A3B-8D6E-4762-8C03-5C3188A7F359}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{84606A3B-8D6E-4762-8C03-5C3188A7F359}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{84606A3B-8D6E-4762-8C03-5C3188A7F359}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A1363F4-69D4-4F1C-BB28-10B8E1C04D81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A1363F4-69D4-4F1C-BB28-10B8E1C04D81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A1363F4-69D4-4F1C-BB28-10B8E1C04D81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A1363F4-69D4-4F1C-BB28-10B8E1C04D81}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
