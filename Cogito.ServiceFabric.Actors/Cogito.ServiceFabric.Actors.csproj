@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -12,7 +12,7 @@
 
   <ItemGroup>
     <PackageReference Include="Cogito.Core" Version="3.0.0" />
-    <PackageReference Include="Microsoft.ServiceFabric.Actors" Version="3.3.644" />
+    <PackageReference Include="Microsoft.ServiceFabric.Actors" Version="3.4.664" />
   </ItemGroup>
 
 </Project>
