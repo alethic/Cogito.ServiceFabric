@@ -4,7 +4,7 @@ using System.Fabric.Description;
 using System.Globalization;
 using System.Threading;
 using System.Threading.Tasks;
-
+using Microsoft.Owin.Host.HttpListener;
 using Microsoft.Owin.Hosting;
 using Microsoft.ServiceFabric.Services.Communication.Runtime;
 
@@ -149,6 +149,8 @@ namespace Cogito.ServiceFabric.Http
 
             try
             {
+                var uberSillyNecessity = typeof(OwinHttpListener);
+                if (uberSillyNecessity != null) { }
                 serverHandle = WebApp.Start(listeningAddress, configure);
                 return publishAddress;
             }
