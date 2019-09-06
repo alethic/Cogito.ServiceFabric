@@ -46,7 +46,7 @@ namespace Cogito.ServiceFabric.AspNetCore.Kestrel.Autofac
         public static void RegisterStatefulKestrelWebService<TStartup>(this ContainerBuilder builder, string serviceTypeName, string endpointName = null)
             where TStartup : class
         {
-            RegisterStatefulKestrelWebService<StatefulKestrelWebService<TStartup>>(builder, serviceTypeName, endpointName);
+            RegisterStatefulKestrelWebService<StatefulKestrelWebService<TStartup>, TStartup>(builder, serviceTypeName, endpointName);
         }
 
         /// <summary>
@@ -59,7 +59,7 @@ namespace Cogito.ServiceFabric.AspNetCore.Kestrel.Autofac
         public static void RegisterStatelessKestrelWebService<TStartup>(this ContainerBuilder builder, string serviceTypeName, string endpointName = null)
             where TStartup : class
         {
-            RegisterStatelessKestrelWebService<StatelessKestrelWebService<TStartup>>(builder, serviceTypeName, endpointName);
+            RegisterStatelessKestrelWebService<StatelessKestrelWebService<TStartup>, TStartup>(builder, serviceTypeName, endpointName);
         }
 
     }
