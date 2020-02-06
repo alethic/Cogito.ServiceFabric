@@ -11,8 +11,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Cogito.Core" Version="3.0.0" />
-    <PackageReference Include="Microsoft.ServiceFabric.Actors" Version="3.4.664" />
+    <PackageReference Include="Cogito.Core" Version="3.0.7" />
+    <PackageReference Include="Microsoft.ServiceFabric.Actors" Version="4.0.464" />
   </ItemGroup>
 
 </Project>
