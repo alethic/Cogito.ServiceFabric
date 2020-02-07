@@ -28,7 +28,7 @@ deploy:
   server: https://nuget.pkg.github.com/wasabii/index.json
   username: wasabii
   api_key:
-    secure: njAjKPZwerNnJHQ9ZsuTZC8YfAGvfhJnNfklOrgjI6QzWemRKZLzkYdS3MU96Y2j
+    secure: xrFuWmVqekabWUvYce7mOmKS4ToqdtFJOGgiLYyrDRVZJhMSMvpOUVxf0mhzwGiH
   skip_symbols: false
   symbol_server:
   artifact: /.*\.nupkg/
