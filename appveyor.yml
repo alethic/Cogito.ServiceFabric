@@ -22,3 +22,12 @@ build:
 artifacts:
   - path: pkg\*.nupkg
     name: Cogito.ServiceFabric
+
+deploy:
+  provider: MyGet
+  server: https://www.myget.org/F/wasabi/api/v2/package
+  api_key:
+    secure: eVqz7WA5qta1rcr/A4+9uF6vdBTZ4joL7T3iKrFjZuNyY4+Fub5xYyTg/rLoAQ+B
+  skip_symbols: false
+  symbol_server:
+  artifact: Cogito.ServiceFabric/*.nupkg
