@@ -25,7 +25,7 @@ artifacts:
 
 deploy:
   provider: NuGet
-  server: https://nuget.pkg.github.com/wasabi/index.json
+  server: https://nuget.pkg.github.com/wasabii/index.json
   username: wasabii
   api_key:
     secure: njAjKPZwerNnJHQ9ZsuTZC8YfAGvfhJnNfklOrgjI6QzWemRKZLzkYdS3MU96Y2j
