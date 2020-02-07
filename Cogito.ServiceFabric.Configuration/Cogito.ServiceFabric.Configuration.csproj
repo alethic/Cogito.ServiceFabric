@@ -2,14 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
-        <Authors>Jerome Haltom</Authors>
-        <Company />
         <Description>Extensions for sourcing Microsoft.Extensions.Configuration information from Service Fabric.</Description>
-        <RepositoryUrl>https://github.com/wasabii/Cogito.ServiceFabric</RepositoryUrl>
-        <RepositoryType>git</RepositoryType>
-        <PackageLicenseUrl></PackageLicenseUrl>
-        <PackageProjectUrl>https://github.com/wasabii/Cogito.ServiceFabric</PackageProjectUrl>
-        <PackageIconUrl>https://cloverluxussc.blob.core.windows.net/public/cogito-nuget-icon.png</PackageIconUrl>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     </PropertyGroup>
 

@@ -26,6 +26,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5B2356DF-7EF1-4CFB-96CD-5C1F9BF56E0B}"
 	ProjectSection(SolutionItems) = preProject
 		appveyor.yml = appveyor.yml
+		Directory.Build.props = Directory.Build.props
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cogito.ServiceFabric.Actors", "Cogito.ServiceFabric.Actors\Cogito.ServiceFabric.Actors.csproj", "{FB159309-9B2E-4BA8-8FC3-5E960D3B09BB}"
@@ -42,7 +43,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cogito.ServiceFabric.AspNet
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cogito.ServiceFabric.AspNetCore.Kestrel.Autofac", "Cogito.ServiceFabric.AspNetCore.Kestrel.Autofac\Cogito.ServiceFabric.AspNetCore.Kestrel.Autofac.csproj", "{84606A3B-8D6E-4762-8C03-5C3188A7F359}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cogito.ServiceFabric.Configuration.Autofac", "Cogito.ServiceFabric.Configuration.Autofac\Cogito.ServiceFabric.Configuration.Autofac.csproj", "{1A1363F4-69D4-4F1C-BB28-10B8E1C04D81}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cogito.ServiceFabric.Configuration.Autofac", "Cogito.ServiceFabric.Configuration.Autofac\Cogito.ServiceFabric.Configuration.Autofac.csproj", "{1A1363F4-69D4-4F1C-BB28-10B8E1C04D81}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
