@@ -25,9 +25,10 @@ artifacts:
 
 deploy:
   provider: NuGet
-  server: https://www.myget.org/F/wasabi/api/v2/package
+  server: https://nuget.pkg.github.com/wasabi/index.json
+  username: wasabii
   api_key:
-    secure: eVqz7WA5qta1rcr/A4+9uF6vdBTZ4joL7T3iKrFjZuNyY4+Fub5xYyTg/rLoAQ+B
+    secure: njAjKPZwerNnJHQ9ZsuTZC8YfAGvfhJnNfklOrgjI6QzWemRKZLzkYdS3MU96Y2j
   skip_symbols: false
   symbol_server:
-  artifact: Cogito.ServiceFabric/*.nupkg
+  artifact: /.*\.nupkg/
