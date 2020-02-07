@@ -1,21 +1,24 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <Authors>Jerome Haltom</Authors>
-    <Company>Jerome Haltom</Company>
-    <PackageProjectUrl>https://github.com/wasabii/Cogito.ServiceFabric</PackageProjectUrl>
-    <PackageIconUrl>https://cloverluxussc.blob.core.windows.net/public/cogito-nuget-icon.png</PackageIconUrl>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Description>Utility methods for Kestrel within ASP.Net Core.</Description>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <Authors>Jerome Haltom</Authors>
+        <Company />
+        <Description>Utility methods for Kestrel within ASP.Net Core.</Description>
+        <RepositoryUrl>https://github.com/wasabii/Cogito.ServiceFabric</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageLicenseUrl></PackageLicenseUrl>
+        <PackageProjectUrl>https://github.com/wasabii/Cogito.ServiceFabric</PackageProjectUrl>
+        <PackageIconUrl>https://cloverluxussc.blob.core.windows.net/public/cogito-nuget-icon.png</PackageIconUrl>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.ServiceFabric.AspNetCore.Kestrel" Version="4.0.464" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.ServiceFabric.AspNetCore.Kestrel" Version="4.0.464" />
+    </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Cogito.ServiceFabric.AspNetCore\Cogito.ServiceFabric.AspNetCore.csproj" />
-  </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\Cogito.ServiceFabric.AspNetCore\Cogito.ServiceFabric.AspNetCore.csproj" />
+    </ItemGroup>
 
 </Project>

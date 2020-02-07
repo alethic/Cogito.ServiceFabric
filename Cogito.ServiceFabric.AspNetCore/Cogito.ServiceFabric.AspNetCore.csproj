@@ -1,24 +1,28 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <PackageProjectUrl>https://github.com/wasabii/Cogito.ServiceFabric</PackageProjectUrl>
-    <PackageIconUrl>https://cloverluxussc.blob.core.windows.net/public/cogito-nuget-icon.png</PackageIconUrl>
-    <Authors>Jerome Haltom</Authors>
-    <Description>Helper objects for running ASP.Net Core on Service Fabric.</Description>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <Authors>Jerome Haltom</Authors>
+        <Company />
+        <Description>Helper objects for running ASP.Net Core on Service Fabric.</Description>
+        <RepositoryUrl>https://github.com/wasabii/Cogito.ServiceFabric</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageLicenseUrl></PackageLicenseUrl>
+        <PackageProjectUrl>https://github.com/wasabii/Cogito.ServiceFabric</PackageProjectUrl>
+        <PackageIconUrl>https://cloverluxussc.blob.core.windows.net/public/cogito-nuget-icon.png</PackageIconUrl>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Cogito.AspNetCore" Version="2.0.1" />
-    <PackageReference Include="Microsoft.AspNetCore.Hosting.Abstractions" Version="2.2.0" />
-    <PackageReference Include="Microsoft.ServiceFabric" Version="7.0.464" />
-    <PackageReference Include="Microsoft.ServiceFabric.AspNetCore.Abstractions" Version="4.0.464" />
-    <PackageReference Include="Microsoft.ServiceFabric.Services" Version="4.0.464" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Cogito.AspNetCore" Version="2.0.1" />
+        <PackageReference Include="Microsoft.AspNetCore.Hosting.Abstractions" Version="2.2.0" />
+        <PackageReference Include="Microsoft.ServiceFabric" Version="7.0.464" />
+        <PackageReference Include="Microsoft.ServiceFabric.AspNetCore.Abstractions" Version="4.0.464" />
+        <PackageReference Include="Microsoft.ServiceFabric.Services" Version="4.0.464" />
+    </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Cogito.ServiceFabric.Services\Cogito.ServiceFabric.Services.csproj" />
-  </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\Cogito.ServiceFabric.Services\Cogito.ServiceFabric.Services.csproj" />
+    </ItemGroup>
 
 </Project>

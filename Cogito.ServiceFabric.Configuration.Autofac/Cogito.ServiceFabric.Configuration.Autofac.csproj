@@ -1,22 +1,25 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <Authors>Jerome Haltom</Authors>
-    <Company>Jerome Haltom</Company>
-    <PackageProjectUrl>https://github.com/wasabii/Cogito.ServiceFabric</PackageProjectUrl>
-    <PackageIconUrl>https://cloverluxussc.blob.core.windows.net/public/cogito-nuget-icon.png</PackageIconUrl>
-    <Description>Service Fabric configuration support for Autofac.</Description>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <Authors>Jerome Haltom</Authors>
+        <Company />
+        <Description>Service Fabric configuration support for Autofac.</Description>
+        <RepositoryUrl>https://github.com/wasabii/Cogito.ServiceFabric</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageLicenseUrl></PackageLicenseUrl>
+        <PackageProjectUrl>https://github.com/wasabii/Cogito.ServiceFabric</PackageProjectUrl>
+        <PackageIconUrl>https://cloverluxussc.blob.core.windows.net/public/cogito-nuget-icon.png</PackageIconUrl>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Cogito.Extensions.Configuration.Autofac" Version="2.0.0" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Cogito.Extensions.Configuration.Autofac" Version="2.0.0" />
+    </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Cogito.ServiceFabric.Configuration\Cogito.ServiceFabric.Configuration.csproj" />
-    <ProjectReference Include="..\Cogito.ServiceFabric\Cogito.ServiceFabric.csproj" />
-  </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\Cogito.ServiceFabric.Configuration\Cogito.ServiceFabric.Configuration.csproj" />
+        <ProjectReference Include="..\Cogito.ServiceFabric\Cogito.ServiceFabric.csproj" />
+    </ItemGroup>
 
 </Project>
