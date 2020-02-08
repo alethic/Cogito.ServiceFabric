@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 
 namespace Cogito.ServiceFabric.AspNetCore
@@ -13,7 +12,7 @@ namespace Cogito.ServiceFabric.AspNetCore
     /// <summary>
     /// Detects the Service Fabric Reverse Proxy and fixes up requests for ASP.Net.
     /// </summary>
-    public class ServiceFabricReverseProxyRewriteMiddleware
+    public class ServiceFabricReverseProxyMiddleware
     {
 
         readonly static XNamespace sf = "http://schemas.microsoft.com/2011/01/fabric";
@@ -27,7 +26,8 @@ namespace Cogito.ServiceFabric.AspNetCore
         /// Initializes a new instance.
         /// </summary>
         /// <param name="next"></param>
-        public ServiceFabricReverseProxyRewriteMiddleware(RequestDelegate next, ServiceContext context)
+        /// <param name="context"></param>
+        public ServiceFabricReverseProxyMiddleware(RequestDelegate next, ServiceContext context)
         {
             this.next = next ?? throw new ArgumentNullException(nameof(next));
             this.context = context ?? throw new ArgumentNullException(nameof(context));
@@ -41,7 +41,8 @@ namespace Cogito.ServiceFabric.AspNetCore
         /// <returns></returns>
         async Task<XDocument> GetClusterManifest()
         {
-            return XDocument.Parse(await new FabricClient().ClusterManager.GetClusterManifestAsync());
+            using (var c = new FabricClient())
+                return XDocument.Parse(await c.ClusterManager.GetClusterManifestAsync());
         }
 
         /// <summary>
@@ -142,27 +143,6 @@ namespace Cogito.ServiceFabric.AspNetCore
             }
 
             await next(http);
-        }
-
-    }
-
-    public static class ServiceFabricReverseProxyMiddlewareExtensions
-    {
-
-        /// <summary>
-        /// Extension method to use <see cref="ServiceFabricReverseProxyRewriteMiddleware"/> for Service Fabric stateful or stateless
-        /// services.
-        /// </summary>
-        /// <param name="builder"></param>
-        /// <returns></returns>
-        public static IApplicationBuilder UseServiceFabricReverseProxyMiddleware(this IApplicationBuilder builder, ServiceContext context)
-        {
-            if (builder == null)
-                throw new ArgumentNullException(nameof(builder));
-            if (context == null)
-                throw new ArgumentNullException(nameof(context));
-
-            return builder.UseMiddleware<ServiceFabricReverseProxyRewriteMiddleware>(context);
         }
 
     }

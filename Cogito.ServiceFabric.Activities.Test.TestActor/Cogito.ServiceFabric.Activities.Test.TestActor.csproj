@@ -1,14 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net461</TargetFramework>
+        <TargetFramework>net472</TargetFramework>
         <ApplicationIcon />
         <OutputType>Exe</OutputType>
         <StartupObject />
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Cogito.Activities" Version="3.0.7" />
+      <PackageReference Include="Cogito.Activities" Version="3.1.1" />
     </ItemGroup>
 
     <ItemGroup>

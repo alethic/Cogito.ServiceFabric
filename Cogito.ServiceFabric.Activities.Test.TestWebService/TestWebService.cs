@@ -2,8 +2,11 @@
 using System.Fabric;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Web.Http;
 
 using Microsoft.Owin;
+
+using Owin;
 
 namespace Cogito.ServiceFabric.Activities.Test.TestWebService
 {
@@ -18,12 +21,12 @@ namespace Cogito.ServiceFabric.Activities.Test.TestWebService
 
         }
 
-        //protected override void Configure(global::Owin.IAppBuilder appBuilder)
-        //{
-        //    var http = new HttpConfiguration();
-        //    http.MapHttpAttributeRoutes();
-        //    appBuilder.UseWebApi(http);
-        //}
+        protected override void Configure(global::Owin.IAppBuilder appBuilder)
+        {
+            var http = new HttpConfiguration();
+            http.MapHttpAttributeRoutes();
+            appBuilder.UseWebApi(http);
+        }
 
         protected override Task OnRequest(IOwinContext context, Func<Task> next)
         {

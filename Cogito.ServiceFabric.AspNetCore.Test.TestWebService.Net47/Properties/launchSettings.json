@@ -1,0 +1,12 @@
+﻿{
+    "profiles": {
+        "Cogito.ServiceFabric.AspNetCore.Test.TestWebService.Net47": {
+            "commandName": "Project",
+            "launchBrowser": true,
+            "applicationUrl": "http://localhost:5000",
+            "environmentVariables": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            }
+        }
+    }
+}

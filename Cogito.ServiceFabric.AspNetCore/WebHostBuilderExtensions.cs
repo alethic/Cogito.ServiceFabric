@@ -28,7 +28,7 @@ namespace Cogito.ServiceFabric.AspNetCore
                 return hostBuilder;
 
             hostBuilder.UseSetting(nameof(UseServiceFabricReverseProxyRewrite), true.ToString());
-            hostBuilder.ConfigureServices(services => services.AddSingleton<IStartupFilter>(new ServiceFabricReverseProxyRewriteSetupFilter(context)));
+            hostBuilder.ConfigureServices(services => services.AddSingleton<IStartupFilter>(new ServiceFabricReverseProxySetupFilter(context)));
 
             return hostBuilder;
         }

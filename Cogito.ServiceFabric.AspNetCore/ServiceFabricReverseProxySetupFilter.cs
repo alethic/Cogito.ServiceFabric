@@ -10,7 +10,7 @@ namespace Cogito.ServiceFabric.AspNetCore
     /// <summary>
     /// Adds in middleware that detects the Service Fabric Reverse Proxy and fixes up requests for ASP.Net.
     /// </summary>
-    class ServiceFabricReverseProxyRewriteSetupFilter :
+    class ServiceFabricReverseProxySetupFilter :
         IStartupFilter
     {
 
@@ -20,7 +20,7 @@ namespace Cogito.ServiceFabric.AspNetCore
         /// Initializes a new instance.
         /// </summary>
         /// <param name="context"></param>
-        public ServiceFabricReverseProxyRewriteSetupFilter(ServiceContext context)
+        public ServiceFabricReverseProxySetupFilter(ServiceContext context)
         {
             this.context = context ?? throw new ArgumentNullException(nameof(context));
         }
