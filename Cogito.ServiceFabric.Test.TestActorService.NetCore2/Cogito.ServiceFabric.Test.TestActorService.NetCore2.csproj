@@ -18,6 +18,7 @@
 
     <ItemGroup>
         <ProjectReference Include="..\Cogito.ServiceFabric.Actors.Autofac\Cogito.ServiceFabric.Actors.Autofac.csproj" />
+        <ProjectReference Include="..\Cogito.ServiceFabric.Configuration.Autofac\Cogito.ServiceFabric.Configuration.Autofac.csproj" />
     </ItemGroup>
 
 </Project>

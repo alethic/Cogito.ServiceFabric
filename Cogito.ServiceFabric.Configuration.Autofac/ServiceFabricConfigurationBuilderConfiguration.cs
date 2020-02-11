@@ -5,6 +5,7 @@ using Cogito.Autofac;
 using Cogito.Extensions.Configuration.Autofac;
 
 using Microsoft.Extensions.Configuration;
+using Microsoft.ServiceFabric.AspNetCore.Configuration;
 
 namespace Cogito.ServiceFabric.Configuration.Autofac
 {
@@ -22,12 +23,7 @@ namespace Cogito.ServiceFabric.Configuration.Autofac
             if (builder == null)
                 throw new ArgumentNullException(nameof(builder));
 
-            var context = FabricRuntime.GetActivationContext();
-            if (context != null)
-                foreach (var config in context.GetConfigurationPackageNames())
-                    builder = builder.AddServiceFabricConfig(config);
-
-            return builder;
+            return builder.AddServiceFabricConfiguration(FabricRuntime.GetActivationContext(), o => o.IncludePackageName = false);
         }
 
     }

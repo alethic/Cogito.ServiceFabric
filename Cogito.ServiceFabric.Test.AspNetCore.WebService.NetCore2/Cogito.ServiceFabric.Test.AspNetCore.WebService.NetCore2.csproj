@@ -15,6 +15,7 @@
 
     <ItemGroup>
         <ProjectReference Include="..\Cogito.ServiceFabric.AspNetCore.Kestrel.Autofac\Cogito.ServiceFabric.AspNetCore.Kestrel.Autofac.csproj" />
+        <ProjectReference Include="..\Cogito.ServiceFabric.Configuration.Autofac\Cogito.ServiceFabric.Configuration.Autofac.csproj" />
     </ItemGroup>
 
 </Project>
