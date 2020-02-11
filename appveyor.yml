@@ -26,9 +26,9 @@ artifacts:
 
 deploy:
   provider: NuGet
-  server: %nuget_github_feed%
-  username: %nuget_github_user%
-  api_key: %nuget_github_pass%
+  server: $(nuget_github_feed)
+  username: $(nuget_github_user)
+  api_key: $(nuget_github_pass)
   skip_symbols: false
   symbol_server:
   artifact: /.*\.nupkg/
