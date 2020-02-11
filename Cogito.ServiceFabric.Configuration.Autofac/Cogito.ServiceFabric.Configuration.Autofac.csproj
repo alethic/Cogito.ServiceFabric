@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
-        <Description>Service Fabric configuration support for Autofac.</Description>
+        <Description>Extensions for sourcing Microsoft.Extensions.Configuration information from Service Fabric.</Description>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     </PropertyGroup>
 

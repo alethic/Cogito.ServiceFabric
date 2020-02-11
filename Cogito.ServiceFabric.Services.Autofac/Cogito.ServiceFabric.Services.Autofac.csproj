@@ -1,13 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <Description>Extensions to the Service Fabric services classes.</Description>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Cogito.ServiceFabric.Autofac\Cogito.ServiceFabric.Autofac.csproj" />
-    <ProjectReference Include="..\Cogito.ServiceFabric.Services\Cogito.ServiceFabric.Services.csproj" />
-    <ProjectReference Include="..\Cogito.ServiceFabric\Cogito.ServiceFabric.csproj" />
-  </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\Cogito.ServiceFabric.Autofac\Cogito.ServiceFabric.Autofac.csproj" />
+        <ProjectReference Include="..\Cogito.ServiceFabric.Services\Cogito.ServiceFabric.Services.csproj" />
+        <ProjectReference Include="..\Cogito.ServiceFabric\Cogito.ServiceFabric.csproj" />
+    </ItemGroup>
 
 </Project>
