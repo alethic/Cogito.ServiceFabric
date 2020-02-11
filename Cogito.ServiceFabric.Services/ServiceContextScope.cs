@@ -17,13 +17,13 @@ namespace Cogito.ServiceFabric.Services
         /// <returns></returns>
         public static IDisposable Push(ServiceContext context)
         {
-            return AsyncLocalStack<ServiceContext>.Push(context);
+            return AssemblyInfo<ServiceContext>.Push(context);
         }
 
         /// <summary>
         /// Gets the current <see cref="ServiceContext"/>.
         /// </summary>
-        public static ServiceContext Current => AsyncLocalStack<ServiceContext>.Current;
+        public static ServiceContext Current => AssemblyInfo<ServiceContext>.Current;
 
     }
 

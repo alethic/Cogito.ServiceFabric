@@ -8,7 +8,7 @@ namespace Cogito.ServiceFabric.Services
     /// <summary>
     /// Manages a Logical Call Context variable containing a stack of <typeparamref name="T"/> instances.
     /// </summary>
-    static class AsyncLocalStack<T>
+    static class AssemblyInfo<T>
     {
 
         /// <summary>
