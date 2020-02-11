@@ -6,7 +6,7 @@
         <ServerGarbageCollection>True</ServerGarbageCollection>
         <IsServiceFabricServiceProject>True</IsServiceFabricServiceProject>
         <RuntimeIdentifier>win7-x64</RuntimeIdentifier>
-        <UpdateServiceFabricManifestEnabled>True</UpdateServiceFabricManifestEnabled>
+        <UpdateServiceFabricManifestEnabled>False</UpdateServiceFabricManifestEnabled>
         <ServicePackagePath>PackageRoot</ServicePackagePath>
         <ServicePackagePrefix>$(MSBuildProjectName)</ServicePackagePrefix>
     </PropertyGroup>

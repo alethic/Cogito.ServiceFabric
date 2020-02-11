@@ -13,4 +13,8 @@
         <PackageReference Include="Microsoft.ServiceFabric.AspNetCore.Configuration" Version="4.0.466" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Cogito.ServiceFabric\Cogito.ServiceFabric.csproj" />
+    </ItemGroup>
+
 </Project>
