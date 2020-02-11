@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.0</TargetFramework>
+        <OutputType>Exe</OutputType>
+        <ServerGarbageCollection>True</ServerGarbageCollection>
+        <IsServiceFabricServiceProject>True</IsServiceFabricServiceProject>
+        <RuntimeIdentifier>win7-x64</RuntimeIdentifier>
+        <UpdateServiceFabricManifestEnabled>True</UpdateServiceFabricManifestEnabled>
+        <ServicePackagePath>PackageRoot</ServicePackagePath>
+        <ServicePackagePrefix>$(MSBuildProjectName)</ServicePackagePrefix>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.ServiceFabric" Version="7.0.466" />
+        <PackageReference Include="Microsoft.ServiceFabric.Actors" Version="4.0.466" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Cogito.ServiceFabric.Actors.Autofac\Cogito.ServiceFabric.Actors.Autofac.csproj" />
+    </ItemGroup>
+
+</Project>

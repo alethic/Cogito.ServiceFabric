@@ -9,7 +9,7 @@
     <ItemGroup>
         <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.1.1" />
         <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="3.1.1" />
-        <PackageReference Include="Microsoft.ServiceFabric" Version="7.0.464" />
+        <PackageReference Include="Microsoft.ServiceFabric" Version="7.0.466" />
     </ItemGroup>
 
 </Project>

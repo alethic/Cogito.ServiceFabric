@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cogito.ServiceFabric.Actors\Cogito.ServiceFabric.Actors.csproj" />
+    <ProjectReference Include="..\Cogito.ServiceFabric.Autofac\Cogito.ServiceFabric.Autofac.csproj" />
+  </ItemGroup>
+
+</Project>

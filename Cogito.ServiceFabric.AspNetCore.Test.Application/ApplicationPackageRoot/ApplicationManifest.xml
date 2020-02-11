@@ -30,20 +30,5 @@
     </EnvironmentOverrides>
   </ServiceManifestImport>
   <DefaultServices>
-    <Service Name="TestWebService.Net47" ServicePackageActivationMode="ExclusiveProcess">
-      <StatelessService ServiceTypeName="Cogito.ServiceFabric.AspNetCore.Test.TestWebService.Net47" InstanceCount="[TestWebService.Net47_InstanceCount]">
-        <SingletonPartition />
-      </StatelessService>
-    </Service>
-    <Service Name="TestWebService.NetCore2" ServicePackageActivationMode="ExclusiveProcess">
-      <StatelessService ServiceTypeName="Cogito.ServiceFabric.AspNetCore.Test.TestWebService.NetCore2" InstanceCount="[TestWebService.NetCore2_InstanceCount]">
-        <SingletonPartition />
-      </StatelessService>
-    </Service>
-    <Service Name="TestWebService.NetCore3" ServicePackageActivationMode="ExclusiveProcess">
-      <StatelessService ServiceTypeName="Cogito.ServiceFabric.AspNetCore.Test.TestWebService.NetCore3" InstanceCount="[TestWebService.NetCore3_InstanceCount]">
-        <SingletonPartition />
-      </StatelessService>
-    </Service>
   </DefaultServices>
 </ApplicationManifest>

@@ -31,7 +31,7 @@ namespace Cogito.ServiceFabric.AspNetCore.Kestrel.Autofac
         public StatelessKestrelWebService(
             StatelessServiceContext context,
             ILifetimeScope scope,
-            WebServiceEndpoint endpoint = null) :
+            DefaultServiceEndpoint endpoint = null) :
             base(context, scope, endpoint)
         {
             this.scope = scope ?? throw new ArgumentNullException(nameof(scope));
@@ -67,7 +67,7 @@ namespace Cogito.ServiceFabric.AspNetCore.Kestrel.Autofac
         public StatelessKestrelWebService(
             StatelessServiceContext context,
             ILifetimeScope scope,
-            WebServiceEndpoint endpoint = null) :
+            DefaultServiceEndpoint endpoint = null) :
             base(context, endpoint)
         {
             this.scope = scope ?? throw new ArgumentNullException(nameof(scope));

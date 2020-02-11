@@ -1,9 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\Microsoft.VisualStudio.Azure.Fabric.MSBuild.1.1.0\build\Microsoft.VisualStudio.Azure.Fabric.Application.props" Condition="Exists('..\packages\Microsoft.VisualStudio.Azure.Fabric.MSBuild.1.1.0\build\Microsoft.VisualStudio.Azure.Fabric.Application.props')" />
+  <Import Project="..\packages\Microsoft.VisualStudio.Azure.Fabric.MSBuild.1.6.9\build\Microsoft.VisualStudio.Azure.Fabric.Application.props" Condition="Exists('..\packages\Microsoft.VisualStudio.Azure.Fabric.MSBuild.1.6.9\build\Microsoft.VisualStudio.Azure.Fabric.Application.props')" />
   <PropertyGroup Label="Globals">
     <ProjectGuid>f8e665e6-e512-40c3-ba09-e7dced1f55c2</ProjectGuid>
-    <ProjectVersion>1.1</ProjectVersion>
+    <ProjectVersion>2.1</ProjectVersion>
+    <SupportedMSBuildNuGetPackageVersion>1.6.9</SupportedMSBuildNuGetPackageVersion>
+    <MinToolsVersion>1.5</MinToolsVersion>
   </PropertyGroup>
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|x64">
@@ -17,22 +19,34 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ApplicationParameters\Cloud.xml" />
-    <None Include="ApplicationParameters\Local.xml" />
+    <None Include="ApplicationParameters\Local.5Node.xml" />
     <None Include="PublishProfiles\Cloud.xml" />
-    <None Include="PublishProfiles\Local.xml" />
+    <None Include="PublishProfiles\Local.5Node.xml" />
     <None Include="Scripts\Deploy-FabricApplication.ps1" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="ApplicationPackageRoot\ApplicationManifest.xml" />
+    <Content Include="ApplicationParameters\Local.1Node.xml" />
     <Content Include="packages.config" />
+    <Content Include="PublishProfiles\Local.1Node.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Cogito.ServiceFabric.Test.Web.Service\Cogito.ServiceFabric.Test.Web.Service.csproj" />
+    <ProjectReference Include="..\Cogito.ServiceFabric.Test.AspNetCore.WebService.Net47\Cogito.ServiceFabric.Test.AspNetCore.WebService.Net47.csproj" />
+    <ProjectReference Include="..\Cogito.ServiceFabric.Test.AspNetCore.WebService.NetCore2\Cogito.ServiceFabric.Test.AspNetCore.WebService.NetCore2.csproj" />
+    <ProjectReference Include="..\Cogito.ServiceFabric.Test.AspNetCore.WebService.NetCore3\Cogito.ServiceFabric.Test.AspNetCore.WebService.NetCore3.csproj" />
+    <ProjectReference Include="..\Cogito.ServiceFabric.Test.Http.TestService\Cogito.ServiceFabric.Test.Http.TestService.csproj" />
+    <ProjectReference Include="..\Cogito.ServiceFabric.Test.TestActorService.Net47\Cogito.ServiceFabric.Test.TestActorService.Net47.csproj" />
+    <ProjectReference Include="..\Cogito.ServiceFabric.Test.TestActorService.NetCore2\Cogito.ServiceFabric.Test.TestActorService.NetCore2.csproj" />
+    <ProjectReference Include="..\Cogito.ServiceFabric.Test.TestActorService.NetCore3\Cogito.ServiceFabric.Test.TestActorService.NetCore3.csproj" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
   <PropertyGroup>
     <ApplicationProjectTargetsPath>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Service Fabric Tools\Microsoft.VisualStudio.Azure.Fabric.ApplicationProject.targets</ApplicationProjectTargetsPath>
   </PropertyGroup>
   <Import Project="$(ApplicationProjectTargetsPath)" Condition="Exists('$(ApplicationProjectTargetsPath)')" />
-  <Import Project="..\packages\Microsoft.VisualStudio.Azure.Fabric.MSBuild.1.1.0\build\Microsoft.VisualStudio.Azure.Fabric.Application.targets" Condition="Exists('..\packages\Microsoft.VisualStudio.Azure.Fabric.MSBuild.1.1.0\build\Microsoft.VisualStudio.Azure.Fabric.Application.targets')" />
+  <Import Project="..\packages\Microsoft.VisualStudio.Azure.Fabric.MSBuild.1.6.9\build\Microsoft.VisualStudio.Azure.Fabric.Application.targets" Condition="Exists('..\packages\Microsoft.VisualStudio.Azure.Fabric.MSBuild.1.6.9\build\Microsoft.VisualStudio.Azure.Fabric.Application.targets')" />
+  <Target Name="ValidateMSBuildFiles" BeforeTargets="PrepareForBuild">
+    <Error Condition="!Exists('..\packages\Microsoft.VisualStudio.Azure.Fabric.MSBuild.1.6.9\build\Microsoft.VisualStudio.Azure.Fabric.Application.props')" Text="Unable to find the '..\packages\Microsoft.VisualStudio.Azure.Fabric.MSBuild.1.6.9\build\Microsoft.VisualStudio.Azure.Fabric.Application.props' file. Please restore the 'Microsoft.VisualStudio.Azure.Fabric.MSBuild' Nuget package." />
+    <Error Condition="!Exists('..\packages\Microsoft.VisualStudio.Azure.Fabric.MSBuild.1.6.9\build\Microsoft.VisualStudio.Azure.Fabric.Application.targets')" Text="Unable to find the '..\packages\Microsoft.VisualStudio.Azure.Fabric.MSBuild.1.6.9\build\Microsoft.VisualStudio.Azure.Fabric.Application.targets' file. Please restore the 'Microsoft.VisualStudio.Azure.Fabric.MSBuild' Nuget package." />
+  </Target>
 </Project>

@@ -22,7 +22,7 @@ namespace Cogito.ServiceFabric.AspNetCore.Autofac
             where TService : StatelessWebService
         {
             return builder.RegisterStatelessService<TService>(serviceTypeName)
-                .WithParameter(TypedParameter.From(new WebServiceEndpoint(endpointName)));
+                .WithParameter(TypedParameter.From(new DefaultServiceEndpoint(endpointName)));
         }
 
         /// <summary>
@@ -39,7 +39,7 @@ namespace Cogito.ServiceFabric.AspNetCore.Autofac
             where TService : StatefulWebService
         {
             return builder.RegisterStatefulService<TService>(serviceTypeName)
-                .WithParameter(TypedParameter.From(new WebServiceEndpoint(endpointName)));
+                .WithParameter(TypedParameter.From(new DefaultServiceEndpoint(endpointName)));
         }
 
     }

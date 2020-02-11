@@ -6,14 +6,15 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Autofac.ServiceFabric" Version="2.3.0-develop-00003" />
         <PackageReference Include="Cogito.AspNetCore.Autofac" Version="2.0.6" />
-        <PackageReference Include="Cogito.Autofac" Version="2.2.0" />
-        <PackageReference Include="Microsoft.ServiceFabric.Actors" Version="4.0.464" />
+        <PackageReference Include="Cogito.Autofac" Version="2.2.4" />
+        <PackageReference Include="Microsoft.ServiceFabric.Actors" Version="4.0.466" />
     </ItemGroup>
 
     <ItemGroup>
         <ProjectReference Include="..\Cogito.ServiceFabric.AspNetCore\Cogito.ServiceFabric.AspNetCore.csproj" />
+        <ProjectReference Include="..\Cogito.ServiceFabric.Autofac\Cogito.ServiceFabric.Autofac.csproj" />
+        <ProjectReference Include="..\Cogito.ServiceFabric.Services.Autofac\Cogito.ServiceFabric.Services.Autofac.csproj" />
     </ItemGroup>
 
 </Project>

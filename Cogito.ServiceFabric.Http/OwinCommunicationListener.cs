@@ -4,6 +4,7 @@ using System.Fabric.Description;
 using System.Globalization;
 using System.Threading;
 using System.Threading.Tasks;
+
 using Microsoft.Owin.Host.HttpListener;
 using Microsoft.Owin.Hosting;
 using Microsoft.ServiceFabric.Services.Communication.Runtime;
@@ -36,8 +37,8 @@ namespace Cogito.ServiceFabric.Http
         /// <param name="serviceContext"></param>
         public OwinCommunicationListener(
             Action<IAppBuilder> configure,
-            ServiceContext serviceContext)
-            : this(configure, serviceContext, null)
+            ServiceContext serviceContext) :
+            this(configure, serviceContext, null)
         {
             if (configure == null)
                 throw new ArgumentNullException(nameof(configure));
@@ -54,8 +55,8 @@ namespace Cogito.ServiceFabric.Http
         public OwinCommunicationListener(
             Action<IAppBuilder> configure,
             ServiceContext serviceContext,
-            string appRoot)
-            : this(configure, serviceContext, "HttpServiceEndpoint", appRoot)
+            string appRoot) :
+            this(configure, serviceContext, "HttpServiceEndpoint", appRoot)
         {
             if (configure == null)
                 throw new ArgumentNullException(nameof(configure));

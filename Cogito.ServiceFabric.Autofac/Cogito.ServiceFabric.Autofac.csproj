@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac.ServiceFabric" Version="2.3.0-develop-00004" />
+    <PackageReference Include="Cogito.Autofac" Version="2.2.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cogito.ServiceFabric\Cogito.ServiceFabric.csproj" />
+  </ItemGroup>
+
+</Project>
