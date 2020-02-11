@@ -2,6 +2,9 @@ image: Visual Studio 2019
 configuration: Release
 platform: Any CPU
 
+cache:
+  - %USERPROFILE%\.nuget\packages
+
 install:
   - choco install gitversion.portable -pre -y
 
