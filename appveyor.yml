@@ -3,7 +3,7 @@ configuration: Release
 platform: Any CPU
 
 cache:
-  - "%USERPROFILE%\.nuget\packages"
+  - packages
 
 install:
   - choco install gitversion.portable -pre -y
