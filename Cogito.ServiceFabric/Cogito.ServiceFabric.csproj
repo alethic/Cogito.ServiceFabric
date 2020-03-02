@@ -8,7 +8,7 @@
 
     <ItemGroup>
         <PackageReference Include="Castle.Core" Version="4.4.0" />
-        <PackageReference Include="Cogito.Core" Version="3.0.11" />
+        <PackageReference Include="Cogito.Core" Version="3.1.13" />
         <PackageReference Include="Microsoft.ServiceFabric" Version="7.0.466" />
         <PackageReference Include="Microsoft.ServiceFabric.Data" Version="4.0.466" />
         <PackageReference Include="Microsoft.ServiceFabric.Data.Extensions" Version="4.0.466" />

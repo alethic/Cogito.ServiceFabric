@@ -7,7 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Autofac.ServiceFabric" Version="2.3.0-develop-00004" />
+        <PackageReference Include="Autofac.ServiceFabric" Version="3.0.0" />
         <PackageReference Include="Cogito.Autofac" Version="2.2.4" />
     </ItemGroup>
 
