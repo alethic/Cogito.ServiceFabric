@@ -6,7 +6,7 @@
         <RepositoryType>git</RepositoryType>
         <PackageTags>servicefabric</PackageTags>
         <PackageProjectUrl>https://github.com/alethic/Cogito.ServiceFabric</PackageProjectUrl>
-        <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageIcon>icon.png</PackageIcon>
         <LangVersion>8.0</LangVersion>
     </PropertyGroup>
