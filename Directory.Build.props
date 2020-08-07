@@ -1,13 +1,16 @@
 <Project>
     <PropertyGroup>
         <Authors>Jerome Haltom</Authors>
-        <Company>Jerome Haltom</Company>
-        <RepositoryUrl>https://github.com/wasabii/Cogito.ServiceFabric</RepositoryUrl>
+        <Company>Alethic Solutions</Company>
+        <RepositoryUrl>https://github.com/alethic/Cogito.ServiceFabric</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
-        <PackageLicenseUrl></PackageLicenseUrl>
-        <PackageProjectUrl>https://github.com/wasabii/Cogito.ServiceFabric</PackageProjectUrl>
-        <PackageIconUrl>https://cloverluxussc.blob.core.windows.net/public/cogito-nuget-icon.png</PackageIconUrl>
         <PackageTags>servicefabric</PackageTags>
+        <PackageProjectUrl>https://github.com/alethic/Cogito.ServiceFabric</PackageProjectUrl>
+        <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
+        <PackageIcon>icon.png</PackageIcon>
         <LangVersion>8.0</LangVersion>
     </PropertyGroup>
+    <ItemGroup>
+        <None Include="$(MSBuildThisFileDirectory)icon.png" Pack="true" PackagePath="" />
+    </ItemGroup>
 </Project>
