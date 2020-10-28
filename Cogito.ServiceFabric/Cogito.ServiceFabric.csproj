@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
-        <Description>Microsoft Service Fabric core libraries.</Description>
+        <Description>Cogito extensions to the Microsoft Service Fabric core libraries.</Description>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     </PropertyGroup>
 

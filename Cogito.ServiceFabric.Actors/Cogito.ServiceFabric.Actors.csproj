@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
-        <Description>Microsoft Service Fabric infrastructure for running Windows Workflows within an Actor.</Description>
+        <Description>Cogito extensions to the Microsoft Service Fabric infrastructure for running Windows Workflows within an Actor.</Description>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     </PropertyGroup>
 

@@ -1,12 +1,9 @@
-using Cogito.Autofac;
-
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 
 namespace Cogito.ServiceFabric.Test.AspNetCore.WebService.NetCore3
 {
 
-    [RegisterAs(typeof(Startup))]
     public class Startup
     {
 

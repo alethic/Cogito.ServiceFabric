@@ -44,7 +44,7 @@ namespace Cogito.ServiceFabric.AspNetCore.Kestrel.Autofac
         /// <returns></returns>
         protected override IWebHostBuilder ConfigureWebHostBuilder(IWebHostBuilder builder)
         {
-            return base.ConfigureWebHostBuilder(builder).UseStartup<TStartup>(scope);
+            return base.ConfigureWebHostBuilder(builder).UseStartup<TStartup>();
         }
 
     }
@@ -85,7 +85,16 @@ namespace Cogito.ServiceFabric.AspNetCore.Kestrel.Autofac
         /// <returns></returns>
         protected override IWebHostBuilder ConfigureWebHostBuilder(IWebHostBuilder builder)
         {
-            return base.ConfigureWebHostBuilder(builder).UseComponentContext(scope);
+            return base.ConfigureWebHostBuilder(builder).UseAutofac(scope, ConfigureContainer);
+        }
+
+        /// <summary>
+        /// Adds additional configuration to the container.
+        /// </summary>
+        /// <param name="builder"></param>
+        protected virtual void ConfigureContainer(ContainerBuilder builder)
+        {
+
         }
 
     }
