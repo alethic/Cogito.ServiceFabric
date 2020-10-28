@@ -10,7 +10,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Cogito.Extensions.Logging.Serilog.Autofac" Version="2.0.15" />
+        <PackageReference Include="Cogito.Extensions.Logging.Serilog.Autofac" Version="2.0.19" />
     </ItemGroup>
 
     <ItemGroup>
