@@ -1,22 +1,21 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <PackageProjectUrl>https://github.com/wasabii/Cogito.ServiceFabric</PackageProjectUrl>
-    <PackageIconUrl>https://cloverluxussc.blob.core.windows.net/public/cogito-nuget-icon.png</PackageIconUrl>
-    <Authors>Jerome Haltom</Authors>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFrameworks>netstandard2.0;netcoreapp3.0</TargetFrameworks>
+        <Description>Helper objects for running ASP.Net Core on Service Fabric.</Description>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Autofac.ServiceFabric" Version="2.0.0" />
-    <PackageReference Include="Cogito.AspNetCore.Autofac" Version="1.3.0" />
-    <PackageReference Include="Cogito.Autofac" Version="1.2.0" />
-    <PackageReference Include="Microsoft.ServiceFabric.Actors" Version="3.3.638" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Cogito.AspNetCore.Autofac" Version="2.0.8" />
+        <PackageReference Include="Cogito.Autofac" Version="2.2.5" />
+        <PackageReference Include="Microsoft.ServiceFabric.Actors" Version="4.0.466" />
+    </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Cogito.ServiceFabric.AspNetCore\Cogito.ServiceFabric.AspNetCore.csproj" />
-  </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\Cogito.ServiceFabric.AspNetCore\Cogito.ServiceFabric.AspNetCore.csproj" />
+        <ProjectReference Include="..\Cogito.ServiceFabric.Autofac\Cogito.ServiceFabric.Autofac.csproj" />
+        <ProjectReference Include="..\Cogito.ServiceFabric.Services.Autofac\Cogito.ServiceFabric.Services.Autofac.csproj" />
+    </ItemGroup>
 
 </Project>

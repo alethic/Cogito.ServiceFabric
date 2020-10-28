@@ -1,29 +1,121 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="Cogito.ServiceFabric.Test" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
-    <Parameter Name="TestActorService_PartitionCount" DefaultValue="10" />
-    <Parameter Name="TestActorService_MinReplicaSetSize" DefaultValue="2" />
-    <Parameter Name="TestActorService_TargetReplicaSetSize" DefaultValue="3" />
-    <Parameter Name="Service_InstanceCount" DefaultValue="-1" />
+    <Parameter Name="NetCore2TestActorService_PartitionCount" DefaultValue="10" />
+    <Parameter Name="NetCore2TestActorService_MinReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="NetCore2TestActorService_TargetReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="NetCore3TestActorService_PartitionCount" DefaultValue="10" />
+    <Parameter Name="NetCore3TestActorService_MinReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="NetCore3TestActorService_TargetReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="Net47TestActorService_PartitionCount" DefaultValue="10" />
+    <Parameter Name="Net47TestActorService_MinReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="Net47TestActorService_TargetReplicaSetSize" DefaultValue="3" />
   </Parameters>
   <ServiceManifestImport>
-    <ServiceManifestRef ServiceManifestName="Cogito.ServiceFabric.Test.Web.ServicePkg" ServiceManifestVersion="1.0.0" />
-    <ConfigOverrides />
+    <ServiceManifestRef ServiceManifestName="Cogito.ServiceFabric.Test.AspNetCore.WebService.Net47" ServiceManifestVersion="1.0.0" />
+  </ServiceManifestImport>
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="Cogito.ServiceFabric.Test.AspNetCore.WebService.NetCore2" ServiceManifestVersion="1.0.0" />
+  </ServiceManifestImport>
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="Cogito.ServiceFabric.Test.AspNetCore.WebService.NetCore3" ServiceManifestVersion="1.0.0" />
+  </ServiceManifestImport>
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="Cogito.ServiceFabric.Test.Http.TestService" ServiceManifestVersion="1.0.0" />
+  </ServiceManifestImport>
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="Cogito.ServiceFabric.Test.TestActorService.Net47Pkg" ServiceManifestVersion="1.0.0" />
+  </ServiceManifestImport>
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="Cogito.ServiceFabric.Test.TestActorService.NetCore2Pkg" ServiceManifestVersion="1.0.0" />
+  </ServiceManifestImport>
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="Cogito.ServiceFabric.Test.TestActorService.NetCore3Pkg" ServiceManifestVersion="1.0.0" />
   </ServiceManifestImport>
   <DefaultServices>
+    <Service Name="AspNetCore.WebService.Net47.TestDefaultStatelessKestrelWebService">
+      <StatelessService ServiceTypeName="Cogito.ServiceFabric.Test.AspNetCore.WebService.Net47.TestDefaultStatelessKestrelWebService">
+        <SingletonPartition />
+      </StatelessService>
+    </Service>
+    <Service Name="AspNetCore.WebService.Net47.TestDefaultStatefulKestrelWebService">
+      <StatefulService ServiceTypeName="Cogito.ServiceFabric.Test.AspNetCore.WebService.Net47.TestDefaultStatefulKestrelWebService">
+        <UniformInt64Partition PartitionCount="3" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
+      </StatefulService>
+    </Service>
+    <Service Name="AspNetCore.WebService.Net47.TestStatelessKestrelWebService">
+      <StatelessService ServiceTypeName="Cogito.ServiceFabric.Test.AspNetCore.WebService.Net47.TestStatelessKestrelWebService">
+        <SingletonPartition />
+      </StatelessService>
+    </Service>
+    <Service Name="AspNetCore.WebService.Net47.TestStatefulKestrelWebService">
+      <StatefulService ServiceTypeName="Cogito.ServiceFabric.Test.AspNetCore.WebService.Net47.TestStatefulKestrelWebService">
+        <UniformInt64Partition PartitionCount="3" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
+      </StatefulService>
+    </Service>
+    <Service Name="AspNetCore.WebService.NetCore2.TestDefaultStatelessKestrelWebService">
+      <StatelessService ServiceTypeName="Cogito.ServiceFabric.Test.AspNetCore.WebService.NetCore2.TestDefaultStatelessKestrelWebService">
+        <SingletonPartition />
+      </StatelessService>
+    </Service>
+    <Service Name="AspNetCore.WebService.NetCore2.TestDefaultStatefulKestrelWebService">
+      <StatefulService ServiceTypeName="Cogito.ServiceFabric.Test.AspNetCore.WebService.NetCore2.TestDefaultStatefulKestrelWebService">
+        <UniformInt64Partition PartitionCount="3" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
+      </StatefulService>
+    </Service>
+    <Service Name="AspNetCore.WebService.NetCore2.TestStatelessKestrelWebService">
+      <StatelessService ServiceTypeName="Cogito.ServiceFabric.Test.AspNetCore.WebService.NetCore2.TestStatelessKestrelWebService">
+        <SingletonPartition />
+      </StatelessService>
+    </Service>
+    <Service Name="AspNetCore.WebService.NetCore2.TestStatefulKestrelWebService">
+      <StatefulService ServiceTypeName="Cogito.ServiceFabric.Test.AspNetCore.WebService.NetCore2.TestStatefulKestrelWebService">
+        <UniformInt64Partition PartitionCount="3" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
+      </StatefulService>
+    </Service>
+    <Service Name="AspNetCore.WebService.NetCore3.TestDefaultStatelessKestrelWebService">
+      <StatelessService ServiceTypeName="Cogito.ServiceFabric.Test.AspNetCore.WebService.NetCore3.TestDefaultStatelessKestrelWebService">
+        <SingletonPartition />
+      </StatelessService>
+    </Service>
+    <Service Name="AspNetCore.WebService.NetCore3.TestDefaultStatefulKestrelWebService">
+      <StatefulService ServiceTypeName="Cogito.ServiceFabric.Test.AspNetCore.WebService.NetCore3.TestDefaultStatefulKestrelWebService">
+        <UniformInt64Partition PartitionCount="3" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
+      </StatefulService>
+    </Service>
+    <Service Name="AspNetCore.WebService.NetCore3.TestStatelessKestrelWebService">
+      <StatelessService ServiceTypeName="Cogito.ServiceFabric.Test.AspNetCore.WebService.NetCore3.TestStatelessKestrelWebService">
+        <SingletonPartition />
+      </StatelessService>
+    </Service>
+    <Service Name="AspNetCore.WebService.NetCore3.TestStatefulKestrelWebService">
+      <StatefulService ServiceTypeName="Cogito.ServiceFabric.Test.AspNetCore.WebService.NetCore3.TestStatefulKestrelWebService">
+        <UniformInt64Partition PartitionCount="3" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
+      </StatefulService>
+    </Service>
     <Service Name="OwinStatelessService">
-      <StatelessService ServiceTypeName="OwinStatelessServiceType" InstanceCount="[Service_InstanceCount]">
+      <StatelessService ServiceTypeName="Cogito.ServiceFabric.Test.Http.TestService.OwinStatelessService">
         <SingletonPartition />
       </StatelessService>
     </Service>
     <Service Name="OwinStatefulService">
-      <StatefulService ServiceTypeName="OwinStatefulServiceType">
-        <SingletonPartition />
+      <StatefulService ServiceTypeName="Cogito.ServiceFabric.Test.Http.TestService.OwinStatefulService">
+        <UniformInt64Partition PartitionCount="3" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
       </StatefulService>
     </Service>
-    <Service Name="TestActorService" GeneratedIdRef="53b46c29-853d-4ab2-8b2d-914535263c16|None">
-      <StatefulService ServiceTypeName="TestActorServiceType" TargetReplicaSetSize="[TestActorService_TargetReplicaSetSize]" MinReplicaSetSize="[TestActorService_MinReplicaSetSize]">
-        <UniformInt64Partition PartitionCount="[TestActorService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
+    <Service Name="Net47TestActorService" GeneratedIdRef="e835b495-35b6-4145-a23d-9ac8e6a4dcc1|Volatile">
+      <StatefulService ServiceTypeName="Net47TestActorServiceType" TargetReplicaSetSize="[Net47TestActorService_TargetReplicaSetSize]" MinReplicaSetSize="[Net47TestActorService_MinReplicaSetSize]">
+        <UniformInt64Partition PartitionCount="[Net47TestActorService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
+      </StatefulService>
+    </Service>
+    <Service Name="NetCore2TestActorService" GeneratedIdRef="07fb5926-555d-46b1-939b-3d501de77ad5|Volatile">
+      <StatefulService ServiceTypeName="NetCore2TestActorServiceType" TargetReplicaSetSize="[NetCore2TestActorService_TargetReplicaSetSize]" MinReplicaSetSize="[NetCore2TestActorService_MinReplicaSetSize]">
+        <UniformInt64Partition PartitionCount="[NetCore2TestActorService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
+      </StatefulService>
+    </Service>
+    <Service Name="NetCore3TestActorService" GeneratedIdRef="177ca2ef-a24e-4924-95a3-946a7816e654|Volatile">
+      <StatefulService ServiceTypeName="NetCore3TestActorServiceType" TargetReplicaSetSize="[NetCore3TestActorService_TargetReplicaSetSize]" MinReplicaSetSize="[NetCore3TestActorService_MinReplicaSetSize]">
+        <UniformInt64Partition PartitionCount="[NetCore3TestActorService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
       </StatefulService>
     </Service>
   </DefaultServices>

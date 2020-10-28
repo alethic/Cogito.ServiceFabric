@@ -35,8 +35,8 @@ namespace Cogito.ServiceFabric.Http
             StatelessServiceContext context,
             string appRoot,
             string endpointName = "HttpServiceEndpoint",
-            bool restartOnConfigurationPackageChange = false)
-            : base(context)
+            bool restartOnConfigurationPackageChange = false) :
+            base(context)
         {
             if (context == null)
                 throw new ArgumentNullException(nameof(context));

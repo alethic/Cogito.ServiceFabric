@@ -1,18 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <Authors>Jerome Haltom</Authors>
-    <Company>Jerome Haltom</Company>
-    <PackageProjectUrl>https://github.com/wasabii/Cogito.ServiceFabric</PackageProjectUrl>
-    <PackageIconUrl>https://cloverluxussc.blob.core.windows.net/public/cogito-nuget-icon.png</PackageIconUrl>
-    <Description>Kestrel support for ASP.Net Core with Autofac.</Description>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFrameworks>netstandard2.0;netcoreapp3.0</TargetFrameworks>
+        <Description>Kestrel support for ASP.Net Core with Autofac.</Description>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Cogito.ServiceFabric.AspNetCore.Autofac\Cogito.ServiceFabric.AspNetCore.Autofac.csproj" />
-    <ProjectReference Include="..\Cogito.ServiceFabric.AspNetCore.Kestrel\Cogito.ServiceFabric.AspNetCore.Kestrel.csproj" />
-  </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\Cogito.ServiceFabric.AspNetCore.Autofac\Cogito.ServiceFabric.AspNetCore.Autofac.csproj" />
+        <ProjectReference Include="..\Cogito.ServiceFabric.AspNetCore.Kestrel\Cogito.ServiceFabric.AspNetCore.Kestrel.csproj" />
+    </ItemGroup>
 
 </Project>

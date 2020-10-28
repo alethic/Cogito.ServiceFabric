@@ -21,7 +21,7 @@ namespace Cogito.ServiceFabric.AspNetCore.Kestrel
         /// <param name="endpoint"></param>
         public StatelessKestrelWebService(
             StatelessServiceContext context,
-            WebServiceEndpoint endpoint = null) :
+            DefaultServiceEndpoint endpoint = null) :
             base(context, endpoint)
         {
 

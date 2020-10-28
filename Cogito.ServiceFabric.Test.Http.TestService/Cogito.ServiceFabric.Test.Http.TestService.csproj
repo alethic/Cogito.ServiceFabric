@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net47</TargetFramework>
+        <OutputType>Exe</OutputType>
+        <ServerGarbageCollection>True</ServerGarbageCollection>
+        <IsServiceFabricServiceProject>True</IsServiceFabricServiceProject>
+        <RuntimeIdentifier>win7-x64</RuntimeIdentifier>
+        <UpdateServiceFabricManifestEnabled>True</UpdateServiceFabricManifestEnabled>
+        <ServicePackagePath>PackageRoot</ServicePackagePath>
+        <ServicePackagePrefix>$(MSBuildProjectName)</ServicePackagePrefix>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Cogito.Extensions.Logging.Serilog.Autofac" Version="2.0.5" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Cogito.ServiceFabric.Http\Cogito.ServiceFabric.Http.csproj" />
+      <ProjectReference Include="..\Cogito.ServiceFabric.Services.Autofac\Cogito.ServiceFabric.Services.Autofac.csproj" />
+    </ItemGroup>
+
+</Project>

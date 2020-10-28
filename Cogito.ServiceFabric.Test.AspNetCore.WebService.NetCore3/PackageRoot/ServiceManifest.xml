@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ServiceManifest
+    xmlns="http://schemas.microsoft.com/2011/01/fabric"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    Name="Cogito.ServiceFabric.Test.AspNetCore.WebService.NetCore3"
+    Version="1.0.0">
+
+    <ServiceTypes>
+        <StatelessServiceType ServiceTypeName="Cogito.ServiceFabric.Test.AspNetCore.WebService.NetCore3.TestDefaultStatelessKestrelWebService" />
+        <StatefulServiceType ServiceTypeName="Cogito.ServiceFabric.Test.AspNetCore.WebService.NetCore3.TestDefaultStatefulKestrelWebService" />
+        <StatelessServiceType ServiceTypeName="Cogito.ServiceFabric.Test.AspNetCore.WebService.NetCore3.TestStatelessKestrelWebService" />
+        <StatefulServiceType ServiceTypeName="Cogito.ServiceFabric.Test.AspNetCore.WebService.NetCore3.TestStatefulKestrelWebService" />
+    </ServiceTypes>
+
+    <CodePackage Name="Code" Version="1.0.0">
+        <EntryPoint>
+            <ExeHost>
+                <Program>Cogito.ServiceFabric.Test.AspNetCore.WebService.NetCore3.exe</Program>
+                <WorkingFolder>CodePackage</WorkingFolder>
+            </ExeHost>
+        </EntryPoint>
+        <EnvironmentVariables>
+            <EnvironmentVariable Name="ASPNETCORE_ENVIRONMENT" Value=""/>
+        </EnvironmentVariables>
+    </CodePackage>
+
+    <ConfigPackage Name="Config" Version="1.0.0" />
+</ServiceManifest>

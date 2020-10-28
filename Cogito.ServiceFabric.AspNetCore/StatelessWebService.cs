@@ -20,7 +20,7 @@ namespace Cogito.ServiceFabric.AspNetCore
         StatelessService
     {
 
-        readonly WebServiceEndpoint endpoint;
+        readonly DefaultServiceEndpoint endpoint;
 
         /// <summary>
         /// Initializes a new instance.
@@ -29,7 +29,7 @@ namespace Cogito.ServiceFabric.AspNetCore
         /// <param name="endpoint"></param>
         public StatelessWebService(
             StatelessServiceContext context,
-            WebServiceEndpoint endpoint = null) :
+            DefaultServiceEndpoint endpoint = null) :
             base(context)
         {
             this.endpoint = endpoint;
@@ -38,7 +38,7 @@ namespace Cogito.ServiceFabric.AspNetCore
         /// <summary>
         /// Gets the default endpoint name upon which to create a service instance listener.
         /// </summary>
-        protected WebServiceEndpoint Endpoint => endpoint;
+        protected DefaultServiceEndpoint Endpoint => endpoint;
 
         /// <summary>
         /// Creates the service listener.

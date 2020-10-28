@@ -2,18 +2,19 @@
 
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
-        <Authors>Jerome Haltom</Authors>
-        <PackageLicenseUrl></PackageLicenseUrl>
-        <PackageProjectUrl>https://github.com/wasabii/Cogito.ServiceFabric</PackageProjectUrl>
-        <PackageIconUrl>https://cloverluxussc.blob.core.windows.net/public/cogito-nuget-icon.png</PackageIconUrl>
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Description>Microsoft Service Fabric core libraries.</Description>
-        <Company />
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Cogito.Core" Version="3.0.0" />
-        <PackageReference Include="Microsoft.ServiceFabric" Version="6.4.638" />
+        <PackageReference Include="Castle.Core" Version="4.4.0" />
+        <PackageReference Include="Cogito.Core" Version="3.1.13" />
+        <PackageReference Include="Microsoft.ServiceFabric" Version="7.0.466" />
+        <PackageReference Include="Microsoft.ServiceFabric.Data" Version="4.0.466" />
+        <PackageReference Include="Microsoft.ServiceFabric.Data.Extensions" Version="4.0.466" />
+        <PackageReference Include="Microsoft.ServiceFabric.Data.Interfaces" Version="4.0.466" />
+        <PackageReference Include="Microsoft.ServiceFabric.Diagnostics.Internal" Version="4.0.466" />
+        <PackageReference Include="Microsoft.ServiceFabric.FabricTransport.Internal" Version="4.0.466" />
     </ItemGroup>
 
 </Project>

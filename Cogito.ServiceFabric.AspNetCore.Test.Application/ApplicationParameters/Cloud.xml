@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="fabric:/Cogito.ServiceFabric.AspNetCore.Test.Application" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+  <Parameters>
+    <Parameter Name="TestWebService.Net47_InstanceCount" Value="-1" />
+    <Parameter Name="TestWebService.NetCore2_InstanceCount" Value="-1" />
+    <Parameter Name="TestWebService.NetCore3_InstanceCount" Value="-1" />
+  </Parameters>
+</Application>

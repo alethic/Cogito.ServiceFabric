@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="Cogito.ServiceFabric.Test.TestActorService.Net47Pkg" Version="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+  <ServiceTypes>
+    <StatefulServiceType ServiceTypeName="Net47TestActorServiceType">
+      <Extensions>
+        <Extension Name="__GeneratedServiceType__" GeneratedId="e835b495-35b6-4145-a23d-9ac8e6a4dcc1|Volatile">
+          <GeneratedNames xmlns="http://schemas.microsoft.com/2015/03/fabact-no-schema">
+            <DefaultService Name="Net47TestActorService" />
+            <ReplicatorEndpoint Name="Net47TestActorServiceReplicatorEndpoint" />
+            <ReplicatorConfigSection Name="Net47TestActorServiceReplicatorConfig" />
+            <ReplicatorSecurityConfigSection Name="Net47TestActorServiceReplicatorSecurityConfig" />
+            <StoreConfigSection Name="Net47TestActorServiceLocalStoreConfig" />
+            <ServiceEndpoint Name="Net47TestActorServiceEndpoint" />
+          </GeneratedNames>
+        </Extension>
+      </Extensions>
+    </StatefulServiceType>
+  </ServiceTypes>
+  <CodePackage Name="Code" Version="1.0.0">
+    <EntryPoint>
+      <ExeHost>
+        <Program>Cogito.ServiceFabric.Test.TestActorService.Net47.exe</Program>
+      </ExeHost>
+    </EntryPoint>
+  </CodePackage>
+  <ConfigPackage Name="Config" Version="1.0.0" />
+  <Resources>
+    <Endpoints>
+      <Endpoint Name="Net47TestActorServiceEndpoint" />
+      <Endpoint Name="Net47TestActorServiceReplicatorEndpoint" />
+    </Endpoints>
+  </Resources>
+</ServiceManifest>

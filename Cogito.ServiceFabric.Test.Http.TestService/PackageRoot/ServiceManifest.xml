@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ServiceManifest
+    Name="Cogito.ServiceFabric.Test.Http.TestService"
+    Version="1.0.0"
+    xmlns="http://schemas.microsoft.com/2011/01/fabric"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <ServiceTypes>
+        <StatelessServiceType ServiceTypeName="Cogito.ServiceFabric.Test.Http.TestService.OwinStatelessService" />
+        <StatefulServiceType ServiceTypeName="Cogito.ServiceFabric.Test.Http.TestService.OwinStatefulService" />
+    </ServiceTypes>
+
+    <CodePackage Name="Code" Version="1.0.0">
+        <EntryPoint>
+            <ExeHost>
+                <Program>Cogito.ServiceFabric.Test.Http.TestService.exe</Program>
+            </ExeHost>
+        </EntryPoint>
+    </CodePackage>
+
+    <ConfigPackage Name="Config" Version="1.0.0" />
+
+    <Resources>
+        <Endpoints>
+            <Endpoint Name="OwinStatefulServiceEndpoint" Protocol="http" />
+            <Endpoint Name="OwinStatelessServiceEndpoint" Protocol="http"/>
+        </Endpoints>
+    </Resources>
+
+</ServiceManifest>
