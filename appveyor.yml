@@ -7,8 +7,7 @@ cache:
   - $(USERPROFILE)\.nuget\packages
 
 install:
-  - choco install gitversion.portable -pre -y
-  - nuget sources add -Name github -Source %nuget_github_feed% -UserName %nuget_github_user% -Password %nuget_github_pass%
+  - choco install gitversion.portable -y
 
 before_build:
   - ps: gitversion /l console /output buildserver
@@ -27,12 +26,13 @@ build:
 artifacts:
   - path: pkg\*.nupkg
     name: Cogito.ServiceFabric
-
+    
 deploy:
   provider: NuGet
-  server: $(nuget_github_feed)
-  username: $(nuget_github_user)
-  api_key: $(nuget_github_pass)
+  server: https://nuget.pkg.github.com/alethic/index.json
+  username: wasabii
+  api_key:
+    secure: 7KMGqRm3xSXVWGq+DM0EBZL2KXGW5VXgDD774n4dB5xEQA/Febc7GbwhZIkvZeV1
   skip_symbols: false
   symbol_server:
   artifact: /.*\.nupkg/

@@ -13,6 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		appveyor.yml = appveyor.yml
 		Directory.Build.props = Directory.Build.props
+		nuget.config = nuget.config
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cogito.ServiceFabric.Actors", "Cogito.ServiceFabric.Actors\Cogito.ServiceFabric.Actors.csproj", "{FB159309-9B2E-4BA8-8FC3-5E960D3B09BB}"
