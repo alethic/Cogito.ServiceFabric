@@ -14,8 +14,7 @@ namespace Cogito.ServiceFabric.Configuration.Autofac
     /// Applies available configuration packages to the configuration framework.
     /// </summary>
     [RegisterAs(typeof(IConfigurationBuilderConfiguration))]
-    public class ServiceFabricConfigurationBuilderConfiguration :
-        IConfigurationBuilderConfiguration
+    public class ServiceFabricConfigurationBuilderConfiguration : IConfigurationBuilderConfiguration
     {
 
         public IConfigurationBuilder Apply(IConfigurationBuilder builder)
@@ -23,7 +22,10 @@ namespace Cogito.ServiceFabric.Configuration.Autofac
             if (builder == null)
                 throw new ArgumentNullException(nameof(builder));
 
-            return builder.AddServiceFabricConfiguration(FabricRuntime.GetActivationContext(), o => o.IncludePackageName = false);
+            if (FabricEnvironment.IsFabric)
+                builder = builder.AddServiceFabricConfiguration(FabricRuntime.GetActivationContext(), o => o.IncludePackageName = false);
+
+            return builder;
         }
 
     }

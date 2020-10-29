@@ -11,9 +11,7 @@ namespace Cogito.ServiceFabric.Configuration.Autofac
         protected override void Register(ContainerBuilder builder)
         {
             builder.RegisterModule<Cogito.ServiceFabric.Autofac.AssemblyModule>();
-
-            if (FabricEnvironment.IsFabric)
-                builder.RegisterFromAttributes(typeof(AssemblyModule).Assembly);
+            builder.RegisterFromAttributes(typeof(AssemblyModule).Assembly);
         }
 
     }
