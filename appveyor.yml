@@ -36,3 +36,4 @@ deploy:
   skip_symbols: false
   symbol_server:
   artifact: /.*\.nupkg/
+

@@ -8,6 +8,9 @@
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageIcon>icon.png</PackageIcon>
         <PackageTags>servicefabric</PackageTags>
+        <PackageProjectUrl>https://github.com/alethic/Cogito.ServiceFabric</PackageProjectUrl>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageIcon>icon.png</PackageIcon>
         <LangVersion>8.0</LangVersion>
     </PropertyGroup>
     <ItemGroup>
