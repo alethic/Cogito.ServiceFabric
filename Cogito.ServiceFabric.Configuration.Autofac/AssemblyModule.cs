@@ -10,8 +10,11 @@ namespace Cogito.ServiceFabric.Configuration.Autofac
 
         protected override void Register(ContainerBuilder builder)
         {
+            builder.RegisterModule<Cogito.Extensions.Configuration.Autofac.AssemblyModule>();
             builder.RegisterModule<Cogito.ServiceFabric.Autofac.AssemblyModule>();
-            builder.RegisterFromAttributes(typeof(AssemblyModule).Assembly);
+
+            if (FabricEnvironment.IsFabric)
+                builder.RegisterFromAttributes(typeof(AssemblyModule).Assembly);
         }
 
     }

@@ -22,10 +22,7 @@ namespace Cogito.ServiceFabric.Configuration.Autofac
             if (builder == null)
                 throw new ArgumentNullException(nameof(builder));
 
-            if (FabricEnvironment.IsFabric)
-                builder = builder.AddServiceFabricConfiguration(FabricRuntime.GetActivationContext(), o => o.IncludePackageName = false);
-
-            return builder;
+            return builder.AddServiceFabricConfiguration(FabricRuntime.GetActivationContext(), o => o.IncludePackageName = false);
         }
 
     }
