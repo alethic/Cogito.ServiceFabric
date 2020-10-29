@@ -7,8 +7,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Autofac.ServiceFabric" Version="4.0.0-v6-prep-00071" />
-        <PackageReference Include="Cogito.Autofac" Version="3.0.2" />
+        <PackageReference Include="Autofac.ServiceFabric" Version="4.0.0" />
+        <PackageReference Include="Cogito.Autofac" Version="3.0.6" />
     </ItemGroup>
 
     <ItemGroup>
