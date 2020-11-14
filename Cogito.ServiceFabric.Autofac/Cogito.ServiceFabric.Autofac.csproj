@@ -8,7 +8,7 @@
 
     <ItemGroup>
         <PackageReference Include="Autofac.ServiceFabric" Version="4.0.0" />
-        <PackageReference Include="Cogito.Autofac" Version="3.0.6" />
+        <PackageReference Include="Cogito.Autofac" Version="3.0.7" />
     </ItemGroup>
 
     <ItemGroup>

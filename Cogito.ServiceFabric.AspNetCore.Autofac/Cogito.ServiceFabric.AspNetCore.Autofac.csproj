@@ -8,7 +8,7 @@
 
     <ItemGroup>
         <PackageReference Include="Cogito.AspNetCore.Autofac" Version="2.0.35" />
-        <PackageReference Include="Cogito.Autofac" Version="3.0.6" />
+        <PackageReference Include="Cogito.Autofac" Version="3.0.7" />
         <PackageReference Include="Microsoft.ServiceFabric.Actors" Version="4.1.458" />
     </ItemGroup>
 
