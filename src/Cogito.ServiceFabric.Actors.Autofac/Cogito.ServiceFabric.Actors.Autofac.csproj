@@ -3,15 +3,11 @@
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
         <Description>Cogito extensions to the Microsoft Service Fabric infrastructure for running Windows Workflows within an Actor.</Description>
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.ServiceFabric.Actors" Version="4.1.458" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\Cogito.ServiceFabric.Services\Cogito.ServiceFabric.Services.csproj" />
+        <ProjectReference Include="..\Cogito.ServiceFabric.Actors\Cogito.ServiceFabric.Actors.csproj" />
+        <ProjectReference Include="..\Cogito.ServiceFabric.Autofac\Cogito.ServiceFabric.Autofac.csproj" />
     </ItemGroup>
 
 </Project>

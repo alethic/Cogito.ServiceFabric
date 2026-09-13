@@ -1,0 +1,50 @@
+﻿<Project Sdk="Microsoft.Build.NoTargets">
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageProjectReference Include="..\Cogito.ServiceFabric\Cogito.ServiceFabric.csproj">
+            <PackageTargetPath>.</PackageTargetPath>
+        </PackageProjectReference>
+        <PackageProjectReference Include="..\Cogito.ServiceFabric.Actors\Cogito.ServiceFabric.Actors.csproj">
+            <PackageTargetPath>.</PackageTargetPath>
+        </PackageProjectReference>
+        <PackageProjectReference Include="..\Cogito.ServiceFabric.Actors.Autofac\Cogito.ServiceFabric.Actors.Autofac.csproj">
+            <PackageTargetPath>.</PackageTargetPath>
+        </PackageProjectReference>
+        <PackageProjectReference Include="..\Cogito.ServiceFabric.AspNetCore\Cogito.ServiceFabric.AspNetCore.csproj">
+            <PackageTargetPath>.</PackageTargetPath>
+        </PackageProjectReference>
+        <PackageProjectReference Include="..\Cogito.ServiceFabric.AspNetCore.Autofac\Cogito.ServiceFabric.AspNetCore.Autofac.csproj">
+            <PackageTargetPath>.</PackageTargetPath>
+        </PackageProjectReference>
+        <PackageProjectReference Include="..\Cogito.ServiceFabric.AspNetCore.Kestrel\Cogito.ServiceFabric.AspNetCore.Kestrel.csproj">
+            <PackageTargetPath>.</PackageTargetPath>
+        </PackageProjectReference>
+        <PackageProjectReference Include="..\Cogito.ServiceFabric.AspNetCore.Kestrel.Autofac\Cogito.ServiceFabric.AspNetCore.Kestrel.Autofac.csproj">
+            <PackageTargetPath>.</PackageTargetPath>
+        </PackageProjectReference>
+        <PackageProjectReference Include="..\Cogito.ServiceFabric.Autofac\Cogito.ServiceFabric.Autofac.csproj">
+            <PackageTargetPath>.</PackageTargetPath>
+        </PackageProjectReference>
+        <PackageProjectReference Include="..\Cogito.ServiceFabric.Configuration\Cogito.ServiceFabric.Configuration.csproj">
+            <PackageTargetPath>.</PackageTargetPath>
+        </PackageProjectReference>
+        <PackageProjectReference Include="..\Cogito.ServiceFabric.Configuration.Autofac\Cogito.ServiceFabric.Configuration.Autofac.csproj">
+            <PackageTargetPath>.</PackageTargetPath>
+        </PackageProjectReference>
+        <PackageProjectReference Include="..\Cogito.ServiceFabric.Http\Cogito.ServiceFabric.Http.csproj">
+            <PackageTargetPath>.</PackageTargetPath>
+        </PackageProjectReference>
+        <PackageProjectReference Include="..\Cogito.ServiceFabric.Services\Cogito.ServiceFabric.Services.csproj">
+            <PackageTargetPath>.</PackageTargetPath>
+        </PackageProjectReference>
+        <PackageProjectReference Include="..\Cogito.ServiceFabric.Services.Autofac\Cogito.ServiceFabric.Services.Autofac.csproj">
+            <PackageTargetPath>.</PackageTargetPath>
+        </PackageProjectReference>
+    </ItemGroup>
+
+</Project>
