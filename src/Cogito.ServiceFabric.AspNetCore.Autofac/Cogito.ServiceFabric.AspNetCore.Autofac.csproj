@@ -8,7 +8,13 @@
     <ItemGroup>
         <PackageReference Include="Cogito.AspNetCore.Autofac" Version="2.0.35" />
         <PackageReference Include="Cogito.Autofac" Version="3.0.7" />
-        <PackageReference Include="Microsoft.ServiceFabric.Actors" Version="4.1.458" />
+        <PackageReference Include="Microsoft.ServiceFabric" Version="11.7.157" />
+        <PackageReference Include="Microsoft.ServiceFabric.Actors" Version="8.7.157" />
+        <PackageReference Include="Microsoft.ServiceFabric.Data" Version="8.7.157" />
+        <PackageReference Include="Microsoft.ServiceFabric.Data.Extensions" Version="8.7.157" />
+        <PackageReference Include="Microsoft.ServiceFabric.Diagnostics.Internal" Version="8.7.157" />
+        <PackageReference Include="Microsoft.ServiceFabric.FabricTransport.Internal" Version="8.7.157" />
+        <PackageReference Include="Microsoft.ServiceFabric.Services" Version="8.7.157" />
     </ItemGroup>
 
     <ItemGroup>

@@ -12,8 +12,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.ServiceFabric" Version="7.1.458" />
-        <PackageReference Include="Microsoft.ServiceFabric.Actors" Version="4.1.458" />
+        <PackageReference Include="Microsoft.ServiceFabric" Version="11.7.157" />
+        <PackageReference Include="Microsoft.ServiceFabric.Actors" Version="8.7.157" />
+        <PackageReference Include="Microsoft.ServiceFabric.Services.Remoting" Version="8.7.157" />
     </ItemGroup>
 
     <ItemGroup>
