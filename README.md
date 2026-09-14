@@ -2,22 +2,48 @@
 
 [![Build](https://github.com/alethic/Cogito.ServiceFabric/actions/workflows/Cogito.ServiceFabric.yml/badge.svg)](https://github.com/alethic/Cogito.ServiceFabric/actions/workflows/Cogito.ServiceFabric.yml)
 
-Cogito extensions to the Microsoft Service Fabric core libraries.
+Service Fabric services and actors resolved from Autofac, with ASP.NET Core hosting, configuration and HTTP support.
 
 ## Packages
 
-| Package | Version |
-| --- | --- |
-| [Cogito.ServiceFabric](https://www.nuget.org/packages/Cogito.ServiceFabric) | [![NuGet](https://img.shields.io/nuget/v/Cogito.ServiceFabric.svg)](https://www.nuget.org/packages/Cogito.ServiceFabric) |
-| [Cogito.ServiceFabric.Actors](https://www.nuget.org/packages/Cogito.ServiceFabric.Actors) | [![NuGet](https://img.shields.io/nuget/v/Cogito.ServiceFabric.Actors.svg)](https://www.nuget.org/packages/Cogito.ServiceFabric.Actors) |
-| [Cogito.ServiceFabric.Actors.Autofac](https://www.nuget.org/packages/Cogito.ServiceFabric.Actors.Autofac) | [![NuGet](https://img.shields.io/nuget/v/Cogito.ServiceFabric.Actors.Autofac.svg)](https://www.nuget.org/packages/Cogito.ServiceFabric.Actors.Autofac) |
-| [Cogito.ServiceFabric.AspNetCore](https://www.nuget.org/packages/Cogito.ServiceFabric.AspNetCore) | [![NuGet](https://img.shields.io/nuget/v/Cogito.ServiceFabric.AspNetCore.svg)](https://www.nuget.org/packages/Cogito.ServiceFabric.AspNetCore) |
-| [Cogito.ServiceFabric.AspNetCore.Autofac](https://www.nuget.org/packages/Cogito.ServiceFabric.AspNetCore.Autofac) | [![NuGet](https://img.shields.io/nuget/v/Cogito.ServiceFabric.AspNetCore.Autofac.svg)](https://www.nuget.org/packages/Cogito.ServiceFabric.AspNetCore.Autofac) |
-| [Cogito.ServiceFabric.AspNetCore.Kestrel](https://www.nuget.org/packages/Cogito.ServiceFabric.AspNetCore.Kestrel) | [![NuGet](https://img.shields.io/nuget/v/Cogito.ServiceFabric.AspNetCore.Kestrel.svg)](https://www.nuget.org/packages/Cogito.ServiceFabric.AspNetCore.Kestrel) |
-| [Cogito.ServiceFabric.AspNetCore.Kestrel.Autofac](https://www.nuget.org/packages/Cogito.ServiceFabric.AspNetCore.Kestrel.Autofac) | [![NuGet](https://img.shields.io/nuget/v/Cogito.ServiceFabric.AspNetCore.Kestrel.Autofac.svg)](https://www.nuget.org/packages/Cogito.ServiceFabric.AspNetCore.Kestrel.Autofac) |
-| [Cogito.ServiceFabric.Autofac](https://www.nuget.org/packages/Cogito.ServiceFabric.Autofac) | [![NuGet](https://img.shields.io/nuget/v/Cogito.ServiceFabric.Autofac.svg)](https://www.nuget.org/packages/Cogito.ServiceFabric.Autofac) |
-| [Cogito.ServiceFabric.Configuration](https://www.nuget.org/packages/Cogito.ServiceFabric.Configuration) | [![NuGet](https://img.shields.io/nuget/v/Cogito.ServiceFabric.Configuration.svg)](https://www.nuget.org/packages/Cogito.ServiceFabric.Configuration) |
-| [Cogito.ServiceFabric.Configuration.Autofac](https://www.nuget.org/packages/Cogito.ServiceFabric.Configuration.Autofac) | [![NuGet](https://img.shields.io/nuget/v/Cogito.ServiceFabric.Configuration.Autofac.svg)](https://www.nuget.org/packages/Cogito.ServiceFabric.Configuration.Autofac) |
-| [Cogito.ServiceFabric.Http](https://www.nuget.org/packages/Cogito.ServiceFabric.Http) | [![NuGet](https://img.shields.io/nuget/v/Cogito.ServiceFabric.Http.svg)](https://www.nuget.org/packages/Cogito.ServiceFabric.Http) |
-| [Cogito.ServiceFabric.Services](https://www.nuget.org/packages/Cogito.ServiceFabric.Services) | [![NuGet](https://img.shields.io/nuget/v/Cogito.ServiceFabric.Services.svg)](https://www.nuget.org/packages/Cogito.ServiceFabric.Services) |
-| [Cogito.ServiceFabric.Services.Autofac](https://www.nuget.org/packages/Cogito.ServiceFabric.Services.Autofac) | [![NuGet](https://img.shields.io/nuget/v/Cogito.ServiceFabric.Services.Autofac.svg)](https://www.nuget.org/packages/Cogito.ServiceFabric.Services.Autofac) |
+**[Cogito.ServiceFabric](https://www.nuget.org/packages/Cogito.ServiceFabric)** — Base types for Service Fabric applications: reading the fabric environment, and describing endpoints.
+
+**[Cogito.ServiceFabric.Actors](https://www.nuget.org/packages/Cogito.ServiceFabric.Actors)** — A base actor with Cogito's state and reference helpers.
+
+**[Cogito.ServiceFabric.Actors.Autofac](https://www.nuget.org/packages/Cogito.ServiceFabric.Actors.Autofac)** — Registers actors with the fabric runtime by attribute, and resolves them from Autofac.
+
+**[Cogito.ServiceFabric.AspNetCore](https://www.nuget.org/packages/Cogito.ServiceFabric.AspNetCore)** — Run an ASP.NET Core application as a Service Fabric service.
+
+**[Cogito.ServiceFabric.AspNetCore.Autofac](https://www.nuget.org/packages/Cogito.ServiceFabric.AspNetCore.Autofac)** — Autofac wiring for ASP.NET Core services running on Service Fabric.
+
+**[Cogito.ServiceFabric.AspNetCore.Kestrel](https://www.nuget.org/packages/Cogito.ServiceFabric.AspNetCore.Kestrel)** — Kestrel-hosted ASP.NET Core services for Service Fabric.
+
+**[Cogito.ServiceFabric.AspNetCore.Kestrel.Autofac](https://www.nuget.org/packages/Cogito.ServiceFabric.AspNetCore.Kestrel.Autofac)** — Autofac wiring for Kestrel-hosted Service Fabric services.
+
+**[Cogito.ServiceFabric.Autofac](https://www.nuget.org/packages/Cogito.ServiceFabric.Autofac)** — Makes the Service Fabric environment available to an Autofac container.
+
+**[Cogito.ServiceFabric.Configuration](https://www.nuget.org/packages/Cogito.ServiceFabric.Configuration)** — Reads Service Fabric configuration packages through `IConfiguration`.
+
+**[Cogito.ServiceFabric.Configuration.Autofac](https://www.nuget.org/packages/Cogito.ServiceFabric.Configuration.Autofac)** — Contributes Service Fabric settings to the container's configuration.
+
+**[Cogito.ServiceFabric.Http](https://www.nuget.org/packages/Cogito.ServiceFabric.Http)** — OWIN hosting and HTTP client support for Service Fabric services.
+
+**[Cogito.ServiceFabric.Services](https://www.nuget.org/packages/Cogito.ServiceFabric.Services)** — Base classes and proxy helpers for Service Fabric reliable services.
+
+**[Cogito.ServiceFabric.Services.Autofac](https://www.nuget.org/packages/Cogito.ServiceFabric.Services.Autofac)** — Registers Service Fabric services with the runtime by attribute, and resolves them from Autofac.
+
+Each package carries its own README with the detail; the links above go to nuget.org.
+
+## Building
+
+```shell
+dotnet restore Cogito.ServiceFabric.slnx
+dotnet msbuild -p:Configuration=Release Cogito.ServiceFabric.dist.msbuildproj
+```
+
+Packages are staged into `dist/nuget` and test suites into `dist/tests`; run a suite with
+`dotnet test -f <tfm> <path to its assembly>`.
+
+## License
+
+MIT — see [LICENSE](LICENSE).
