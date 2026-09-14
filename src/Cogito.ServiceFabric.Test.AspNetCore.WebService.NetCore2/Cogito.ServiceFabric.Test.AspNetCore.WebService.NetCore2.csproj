@@ -10,7 +10,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Cogito.Extensions.Logging.Serilog.Autofac" Version="2.0.20" />
+        <PackageReference Include="Cogito.Extensions.Logging.Serilog.Autofac" Version="3.0.3" />
         <PackageReference Include="Microsoft.ServiceFabric" Version="11.7.157" />
         <PackageReference Include="Microsoft.ServiceFabric.Data" Version="8.7.157" />
         <PackageReference Include="Microsoft.ServiceFabric.Data.Interfaces" Version="8.7.157" />
