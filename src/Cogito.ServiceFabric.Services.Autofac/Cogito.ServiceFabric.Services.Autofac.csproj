@@ -11,4 +11,12 @@
         <ProjectReference Include="..\Cogito.ServiceFabric\Cogito.ServiceFabric.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Microsoft.ServiceFabric" Version="11.7.157" />
+      <PackageReference Include="Microsoft.ServiceFabric.Data" Version="8.7.157" />
+      <PackageReference Include="Microsoft.ServiceFabric.Data.Interfaces" Version="8.7.157" />
+      <PackageReference Include="Microsoft.ServiceFabric.Diagnostics.Internal" Version="8.7.157" />
+      <PackageReference Include="Microsoft.ServiceFabric.FabricTransport.Internal" Version="8.7.157" />
+    </ItemGroup>
+
 </Project>

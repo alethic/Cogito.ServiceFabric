@@ -10,4 +10,12 @@
         <ProjectReference Include="..\Cogito.ServiceFabric.Autofac\Cogito.ServiceFabric.Autofac.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Microsoft.ServiceFabric.Actors" Version="8.7.157" />
+      <PackageReference Include="Microsoft.ServiceFabric.Data" Version="8.7.157" />
+      <PackageReference Include="Microsoft.ServiceFabric.Data.Extensions" Version="8.7.157" />
+      <PackageReference Include="Microsoft.ServiceFabric.Diagnostics.Internal" Version="8.7.157" />
+      <PackageReference Include="Microsoft.ServiceFabric.FabricTransport.Internal" Version="8.7.157" />
+    </ItemGroup>
+
 </Project>

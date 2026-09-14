@@ -6,14 +6,14 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Castle.Core" Version="4.4.1" />
+        <PackageReference Include="Castle.Core" Version="5.2.1" />
         <PackageReference Include="Cogito.Core" Version="3.1.29" />
-        <PackageReference Include="Microsoft.ServiceFabric" Version="7.1.458" />
-        <PackageReference Include="Microsoft.ServiceFabric.Data" Version="4.1.458" />
-        <PackageReference Include="Microsoft.ServiceFabric.Data.Extensions" Version="4.1.458" />
-        <PackageReference Include="Microsoft.ServiceFabric.Data.Interfaces" Version="4.1.458" />
-        <PackageReference Include="Microsoft.ServiceFabric.Diagnostics.Internal" Version="4.1.458" />
-        <PackageReference Include="Microsoft.ServiceFabric.FabricTransport.Internal" Version="4.1.458" />
+        <PackageReference Include="Microsoft.ServiceFabric" Version="11.7.157" />
+        <PackageReference Include="Microsoft.ServiceFabric.Data" Version="8.7.157" />
+        <PackageReference Include="Microsoft.ServiceFabric.Data.Extensions" Version="8.7.157" />
+        <PackageReference Include="Microsoft.ServiceFabric.Data.Interfaces" Version="8.7.157" />
+        <PackageReference Include="Microsoft.ServiceFabric.Diagnostics.Internal" Version="8.7.157" />
+        <PackageReference Include="Microsoft.ServiceFabric.FabricTransport.Internal" Version="8.7.157" />
     </ItemGroup>
 
 </Project>
