@@ -1,0 +1,48 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+  </Configurations>
+  <Folder Name="/Solution Items/">
+    <File Path=".gitattributes" />
+    <File Path=".gitignore" />
+    <File Path=".github/workflows/Cogito.ServiceFabric.yml" />
+    <File Path="Cogito.ServiceFabric.dist.msbuildproj" />
+    <File Path="Directory.Build.props" />
+    <File Path="GitVersion.yml" />
+    <File Path="global.json" />
+    <File Path="README.md" />
+  </Folder>
+  <Folder Name="/Tests/">
+    <Project Path="Cogito.ServiceFabric.Test.Application/Cogito.ServiceFabric.Test.Application.sfproj">
+      <Platform Project="x64" />
+      <Build Solution="*|x64" />
+      <Build Solution="Debug|Any CPU" />
+      <Deploy Solution="*|x64" />
+      <Deploy Solution="Debug|Any CPU" />
+    </Project>
+    <Project Path="src/Cogito.ServiceFabric.Test.AspNetCore.WebService.Net47/Cogito.ServiceFabric.Test.AspNetCore.WebService.Net47.csproj" />
+    <Project Path="src/Cogito.ServiceFabric.Test.AspNetCore.WebService.NetCore2/Cogito.ServiceFabric.Test.AspNetCore.WebService.NetCore2.csproj" />
+    <Project Path="src/Cogito.ServiceFabric.Test.AspNetCore.WebService.NetCore3/Cogito.ServiceFabric.Test.AspNetCore.WebService.NetCore3.csproj" />
+    <Project Path="src/Cogito.ServiceFabric.Test.Http.TestService/Cogito.ServiceFabric.Test.Http.TestService.csproj" />
+    <Project Path="src/Cogito.ServiceFabric.Test.TestActorService.Net47/Cogito.ServiceFabric.Test.TestActorService.Net47.csproj" />
+    <Project Path="src/Cogito.ServiceFabric.Test.TestActorService.NetCore2/Cogito.ServiceFabric.Test.TestActorService.NetCore2.csproj" />
+    <Project Path="src/Cogito.ServiceFabric.Test.TestActorService.NetCore3/Cogito.ServiceFabric.Test.TestActorService.NetCore3.csproj" />
+  </Folder>
+  <Project Path="src/Cogito.ServiceFabric.Actors.Autofac/Cogito.ServiceFabric.Actors.Autofac.csproj" />
+  <Project Path="src/Cogito.ServiceFabric.Actors/Cogito.ServiceFabric.Actors.csproj" />
+  <Project Path="src/Cogito.ServiceFabric.AspNetCore.Autofac/Cogito.ServiceFabric.AspNetCore.Autofac.csproj" />
+  <Project Path="src/Cogito.ServiceFabric.AspNetCore.Kestrel.Autofac/Cogito.ServiceFabric.AspNetCore.Kestrel.Autofac.csproj" />
+  <Project Path="src/Cogito.ServiceFabric.AspNetCore.Kestrel/Cogito.ServiceFabric.AspNetCore.Kestrel.csproj" />
+  <Project Path="src/Cogito.ServiceFabric.AspNetCore/Cogito.ServiceFabric.AspNetCore.csproj" />
+  <Project Path="src/Cogito.ServiceFabric.Autofac/Cogito.ServiceFabric.Autofac.csproj" />
+  <Project Path="src/Cogito.ServiceFabric.Configuration.Autofac/Cogito.ServiceFabric.Configuration.Autofac.csproj" />
+  <Project Path="src/Cogito.ServiceFabric.Configuration/Cogito.ServiceFabric.Configuration.csproj" />
+  <Project Path="src/Cogito.ServiceFabric.Http/Cogito.ServiceFabric.Http.csproj" />
+  <Project Path="src/Cogito.ServiceFabric.Services.Autofac/Cogito.ServiceFabric.Services.Autofac.csproj" />
+  <Project Path="src/Cogito.ServiceFabric.Services/Cogito.ServiceFabric.Services.csproj" />
+  <Project Path="src/Cogito.ServiceFabric/Cogito.ServiceFabric.csproj" />
+  <Folder Name="/dist/">
+    <Project Path="src/dist-nuget/dist-nuget.csproj" />
+  </Folder>
+</Solution>

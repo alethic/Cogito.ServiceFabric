@@ -3,7 +3,6 @@
     <PropertyGroup>
         <TargetFramework>net47</TargetFramework>
         <Description>Microsoft Service Fabric infrastructure for running Fabric services for HTTP.</Description>
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     </PropertyGroup>
 
     <ItemGroup>
